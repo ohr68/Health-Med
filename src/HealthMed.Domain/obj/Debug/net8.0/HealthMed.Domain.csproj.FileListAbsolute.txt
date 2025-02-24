@@ -1,0 +1,12 @@
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\bin\Debug\net8.0\HealthMed.Domain.deps.json
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\bin\Debug\net8.0\HealthMed.Domain.dll
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\bin\Debug\net8.0\HealthMed.Domain.pdb
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.AssemblyInfoInputs.cache
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.AssemblyInfo.cs
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.sourcelink.json
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.dll
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\refint\HealthMed.Domain.dll
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\HealthMed.Domain.pdb
+C:\Users\Otavio\RiderProjects\Health-Med\src\HealthMed.Domain\obj\Debug\net8.0\ref\HealthMed.Domain.dll

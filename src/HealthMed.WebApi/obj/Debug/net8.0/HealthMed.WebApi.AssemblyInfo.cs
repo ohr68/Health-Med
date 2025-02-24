@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("HealthMed.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d775314fb714aafeaa9277224bcfe462580a0fc8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0ffe9adad219a372ac8e050d3e6d7c60f3100568")]
 [assembly: System.Reflection.AssemblyProductAttribute("HealthMed.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("HealthMed.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -51,9 +51,17 @@
               "target": "Package",
               "version": "[11.11.0, )"
             },
+            "FluentValidation.DependencyInjectionExtensions": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
             "Mapster": {
               "target": "Package",
               "version": "[7.4.0, )"
+            },
+            "Mapster.DependencyInjection": {
+              "target": "Package",
+              "version": "[1.0.1, )"
             },
             "MediatR": {
               "target": "Package",
