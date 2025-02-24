@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uynX7gMZNLw=",
+  "dgSpecHash": "yKoG9enTepA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Domain\\HealthMed.Domain.csproj",
+  "projectFilePath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Domain\\HealthMed.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

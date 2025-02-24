@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "IwwRbGWoeBQ=",
+  "dgSpecHash": "lOMEOGLDXX4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+  "projectFilePath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Otavio\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Otavio\\.nuget\\packages\\mapster\\7.4.0\\mapster.7.4.0.nupkg.sha512",

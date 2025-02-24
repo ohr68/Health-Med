@@ -215,11 +215,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
       "projectName": "HealthMed.Application",
-      "projectPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+      "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
       "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\obj\\",
+      "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "configFilePaths": [

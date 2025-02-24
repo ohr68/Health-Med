@@ -5513,11 +5513,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\tests\\HealthMed.Tests.Integration\\HealthMed.Tests.Integration.csproj",
+      "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Integration\\HealthMed.Tests.Integration.csproj",
       "projectName": "HealthMed.Tests.Integration",
-      "projectPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\tests\\HealthMed.Tests.Integration\\HealthMed.Tests.Integration.csproj",
+      "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Integration\\HealthMed.Tests.Integration.csproj",
       "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\tests\\HealthMed.Tests.Integration\\obj\\",
+      "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Integration\\obj\\",
       "projectStyle": "PackageReference",
       "UsingMicrosoftNETSdk": false,
       "configFilePaths": [

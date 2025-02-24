@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Common\\HealthMed.Common.csproj": {}
+    "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Common\\HealthMed.Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Common\\HealthMed.Common.csproj": {
+    "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Common\\HealthMed.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Common\\HealthMed.Common.csproj",
+        "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Common\\HealthMed.Common.csproj",
         "projectName": "HealthMed.Common",
-        "projectPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Common\\HealthMed.Common.csproj",
+        "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Common\\HealthMed.Common.csproj",
         "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Common\\obj\\",
+        "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Common\\obj\\",
         "projectStyle": "PackageReference",
         "UsingMicrosoftNETSdk": false,
         "configFilePaths": [

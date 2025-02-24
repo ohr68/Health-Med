@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "W72bgyI6Va0=",
+  "dgSpecHash": "XG5ddFJIblI=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\tests\\HealthMed.Tests.Integration\\HealthMed.Tests.Integration.csproj",
+  "projectFilePath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Integration\\HealthMed.Tests.Integration.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Otavio\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\Otavio\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",

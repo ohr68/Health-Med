@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\HealthMed.Application\HealthMed.Application.csproj" />
       <ProjectReference Include="..\HealthMed.Common\HealthMed.Common.csproj" />
       <ProjectReference Include="..\HealthMed.Domain\HealthMed.Domain.csproj" />
     </ItemGroup>
