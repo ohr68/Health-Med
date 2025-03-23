@@ -1,0 +1,59 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Aa]ssemblyInfo.cs
+[Aa]ssemblyInfo.*.cs
+artifacts/
+bin/
+obj/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer files
+Thumbs.db
+ehthumbs.db
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# .NET Core
+# Windows image file caches
+Thumbs.db
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.vssscc
+.vsconfig
+
+# Npm package directory
+node_modules/
+
+# User-specific files
+.vscode/
+.idea/
+
+# JetBrains Rider
+.idea/
+
+# Visual Studio for Mac
+.vscode/
+
+# VS Code settings
+.settings/
+
+# JetBrains Rider configuration directory
+.idea/
