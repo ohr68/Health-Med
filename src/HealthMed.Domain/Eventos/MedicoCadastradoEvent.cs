@@ -1,6 +1,6 @@
 ﻿namespace HealthMed.Domain.Eventos;
 
-public class MedicoCadastratoEvent
+public class MedicoCadastradoEvent
 {
     public Guid MedicoId { get; private set; }
     public string Email { get; private set; }
@@ -8,7 +8,7 @@ public class MedicoCadastratoEvent
     public DateTime CriadoEm { get; }
     public string Tipo { get; }
     
-    public MedicoCadastratoEvent(Guid medicoId, string email, string nome)
+    public MedicoCadastradoEvent(Guid medicoId, string email, string nome)
     {
         MedicoId = medicoId;
         Email = email;
