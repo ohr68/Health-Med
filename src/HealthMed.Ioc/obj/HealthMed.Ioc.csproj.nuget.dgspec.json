@@ -1,21 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj": {}
+    "E:\\Code\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj": {
+    "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+        "projectUniqueName": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
         "projectName": "HealthMed.Application",
-        "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
-        "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\obj\\",
+        "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Otavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -84,22 +87,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj": {
+    "E:\\Code\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj",
+        "projectUniqueName": "E:\\Code\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj",
         "projectName": "HealthMed.Ioc",
-        "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj",
-        "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Ioc\\obj\\",
+        "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.Ioc\\HealthMed.Ioc.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "E:\\Code\\Health-Med\\src\\HealthMed.Ioc\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Otavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -114,11 +120,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj": {
-                "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj"
+              "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj": {
+                "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj"
               },
-              "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {
-                "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj"
+              "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {
+                "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj"
               }
             }
           }
@@ -159,22 +165,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {
+    "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
+        "projectUniqueName": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
         "projectName": "HealthMed.ORM",
-        "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
-        "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.ORM\\obj\\",
+        "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Otavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -239,7 +248,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -9531,20 +9531,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Otavio\\.nuget\\packages\\": {}
+    "C:\\Users\\gabri\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Unit\\HealthMed.Tests.Unit.csproj",
+      "projectUniqueName": "E:\\Code\\Health-Med\\tests\\HealthMed.Tests.Unit\\HealthMed.Tests.Unit.csproj",
       "projectName": "HealthMed.Tests.Unit",
-      "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Unit\\HealthMed.Tests.Unit.csproj",
-      "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\tests\\HealthMed.Tests.Unit\\obj\\",
+      "projectPath": "E:\\Code\\Health-Med\\tests\\HealthMed.Tests.Unit\\HealthMed.Tests.Unit.csproj",
+      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+      "outputPath": "E:\\Code\\Health-Med\\tests\\HealthMed.Tests.Unit\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Otavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9559,8 +9563,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.WebApi\\HealthMed.WebApi.csproj": {
-              "projectPath": "C:\\Users\\Otavio\\RiderProjects\\Health-Med\\src\\HealthMed.WebApi\\HealthMed.WebApi.csproj"
+            "E:\\Code\\Health-Med\\src\\HealthMed.WebApi\\HealthMed.WebApi.csproj": {
+              "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.WebApi\\HealthMed.WebApi.csproj"
             }
           }
         }
@@ -9613,7 +9617,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
