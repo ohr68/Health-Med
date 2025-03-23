@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "NPWqm8PVAdx/DcCL0wYlgbmaRZH2tzx+w1W2LgetW2M=",
+  "Source": "HealthMed.WebApi",
+  "BasePath": "_content/HealthMed.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

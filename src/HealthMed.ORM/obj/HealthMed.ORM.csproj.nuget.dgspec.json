@@ -1,21 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {}
+    "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {
+    "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
+        "projectUniqueName": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
         "projectName": "HealthMed.ORM",
-        "projectPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
-        "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.ORM\\obj\\",
+        "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\HealthMed.ORM.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "E:\\Code\\Health-Med\\src\\HealthMed.ORM\\obj\\",
         "projectStyle": "PackageReference",
-        "UsingMicrosoftNETSdk": false,
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Otavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -46,6 +49,24 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

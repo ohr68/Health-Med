@@ -15,6 +15,23 @@
           }
         }
       },
+      "FluentValidation.DependencyInjectionExtensions/11.5.1": {
+        "type": "package",
+        "dependencies": {
+          "FluentValidation": "11.5.1",
+          "Microsoft.Extensions.Dependencyinjection.Abstractions": "2.1.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Mapster/7.4.0": {
         "type": "package",
         "dependencies": {
@@ -34,6 +51,19 @@
         },
         "runtime": {
           "lib/net7.0/Mapster.Core.dll": {}
+        }
+      },
+      "Mapster.DependencyInjection/1.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Mapster": "7.4.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0"
+        },
+        "compile": {
+          "lib/net7.0/Mapster.DependencyInjection.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Mapster.DependencyInjection.dll": {}
         }
       },
       "MediatR/12.4.1": {
@@ -110,6 +140,23 @@
         "lib/netstandard2.1/FluentValidation.xml"
       ]
     },
+    "FluentValidation.DependencyInjectionExtensions/11.5.1": {
+      "sha512": "iWM0LS1MDYX06pcjMEQKqHirl2zkjHlNV23mEJSoR1IZI7KQmTa0RcTtGEJpj5+iHvBCfrzP2mYKM4FtRKVb+A==",
+      "type": "package",
+      "path": "fluentvalidation.dependencyinjectionextensions/11.5.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "fluent-validation-icon.png",
+        "fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
+        "fluentvalidation.dependencyinjectionextensions.nuspec",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.0/FluentValidation.DependencyInjectionExtensions.xml",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.dll",
+        "lib/netstandard2.1/FluentValidation.DependencyInjectionExtensions.xml"
+      ]
+    },
     "Mapster/7.4.0": {
       "sha512": "RYGoDqvS4WTKIq0HDyPBBVIj6N0mluOCXQ1Vk95JKseMHEsbCXSEGKSlP95oL+s42IXAXbqvHj7p0YaRBUcfqg==",
       "type": "package",
@@ -136,6 +183,20 @@
         "lib/net7.0/Mapster.Core.dll",
         "mapster.core.1.2.1.nupkg.sha512",
         "mapster.core.nuspec"
+      ]
+    },
+    "Mapster.DependencyInjection/1.0.1": {
+      "sha512": "LfjnRIwx6WAo3ssq8PFeaHFaUz00BfSG9BhWgXsiDa3H5lDhG0lpMGDF6w2ZnooS4eHYmAv4f77VxmzpvgorNg==",
+      "type": "package",
+      "path": "mapster.dependencyinjection/1.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "icon.png",
+        "lib/net6.0/Mapster.DependencyInjection.dll",
+        "lib/net7.0/Mapster.DependencyInjection.dll",
+        "mapster.dependencyinjection.1.0.1.nupkg.sha512",
+        "mapster.dependencyinjection.nuspec"
       ]
     },
     "MediatR/12.4.1": {
@@ -205,25 +266,31 @@
   "projectFileDependencyGroups": {
     "net8.0": [
       "FluentValidation >= 11.11.0",
+      "FluentValidation.DependencyInjectionExtensions >= 11.5.1",
       "Mapster >= 7.4.0",
+      "Mapster.DependencyInjection >= 1.0.1",
       "MediatR >= 12.4.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Otavio\\.nuget\\packages\\": {}
+    "C:\\Users\\gabri\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+      "projectUniqueName": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
       "projectName": "HealthMed.Application",
-      "projectPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\HealthMed.Application.csproj",
-      "packagesPath": "C:\\Users\\Otavio\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Otavio\\RiderProjects\\HealthMed\\src\\HealthMed.Application\\obj\\",
+      "projectPath": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\HealthMed.Application.csproj",
+      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+      "outputPath": "E:\\Code\\Health-Med\\src\\HealthMed.Application\\obj\\",
       "projectStyle": "PackageReference",
-      "UsingMicrosoftNETSdk": false,
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Otavio\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -259,9 +326,17 @@
             "target": "Package",
             "version": "[11.11.0, )"
           },
+          "FluentValidation.DependencyInjectionExtensions": {
+            "target": "Package",
+            "version": "[11.5.1, )"
+          },
           "Mapster": {
             "target": "Package",
             "version": "[7.4.0, )"
+          },
+          "Mapster.DependencyInjection": {
+            "target": "Package",
+            "version": "[1.0.1, )"
           },
           "MediatR": {
             "target": "Package",
@@ -284,7 +359,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

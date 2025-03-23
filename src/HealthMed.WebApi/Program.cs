@@ -4,6 +4,8 @@ using HealthMed.Common.Logging;
 using HealthMed.WebApi.Filters;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using HealthMed.Ioc;
+using HealthMed.ORM.Context;
 
 namespace HealthMed.WebApi;
 
@@ -45,6 +47,8 @@ public class Program
                 options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
             });
 
+            builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
+
             var app = builder.Build();
 
             if (app.Environment.IsDevelopment())
@@ -57,12 +61,22 @@ public class Program
             }
 
             app.UseHttpsRedirection();
+            app.UseBasicHealthChecks();
+            app.MapControllers();
+
+            // When the app runs, it first creates the Database.
+            using var scope = app.Services.CreateScope();
+            var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+            context.Database.EnsureCreated();
 
             app.Run();
         }
         catch (Exception ex)
         {
             Log.Fatal(ex, "Application terminated unexpectedly");
+            Console.WriteLine($"Critical error: {ex.Message}");
+            Console.WriteLine($"Inner Exception: {ex.InnerException?.Message}");
+            Console.WriteLine(ex.StackTrace);
         }
         finally
         {
