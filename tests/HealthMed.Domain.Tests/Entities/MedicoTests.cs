@@ -5,17 +5,10 @@ using HealthMed.Domain.Tests.Fixture;
 
 namespace HealthMed.Domain.Tests.Entities;
 
-public class MedicoTests : IClassFixture<MedicoFixture>
+public class MedicoTests(MedicoFixture medicoFixture) : IClassFixture<MedicoFixture>
 {
-    private readonly MedicoFixture _medicoFixture;
-    private readonly Faker _faker;
+    private readonly Faker _faker = new();
 
-    public MedicoTests(MedicoFixture medicoFixture)
-    {
-        _medicoFixture = medicoFixture;
-        _faker = new Faker();
-    }
-    
     [Fact(DisplayName = "Criar medico valido")]
     public void Medico_Criar_QuandoValido()
     {
@@ -26,7 +19,7 @@ public class MedicoTests : IClassFixture<MedicoFixture>
         var emailMedico = _faker.Internet.Email();
         
         //Act
-        var medico = _medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
         
         // Assert
         medico.Nome.Should().Be(nomeMedico);
@@ -45,6 +38,6 @@ public class MedicoTests : IClassFixture<MedicoFixture>
         var emailMedico = "";
         
         //Act && Assert
-        Assert.Throws<DomainException>(() => _medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico));
+        Assert.Throws<DomainException>(() => medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico));
     }
 }

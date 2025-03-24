@@ -6,19 +6,10 @@ using HealthMed.Domain.Tests.Fixture;
 
 namespace HealthMed.Domain.Tests.Entities;
 
-public class ConsultaTests : IClassFixture<PacienteFixture>, IClassFixture<MedicoFixture>
+public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medicoFixture)
+    : IClassFixture<PacienteFixture>, IClassFixture<MedicoFixture>
 {
-    private readonly PacienteFixture _pacienteFixture;
-    private readonly MedicoFixture _medicoFixture;
-    private readonly Faker _faker;
-
-    public ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medicoFixture)
-    {
-        _pacienteFixture = pacienteFixture;
-        _medicoFixture = medicoFixture;
-        _faker = new Faker();
-        
-    }
+    private readonly Faker _faker = new();
 
     [Fact(DisplayName = "Deve criar consulta quando dados válidos")]
     public void Consulta_DeveCriar_QuandoDadosValidos()
@@ -26,13 +17,13 @@ public class ConsultaTests : IClassFixture<PacienteFixture>, IClassFixture<Medic
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = _pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
-        var medico = _medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
         
@@ -62,13 +53,13 @@ public class ConsultaTests : IClassFixture<PacienteFixture>, IClassFixture<Medic
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = _pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
-        var medico = _medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
         var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);

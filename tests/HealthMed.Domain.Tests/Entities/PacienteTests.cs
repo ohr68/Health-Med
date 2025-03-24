@@ -5,16 +5,9 @@ using HealthMed.Domain.Tests.Fixture;
 
 namespace HealthMed.Domain.Tests.Entities;
 
-public class PacienteTests : IClassFixture<PacienteFixture>
+public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<PacienteFixture>
 {
-    private readonly PacienteFixture _pacienteFixture;
-    private readonly Faker _faker;
-
-    public PacienteTests(PacienteFixture pacienteFixture)
-    {
-        _pacienteFixture = pacienteFixture;
-        _faker = new Faker();
-    }
+    private readonly Faker _faker = new();
 
     [Fact(DisplayName = "Criar paciente valido.")]
     public void Paciente_Criar_QuandoValido()
@@ -24,7 +17,7 @@ public class PacienteTests : IClassFixture<PacienteFixture>
         var emailPaciente = _faker.Internet.Email();
         
         //Act
-        var paciente = _pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         
         // Assert
         paciente.Nome.Should().Be(nomePaciente);
@@ -39,6 +32,6 @@ public class PacienteTests : IClassFixture<PacienteFixture>
         var emailPaciente = "email_invalido";
         
         //Act && Assert
-        Assert.Throws<DomainException>(() => _pacienteFixture.CriarPaciente(nomePaciente, emailPaciente));
+        Assert.Throws<DomainException>(() => pacienteFixture.CriarPaciente(nomePaciente, emailPaciente));
     }
 }

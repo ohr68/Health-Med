@@ -18,4 +18,10 @@ public class Paciente : Entidade
         Nome = nome;
         Email = email;
     }
+
+    public void Atualizar(string nome)
+    {
+        Nome = nome;
+        DefinirAtualizacao();
+    }
 }

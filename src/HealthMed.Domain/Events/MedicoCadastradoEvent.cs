@@ -1,4 +1,4 @@
-﻿namespace HealthMed.Domain.Eventos;
+﻿namespace HealthMed.Domain.Events;
 
 public class MedicoCadastradoEvent
 {

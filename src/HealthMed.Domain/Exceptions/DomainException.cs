@@ -1,8 +1,3 @@
 ﻿namespace HealthMed.Domain.Exceptions;
 
-public class DomainException : Exception
-{
-    public DomainException(string message) : base(message)
-    {
-    }
-}
+public class DomainException(string message) : Exception(message);
