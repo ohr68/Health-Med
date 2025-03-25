@@ -22,6 +22,9 @@ public class ConsultaService(
     public async Task<IEnumerable<Consulta>?> ObterConsultasMedico(Guid medicoId)
         => await consultaRepository.ObterConsultasMedico(medicoId);
 
+    public async Task<IEnumerable<Medico>?> ObterMedicos(Guid? especialidadeId = null) =>
+        await medicoRepository.ObterTodos(especialidadeId);
+
     public async Task Agendar(Consulta consulta)
     {
         _ = await pacienteRepository.ObterPorId(consulta.PacienteId) ?? throw new PacienteNaoEncontradoException();
@@ -48,6 +51,9 @@ public class ConsultaService(
         if (consulta.Status == StatusConsulta.Cancelada)
             throw new ConsultaJaCanceladaException();
 
+        if (consulta.HorarioUltrapassado)
+            throw new HorarioConsultaJaUltrapassadoException();
+        
         consulta.Cancelar(justificativaCancelamento);
 
         await consultaRepository.Atualizar(consulta);
@@ -57,14 +63,11 @@ public class ConsultaService(
     {
         var consulta = await ObterPorId(consultaId);
 
-        if (consulta.Status == StatusConsulta.Cancelada)
-            throw new ConsultaJaCanceladaException();
-
         if (consulta.Status == StatusConsulta.Aceita)
             throw new ConsultaJaAceitaException();
-
-        if (consulta.HorarioUltrapassado)
-            throw new HorarioConsultaJaUltrapassadoException();
+        
+        if (consulta.Status == StatusConsulta.Cancelada)
+            throw new ConsultaJaCanceladaException();
 
         consulta.Aceitar();
 
@@ -75,16 +78,13 @@ public class ConsultaService(
     {
         var consulta = await ObterPorId(consultaId);
 
+        if (consulta.Status == StatusConsulta.Recusada)
+            throw new ConsultaJaRecusadaException();
+        
         if (consulta.Status == StatusConsulta.Cancelada)
             throw new ConsultaJaCanceladaException();
 
-        if (consulta.Status == StatusConsulta.Recusada)
-            throw new ConsultaJaRecusadaException();
-
-        if (consulta.HorarioUltrapassado)
-            throw new HorarioConsultaJaUltrapassadoException();
-
-        consulta.Aceitar();
+        consulta.Recusar();
 
         await consultaRepository.Atualizar(consulta);
     }

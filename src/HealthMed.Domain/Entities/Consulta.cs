@@ -15,7 +15,7 @@ public class Consulta : Entidade
     public virtual Paciente Paciente { get; protected set; }
     public virtual Medico Medico { get; protected set; }
 
-    public bool HorarioUltrapassado => Horario > DateTime.UtcNow;
+    public bool HorarioUltrapassado => DateTime.UtcNow > Horario.ToUniversalTime();
 
     public Consulta(Guid pacienteId, Guid medicoId, DateTime horario, decimal valor)
     {

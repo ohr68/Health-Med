@@ -13,9 +13,9 @@ public class Medico : Entidade
 
     public virtual Especialidade Especialidade { get; private set; }
 
-    private readonly List<DisponibilidadeMedico> _disponibilidade;
+    private readonly List<DisponibilidadeMedico>? _disponibilidade;
 
-    public virtual IReadOnlyCollection<DisponibilidadeMedico> Disponibilidade => _disponibilidade.AsReadOnly();
+    public virtual IReadOnlyCollection<DisponibilidadeMedico>? Disponibilidade => _disponibilidade?.AsReadOnly();
 
     public Medico(string nome, string email, string crm, Guid especialidadeId, decimal valorConsulta,
         List<DisponibilidadeMedico>? disponibilidade)
