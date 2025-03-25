@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using FluentAssertions;
 using HealthMed.Domain.Entities;
+using HealthMed.Domain.Enums;
 using HealthMed.Domain.Exceptions;
 using HealthMed.Domain.Tests.Fixture;
 
@@ -11,7 +12,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
 {
     private readonly Faker _faker = new();
 
-    [Fact(DisplayName = "Deve criar consulta quando dados válidos")]
+    [Fact(DisplayName = "Deve poder criar consulta quando dados válidos")]
     public void Consulta_DeveCriar_QuandoDadosValidos()
     {
         //Arrange
@@ -23,18 +24,19 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var crm = "12345678";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
-        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
         
         //Act 
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, medico.ValorConsulta);
         
         // Assert
         consulta.MedicoId.Should().Be(medico.Id);
         consulta.PacienteId.Should().Be(paciente.Id);
         consulta.Horario.Should().Be(horarioConsulta);
-        consulta.Cancelado.Should().Be(false);
+        consulta.Status.Should().Be(StatusConsulta.AguardandoAceite);
     }
     
     [Fact(DisplayName = "Não deve criar consulta quando dados inválidos")]
@@ -44,11 +46,11 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var horarioConsulta = DateTime.Now.AddHours(-3);
         
         //Act && Assert
-        Assert.Throws<DomainException>(() => new Consulta(Guid.Empty, Guid.Empty, horarioConsulta));
+        Assert.Throws<DomainException>(() => new Consulta(Guid.Empty, Guid.Empty, horarioConsulta, 100));
     }
     
-    [Fact(DisplayName = "Deve cancelar consulta")]
-    public void Consulta_DeveCancelar_QuandoValido()
+    [Fact(DisplayName = "Deve poder cancelar consulta")]
+    public void Consulta_DeveCancelar()
     {
         //Arrange
         var nomePaciente = _faker.Name.FullName();
@@ -59,17 +61,96 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var crm = "12345678";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
-        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico);
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var justificativaCancelamento = "Motivo";
+        
+        //Act 
+        consulta.Cancelar(justificativaCancelamento);
+        
+        // Assert
+        consulta.Status.Should().Be(StatusConsulta.Cancelada);
+        consulta.JustificativaCancelamento.Should().Be(justificativaCancelamento);
+        consulta.AtualizadoEm.Should().NotBeNull();
+    }
+    
+    [Fact(DisplayName = "Não deve cancelar consulta quando justificava não preenchida")]
+    public void Consulta_NaoDeveCancelar_QuandoJustificavaNaoPreenchida()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        
+        var nomeMedico = _faker.Name.FullName();
+        var crm = "12345678";
+        var especialidadeId = Guid.NewGuid();
+        var emailMedico = _faker.Internet.Email();
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
+        
+        var horarioConsulta = DateTime.Now.AddHours(1);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var justificativaCancelamento = "";
+        
+        //Act && Assert
+        Assert.Throws<DomainException>(() => consulta.Cancelar(justificativaCancelamento));
+    }
+    
+    [Fact(DisplayName = "Consulta deve poder ser aceita")]
+    public void Consulta_DeveAceitar()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        
+        var nomeMedico = _faker.Name.FullName();
+        var crm = "12345678";
+        var especialidadeId = Guid.NewGuid();
+        var emailMedico = _faker.Internet.Email();
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
+        
+        var horarioConsulta = DateTime.Now.AddHours(1);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
         var atualizadoEm = consulta.AtualizadoEm;
         
         //Act 
-        consulta.Cancelar();
+        consulta.Aceitar();
         
         // Assert
-        consulta.Cancelado.Should().Be(true);
+        consulta.Status.Should().Be(StatusConsulta.Aceita);
+        consulta.AtualizadoEm.Should().NotBeNull();
+    }
+    
+    [Fact(DisplayName = "Consulta deve poder ser recusada.")]
+    public void Consulta_DeveRecusar()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        
+        var nomeMedico = _faker.Name.FullName();
+        var crm = "12345678";
+        var especialidadeId = Guid.NewGuid();
+        var emailMedico = _faker.Internet.Email();
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
+        
+        var horarioConsulta = DateTime.Now.AddHours(1);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var atualizadoEm = consulta.AtualizadoEm;
+        
+        //Act 
+        consulta.Recusar();
+        
+        // Assert
+        consulta.Status.Should().Be(StatusConsulta.Recusada);
         consulta.AtualizadoEm.Should().NotBeNull();
     }
 }

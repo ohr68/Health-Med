@@ -3,6 +3,7 @@ using Bogus;
 using FluentAssertions;
 using HealthMed.Domain.Events;
 using HealthMed.Domain.Exceptions;
+using HealthMed.Domain.Exceptions.Paciente;
 using HealthMed.Domain.Interfaces.Repositories;
 using HealthMed.Domain.Services;
 using HealthMed.Domain.Tests.Fixture;

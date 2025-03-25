@@ -1,6 +1,6 @@
 ﻿namespace HealthMed.Domain.Events;
 
-public class MedicoCadastradoEvent
+public class MedicoCadastradoEvent : IEventoDominio
 {
     public Guid MedicoId { get; private set; }
     public string Email { get; private set; }

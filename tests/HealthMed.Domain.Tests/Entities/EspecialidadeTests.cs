@@ -6,7 +6,7 @@ namespace HealthMed.Domain.Tests.Entities;
 
 public class EspecialidadeTests
 {
-    [Fact(DisplayName = "Criar especialidade válida.")]
+    [Fact(DisplayName = "Deve criar especialidade válida quando dados válidos.")]
     public void Especialidade_Criar_QuandoValida()
     {
         //Arrage
@@ -19,7 +19,7 @@ public class EspecialidadeTests
         especialidade.Nome.Should().Be(nomeEspecialidade);
     }
     
-    [Fact(DisplayName = "Não deve criar especialidade quando inválida.")]
+    [Fact(DisplayName = "Não deve criar especialidade quando dados inválidos.")]
     public void Especialidade_NaoDeveCriar_QuandoInvalida()
     {
         //Arrage

@@ -9,7 +9,7 @@ public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<Paci
 {
     private readonly Faker _faker = new();
 
-    [Fact(DisplayName = "Criar paciente valido.")]
+    [Fact(DisplayName = "Criar criar paciente quando dados validos.")]
     public void Paciente_Criar_QuandoValido()
     {
         //Arrange
@@ -33,5 +33,35 @@ public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<Paci
         
         //Act && Assert
         Assert.Throws<DomainException>(() => pacienteFixture.CriarPaciente(nomePaciente, emailPaciente));
+    }
+    
+    [Fact(DisplayName = "Deve poder atualizar paciente quando dados válidos.")]
+    public void Paciente_DeveAtualizarDados_QuandoDadosValidos()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var nomePacienteAlterar = "Nome Alterado";
+        
+        //Act
+        paciente.Atualizar(nomePacienteAlterar);
+        
+        // Assert
+        paciente.Nome.Should().Be(nomePacienteAlterar);
+        paciente.AtualizadoEm.Should().NotBeNull();
+    }
+    
+    [Fact(DisplayName = "Não deve atualizar paciente quando dados inválidos.")]
+    public void Paciente_NaoDeveAtualizarDados_QuandoDadosInvalidos()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var nomePacienteAlterar = "";
+        
+        //Act && Assert
+        Assert.Throws<DomainException>(() => paciente.Atualizar(nomePacienteAlterar));
     }
 }

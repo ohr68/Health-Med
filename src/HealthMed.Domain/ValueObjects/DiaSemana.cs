@@ -1,5 +1,7 @@
 ﻿using HealthMed.Domain.Exceptions;
 
+namespace HealthMed.Domain.ValueObjects;
+
 public sealed record DiaSemana
 {
     private static readonly string[] Dias = 
