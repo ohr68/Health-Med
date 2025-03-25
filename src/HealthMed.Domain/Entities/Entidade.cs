@@ -1,4 +1,4 @@
-﻿using HealthMed.Domain.Eventos;
+﻿using HealthMed.Domain.Events;
 
 namespace HealthMed.Domain.Entities;
 
@@ -9,9 +9,9 @@ public abstract class Entidade
     public DateTime? AtualizadoEm { get; private set; }
     public bool Apagado { get; private set; }
     
-    private List<IEventoDominio> _events = new List<IEventoDominio>();
+    private List<IEventoDominio> _eventos = new List<IEventoDominio>();
     
-    public IReadOnlyCollection<IEventoDominio> Events => _events.AsReadOnly();
+    public IReadOnlyCollection<IEventoDominio> Eventos => _eventos.AsReadOnly();
 
     protected Entidade()
     {
@@ -31,9 +31,9 @@ public abstract class Entidade
         AtualizadoEm = DateTime.UtcNow;
     }
         
-    public void AddEvento(IEventoDominio eventoDominio)
+    public void AdicionarEvento(IEventoDominio eventoDominio)
     {
-        _events.Add(eventoDominio);
+        _eventos.Add(eventoDominio);
     }
 
     public override bool Equals(object? obj)

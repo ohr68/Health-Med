@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using FluentAssertions;
 using HealthMed.Domain.Exceptions;
+using HealthMed.Domain.ValueObjects;
 
 namespace HealthMed.Domain.Tests.ValueObjects;
 

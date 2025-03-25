@@ -1,6 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using HealthMed.Domain.Exceptions;
 
+namespace HealthMed.Domain.ValueObjects;
+
 public sealed record Email
 {
     private static readonly Regex EmailRegex = new(@"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.Compiled);

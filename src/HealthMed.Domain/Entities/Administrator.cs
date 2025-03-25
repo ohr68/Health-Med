@@ -1,4 +1,5 @@
 ﻿using HealthMed.Domain.Exceptions;
+using HealthMed.Domain.ValueObjects;
 
 namespace HealthMed.Domain.Entities;
 

@@ -5,18 +5,11 @@ using HealthMed.Domain.Tests.Fixture;
 
 namespace HealthMed.Domain.Tests.Entities;
 
-public class PacienteTests : IClassFixture<PacienteFixture>
+public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<PacienteFixture>
 {
-    private readonly PacienteFixture _pacienteFixture;
-    private readonly Faker _faker;
+    private readonly Faker _faker = new();
 
-    public PacienteTests(PacienteFixture pacienteFixture)
-    {
-        _pacienteFixture = pacienteFixture;
-        _faker = new Faker();
-    }
-
-    [Fact(DisplayName = "Criar paciente valido.")]
+    [Fact(DisplayName = "Criar criar paciente quando dados validos.")]
     public void Paciente_Criar_QuandoValido()
     {
         //Arrange
@@ -24,7 +17,7 @@ public class PacienteTests : IClassFixture<PacienteFixture>
         var emailPaciente = _faker.Internet.Email();
         
         //Act
-        var paciente = _pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         
         // Assert
         paciente.Nome.Should().Be(nomePaciente);
@@ -39,6 +32,36 @@ public class PacienteTests : IClassFixture<PacienteFixture>
         var emailPaciente = "email_invalido";
         
         //Act && Assert
-        Assert.Throws<DomainException>(() => _pacienteFixture.CriarPaciente(nomePaciente, emailPaciente));
+        Assert.Throws<DomainException>(() => pacienteFixture.CriarPaciente(nomePaciente, emailPaciente));
+    }
+    
+    [Fact(DisplayName = "Deve poder atualizar paciente quando dados válidos.")]
+    public void Paciente_DeveAtualizarDados_QuandoDadosValidos()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var nomePacienteAlterar = "Nome Alterado";
+        
+        //Act
+        paciente.Atualizar(nomePacienteAlterar);
+        
+        // Assert
+        paciente.Nome.Should().Be(nomePacienteAlterar);
+        paciente.AtualizadoEm.Should().NotBeNull();
+    }
+    
+    [Fact(DisplayName = "Não deve atualizar paciente quando dados inválidos.")]
+    public void Paciente_NaoDeveAtualizarDados_QuandoDadosInvalidos()
+    {
+        //Arrange
+        var nomePaciente = _faker.Name.FullName();
+        var emailPaciente = _faker.Internet.Email();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var nomePacienteAlterar = "";
+        
+        //Act && Assert
+        Assert.Throws<DomainException>(() => paciente.Atualizar(nomePacienteAlterar));
     }
 }
