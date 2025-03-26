@@ -30,7 +30,7 @@ public class PacienteService(IPacienteRepository pacienteRepository) : IPaciente
 
         paciente.Atualizar(nome);
 
-        await pacienteRepository.Atualizar(paciente);
+        pacienteRepository.Atualizar(paciente);
     }
 
     public async Task Excluir(Guid pacienteId)
@@ -39,7 +39,7 @@ public class PacienteService(IPacienteRepository pacienteRepository) : IPaciente
 
         paciente.MarcarComoApagado();
 
-        await pacienteRepository.Atualizar(paciente);
+        pacienteRepository.Atualizar(paciente);
     }
 
     private async Task VerificarEmailEmUso(Paciente paciente)

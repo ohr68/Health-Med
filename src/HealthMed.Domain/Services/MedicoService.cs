@@ -36,7 +36,7 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
 
         medico.Atualizar(nome, valorConsulta);
 
-        await medicoRepository.Atualizar(medico);
+        medicoRepository.Atualizar(medico);
     }
 
     public async Task Excluir(Guid medicoId)
@@ -45,7 +45,7 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
 
         medico.MarcarComoApagado();
 
-        await medicoRepository.Atualizar(medico);
+        medicoRepository.Atualizar(medico);
     }
 
     private async Task VerificarEmailEmUso(Medico medico)

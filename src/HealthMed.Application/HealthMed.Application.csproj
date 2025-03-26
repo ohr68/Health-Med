@@ -14,4 +14,12 @@
       <PackageReference Include="MediatR" Version="12.4.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\HealthMed.Domain\HealthMed.Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\ViewModels\" />
+    </ItemGroup>
+
 </Project>

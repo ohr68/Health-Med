@@ -9,6 +9,6 @@ public interface IMedicoRepository
     Task<Medico?> ObterPorEmail(string email);
     Task<IEnumerable<Medico>?> ObterTodos(Guid? especialidadeId = null);
     Task Adicionar(Medico medico);
-    Task Atualizar(Medico medico);
+    void Atualizar(Medico medico);
     Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId);
 }
