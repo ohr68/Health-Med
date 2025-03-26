@@ -8,6 +8,10 @@ public class Administrator : Entidade
     public string Nome { get; private set; }
     public Email Email { get; private set; }
 
+    private Administrator()
+    {
+    }
+    
     public Administrator(string nome, Email email)
     {
         if (string.IsNullOrEmpty(nome))

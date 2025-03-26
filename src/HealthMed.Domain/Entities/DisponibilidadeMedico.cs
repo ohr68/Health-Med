@@ -3,8 +3,25 @@ using HealthMed.Domain.ValueObjects;
 
 namespace HealthMed.Domain.Entities;
 
-public class DisponibilidadeMedico(int diaSemana, int horaInicio, int horaFim) : Entidade
+public class DisponibilidadeMedico : Entidade
 {
+    public Guid MedicoId { get; private set; }
+    public DiaSemana DiaSemana { get; private set; }
+    public Hora HoraInicio { get; private set; }
+    public Hora HoraFim { get; private set; }
+    public virtual Medico Medico { get; private set; }
+
+    public DisponibilidadeMedico(int diaSemana, int horaInicio, int horaFim)
+    {
+        DiaSemana = diaSemana;
+        HoraInicio = horaInicio;
+        HoraFim = horaFim;
+    }
+
+    private DisponibilidadeMedico()
+    {
+    }
+    
     public DisponibilidadeMedico(Guid medicoId, int diaSemana, int horaInicio, int horaFim) : this(diaSemana,
         horaInicio, horaFim)
     {
@@ -13,9 +30,4 @@ public class DisponibilidadeMedico(int diaSemana, int horaInicio, int horaFim) :
 
         MedicoId = medicoId;
     }
-
-    public Guid MedicoId { get; private set; }
-    public DiaSemana DiaSemana { get; private set; } = diaSemana;
-    public Hora HoraInicio { get; private set; } = horaInicio;
-    public Hora HoraFim { get; private set; } = horaFim;
 }

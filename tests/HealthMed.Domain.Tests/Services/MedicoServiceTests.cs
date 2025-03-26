@@ -110,6 +110,52 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         medico.Eventos.Should().ContainItemsAssignableTo<MedicoCadastradoEvent>();
     }
     
+    [Fact(DisplayName = "Cadastrar medico deve lançar exceção quando email já está em uso.")]
+    public async Task MedicoService_CadastrarMedicoDeveLancarExcecao_QuandoEmailJaEstaEmUso()
+    {
+        //Arrange
+        var nomeMedico = _faker.Name.FullName();
+        var crm = "12345678";
+        var especialidadeId = Guid.NewGuid();
+        var emailMedico = _faker.Internet.Email();
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
+        var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
+        medicoRepositoryMock
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .ReturnsAsync(medico);
+        medicoRepositoryMock
+            .Setup(repo => repo.ObterPorEmail(emailMedico))
+            .ReturnsAsync(medico);
+        var medicoService = new MedicoService(medicoRepositoryMock.Object);
+
+        //Act && Assert
+        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => medicoService.Cadastrar(medico));
+    }
+    
+    [Fact(DisplayName = "Cadastrar medico deve lançar exceção quando crm já está em uso.")]
+    public async Task MedicoService_CadastrarMedicoDeveLancarExcecao_QuandoCrmJaEstaEmUso()
+    {
+        //Arrange
+        var nomeMedico = _faker.Name.FullName();
+        var crm = "12345678";
+        var especialidadeId = Guid.NewGuid();
+        var emailMedico = _faker.Internet.Email();
+        var valorConsulta = 100;
+        var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
+        var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
+        medicoRepositoryMock
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .ReturnsAsync(medico);
+        medicoRepositoryMock
+            .Setup(repo => repo.ObterPorCrm(crm))
+            .ReturnsAsync(medico);
+        var medicoService = new MedicoService(medicoRepositoryMock.Object);
+
+        //Act && Assert
+        await Assert.ThrowsAsync<CrmJaEstaEmUsoException>(() => medicoService.Cadastrar(medico));
+    }
+    
     [Fact(DisplayName = "Atualizar medico com sucesso")]
     public async Task MedicoService_AtualizarMedico_ComSucesso()
     {
