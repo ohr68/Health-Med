@@ -8,15 +8,18 @@ public class Medico : Entidade
     public string Nome { get; private set; }
     public Email Email { get; private set; }
     public string Crm { get; private set; }
-    public Guid EspecialidadeId { get; private set; }
     public decimal ValorConsulta { get; private set; }
-
+    public Guid EspecialidadeId { get; private set; }
     public virtual Especialidade Especialidade { get; private set; }
-
+    
     private readonly List<DisponibilidadeMedico>? _disponibilidade;
-
     public virtual IReadOnlyCollection<DisponibilidadeMedico>? Disponibilidade => _disponibilidade?.AsReadOnly();
+    public virtual ICollection<Consulta> Consultas { get; private set; }
 
+    private Medico()
+    {
+    }
+    
     public Medico(string nome, string email, string crm, Guid especialidadeId, decimal valorConsulta,
         List<DisponibilidadeMedico>? disponibilidade)
     {

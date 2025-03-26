@@ -7,7 +7,12 @@ public class Paciente : Entidade
 {
     public string Nome { get; private set; }
     public Email Email { get; private set; }
+    public virtual ICollection<Consulta> Consultas { get; private set; }
 
+    private Paciente()
+    {
+    }
+    
     public Paciente(string nome, Email email)
     {
         if (string.IsNullOrEmpty(nome))

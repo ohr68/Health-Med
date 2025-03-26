@@ -17,6 +17,10 @@ public class Consulta : Entidade
 
     public bool HorarioUltrapassado => DateTime.UtcNow > Horario.ToUniversalTime();
 
+    private Consulta()
+    {
+    }
+    
     public Consulta(Guid pacienteId, Guid medicoId, DateTime horario, decimal valor)
     {
         if (pacienteId == Guid.Empty)

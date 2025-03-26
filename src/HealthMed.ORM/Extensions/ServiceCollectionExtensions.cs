@@ -1,4 +1,6 @@
-﻿using HealthMed.ORM.Context;
+﻿using HealthMed.Domain.Interfaces.Repositories;
+using HealthMed.ORM.Context;
+using HealthMed.ORM.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +13,8 @@ public static class ServiceCollectionExtensions
         bool isDevelopment = false)
     {
         services
-            .AddDatabase(configuration, isDevelopment);
+            .AddDatabase(configuration, isDevelopment)
+            .AddRepositories();
 
         return services;
     }
@@ -40,6 +43,17 @@ public static class ServiceCollectionExtensions
                 options.UseSqlServer(connectionString);
             });
 
+        return services;
+    }
+
+    private static IServiceCollection AddRepositories(this IServiceCollection services)
+    {
+        services.AddScoped<IPacienteRepository, PacienteRepository>();
+        
+        services.AddScoped<IMedicoRepository, MedicoRepository>();
+        
+        services.AddScoped<IConsultaRepository, ConsultaRepository>();
+        
         return services;
     }
 }

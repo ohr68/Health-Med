@@ -68,6 +68,26 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         pacienteRepositoryMock.Verify(repo => repo.Adicionar(paciente), Times.Once);
         paciente.Eventos.Should().ContainItemsAssignableTo<PacienteCadastradoEvent>();
     }
+    
+    [Fact(DisplayName = "Cadastrar paciente deve lançar exceção quando email já está em uso.")]
+    public async Task PacienteService_CadastrarPacienteDeveLancarExcecao_QuandoEmailJaEstaEmUso()
+    {
+        //Arrange
+        var nomePaciente = _faker.Person.FullName;
+        var emailPaciente = _faker.Person.Email;
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
+        pacienteRepositoryMock
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .ReturnsAsync(paciente);
+        pacienteRepositoryMock
+            .Setup(repo => repo.ObterPorEmail(emailPaciente))
+            .ReturnsAsync(paciente);
+        var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
+
+        //Act && Assert
+        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => pacienteService.Cadastrar(paciente));
+    }
 
     [Fact(DisplayName = "Atualizar paciente com sucesso")]
     public async Task PacienteService_AtualizarPaciente_ComSucesso()

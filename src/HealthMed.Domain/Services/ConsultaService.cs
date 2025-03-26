@@ -56,7 +56,7 @@ public class ConsultaService(
         
         consulta.Cancelar(justificativaCancelamento);
 
-        await consultaRepository.Atualizar(consulta);
+        consultaRepository.Atualizar(consulta);
     }
 
     public async Task Aceitar(Guid consultaId)
@@ -71,7 +71,7 @@ public class ConsultaService(
 
         consulta.Aceitar();
 
-        await consultaRepository.Atualizar(consulta);
+        consultaRepository.Atualizar(consulta);
     }
 
     public async Task Recusar(Guid consultaId)
@@ -86,6 +86,6 @@ public class ConsultaService(
 
         consulta.Recusar();
 
-        await consultaRepository.Atualizar(consulta);
+        consultaRepository.Atualizar(consulta);
     }
 }
