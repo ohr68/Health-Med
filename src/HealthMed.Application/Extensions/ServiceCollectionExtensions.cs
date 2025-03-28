@@ -26,6 +26,8 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IEspecialidadeAppService, EspecialidadeAppService>();
         
         services.AddScoped<IMedicoAppService, MedicoAppService>();
+
+        services.AddScoped<IConsultaAppService, ConsultaAppService>();
         
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ApplicationLayer).Assembly));
 

@@ -31,7 +31,7 @@ public class ConsultaServiceTests(
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
         var valorConsulta = 100;
-        var consulta = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
+        var consulta = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
@@ -72,8 +72,8 @@ public class ConsultaServiceTests(
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
         var valorConsulta = 100;
-        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
-        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
+        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
+        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
@@ -100,9 +100,8 @@ public class ConsultaServiceTests(
         var pacienteId = Guid.NewGuid();
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
-        var valorConsulta = 100;
-        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
-        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
+        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
+        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
@@ -179,7 +178,7 @@ public class ConsultaServiceTests(
             disponibilidadeMedico);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -224,7 +223,7 @@ public class ConsultaServiceTests(
             disponibilidadeMedico);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -261,8 +260,8 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
-        var consultaMarcada = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
+        var consultaMarcada = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -303,7 +302,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -336,7 +335,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -373,7 +372,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -410,7 +409,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Cancelar("Cancelada");
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -445,7 +444,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddSeconds(3);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -483,7 +482,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -516,7 +515,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -553,7 +552,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Aceitar();
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -587,7 +586,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Cancelar("Motivo cancelamento.");
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -621,7 +620,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -658,7 +657,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Recusar();
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -692,7 +691,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Cancelar("Motivo cancelamento.");
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();

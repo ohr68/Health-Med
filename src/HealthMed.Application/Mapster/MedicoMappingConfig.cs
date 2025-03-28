@@ -30,6 +30,7 @@ public class MedicoMappingConfig : IRegister
         config.NewConfig<DisponibilidadeMedico, DisponibilidadeMedicoViewModel>()
             .ConstructUsing(src => new DisponibilidadeMedicoViewModel(
                 src.DiaSemana, 
+                src.DiaSemana.ToString(),
                 src.HoraInicio, 
                 src.HoraFim));
 

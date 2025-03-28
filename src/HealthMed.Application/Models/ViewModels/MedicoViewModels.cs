@@ -8,4 +8,4 @@ public record MedicoViewModel(
     EspecialidadeViewModel Especialidade,
     List<DisponibilidadeMedicoViewModel> Disponibilidade);
 
-public record DisponibilidadeMedicoViewModel(int DiaSemana, int HoraInicio, int HoraFim);
+public record DisponibilidadeMedicoViewModel(int DiaSemana, string DiaSemanaDesc, int HoraInicio, int HoraFim);

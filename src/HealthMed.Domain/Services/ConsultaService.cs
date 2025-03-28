@@ -45,6 +45,8 @@ public class ConsultaService(
         if (horarioConsultaIndisponivel)
             throw new HorarioConsultaIndisponivelException();
 
+        consulta.DefinirValorConsulta(medico.ValorConsulta);
+        
         await consultaRepository.Adicionar(consulta);
     }
 
