@@ -9,13 +9,15 @@ namespace HealthMed.Domain.Services;
 
 public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
 {
-    public async Task<Medico> ObterPorId(Guid medicoId) =>
-        await medicoRepository.ObterPorId(medicoId) ??
+    public async Task<Medico> ObterPorId(Guid medicoId, CancellationToken cancellationToken = default) =>
+        await medicoRepository.ObterPorId(medicoId, cancellationToken) ??
         throw new MedicoNaoEncontradoException();
 
-    public async Task<Medico> ObterPorCrm(string crm) =>
-        await medicoRepository.ObterPorCrm(crm) ??
-        throw new MedicoNaoEncontradoException();
+    public async Task<Medico?> ObterPorCrm(string crm, CancellationToken cancellationToken = default) =>
+        await medicoRepository.ObterPorCrm(crm, cancellationToken);
+
+    public async Task<IEnumerable<Medico>?> ObterTodos(CancellationToken cancellationToken = default)
+        => await medicoRepository.ObterTodos(null, cancellationToken);
 
     public async Task Cadastrar(Medico medico)
     {

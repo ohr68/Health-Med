@@ -1,4 +1,7 @@
 ﻿using FluentValidation;
+using HealthMed.Application.Interfaces.Service;
+using HealthMed.Application.Mapster;
+using HealthMed.Application.Services;
 using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -18,6 +21,12 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection AddServices(this IServiceCollection services)
     {
+        services.AddScoped<IPacienteAppService, PacienteAppService>();
+
+        services.AddScoped<IEspecialidadeAppService, EspecialidadeAppService>();
+        
+        services.AddScoped<IMedicoAppService, MedicoAppService>();
+        
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ApplicationLayer).Assembly));
 
         return services;

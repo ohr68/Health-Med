@@ -1,4 +1,6 @@
 ﻿using HealthMed.Application.Extensions;
+using HealthMed.Domain.Extensions;
+using HealthMed.Messaging.Extensions;
 using HealthMed.ORM.Extensions;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,8 +13,10 @@ public static class ModuleInitializer
         bool isDevelopment = false)
     {
         services
+            .AddDomainLayer()    
             .AddApplicationLayer()
-            .AddPersistenceLayer(configuration, isDevelopment);
+            .AddPersistenceLayer(configuration, isDevelopment)
+            .AddMessagingLayer(configuration);
 
         return services;
     }

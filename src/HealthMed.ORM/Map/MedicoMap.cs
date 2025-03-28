@@ -69,6 +69,12 @@ public class MedicoMap : IEntityTypeConfiguration<Medico>
         builder
             .HasIndex(m => m.EspecialidadeId)
             .HasDatabaseName("IX_Medico_EspecialidadeId");
+
+        builder.Navigation(x => x.Especialidade)
+            .AutoInclude();
+        
+        builder.Navigation(x => x.Disponibilidade)
+            .AutoInclude();
         
         builder.HasQueryFilter(m => !m.Apagado);
         

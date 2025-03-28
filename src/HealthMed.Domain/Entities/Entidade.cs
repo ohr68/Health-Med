@@ -8,9 +8,9 @@ public abstract class Entidade
     public DateTime CriadoEm { get; private set; }
     public DateTime? AtualizadoEm { get; private set; }
     public bool Apagado { get; private set; }
-    
+
     private List<IEventoDominio> _eventos = new List<IEventoDominio>();
-    
+
     public IReadOnlyCollection<IEventoDominio> Eventos => _eventos.AsReadOnly();
 
     protected Entidade()
@@ -26,15 +26,11 @@ public abstract class Entidade
         DefinirAtualizacao();
     }
 
-    public void DefinirAtualizacao()
-    {
-        AtualizadoEm = DateTime.UtcNow;
-    }
-        
-    public void AdicionarEvento(IEventoDominio eventoDominio)
-    {
-        _eventos.Add(eventoDominio);
-    }
+    public void DefinirAtualizacao() => AtualizadoEm = DateTime.UtcNow;
+
+    public void AdicionarEvento(IEventoDominio eventoDominio) => _eventos.Add(eventoDominio);
+
+    public bool PossuiEventos() => _eventos?.Any() ?? false;
 
     public override bool Equals(object? obj)
     {

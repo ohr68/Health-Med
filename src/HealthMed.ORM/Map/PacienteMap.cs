@@ -18,7 +18,7 @@ public class PacienteMap : IEntityTypeConfiguration<Paciente>
         builder.OwnsOne(p => p.Email, email =>
         {
             email.Property(e => e.Valor)
-                .HasColumnName("Email")
+                .HasColumnName("Email") // Mapeamento do campo de valor do Email
                 .HasMaxLength(200)
                 .IsRequired();
             

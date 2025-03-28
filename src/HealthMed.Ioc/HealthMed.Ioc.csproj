@@ -12,6 +12,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\HealthMed.Application\HealthMed.Application.csproj" />
+      <ProjectReference Include="..\HealthMed.Messaging\HealthMed.Messaging.csproj" />
       <ProjectReference Include="..\HealthMed.ORM\HealthMed.ORM.csproj" />
     </ItemGroup>
 

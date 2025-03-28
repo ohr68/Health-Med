@@ -1,4 +1,5 @@
 ﻿using HealthMed.Domain.Interfaces.Repositories;
+using HealthMed.Domain.Interfaces.UnitOfWork;
 using HealthMed.ORM.Context;
 using HealthMed.ORM.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +29,7 @@ public static class ServiceCollectionExtensions
                 if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Testing")
                 {
                     // In-memory database for testing
-                    options.UseInMemoryDatabase("InMemoryDbForTesting");
+                    options.UseSqlite($"Data Source={Guid.NewGuid()}.db");
 
                     return;
                 }
@@ -48,11 +49,15 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection AddRepositories(this IServiceCollection services)
     {
+        services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+        
         services.AddScoped<IPacienteRepository, PacienteRepository>();
         
         services.AddScoped<IMedicoRepository, MedicoRepository>();
         
         services.AddScoped<IConsultaRepository, ConsultaRepository>();
+
+        services.AddScoped<IEspecialidadeRepository, EspecialidadeRepository>();
         
         return services;
     }
