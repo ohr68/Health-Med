@@ -4,11 +4,11 @@ namespace HealthMed.Domain.Interfaces.Repositories;
 
 public interface IMedicoRepository
 {
-    Task<Medico?> ObterPorId(Guid medicoId);
-    Task<Medico?> ObterPorCrm(string crm);
-    Task<Medico?> ObterPorEmail(string email);
-    Task<IEnumerable<Medico>?> ObterTodos(Guid? especialidadeId = null);
+    Task<Medico?> ObterPorId(Guid medicoId, CancellationToken cancellationToken = default);
+    Task<Medico?> ObterPorCrm(string crm, CancellationToken cancellationToken = default);
+    Task<Medico?> ObterPorEmail(string email, CancellationToken cancellationToken = default);
+    Task<IEnumerable<Medico>?> ObterTodos(Guid? especialidadeId = null, CancellationToken cancellationToken = default);
     Task Adicionar(Medico medico);
     void Atualizar(Medico medico);
-    Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId);
+    Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId, CancellationToken cancellationToken = default);
 }

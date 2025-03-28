@@ -43,7 +43,12 @@ public class ConsultaMap : IEntityTypeConfiguration<Consulta>
         builder.HasOne(p => p.Medico)
             .WithMany(p => p.Consultas)
             .HasForeignKey(p => p.MedicoId);
+
+        builder.Navigation(x => x.Paciente)
+            .AutoInclude();
         
+        builder.Navigation(x => x.Medico)
+            .AutoInclude();
         
         builder.HasQueryFilter(p => !p.Apagado);
         

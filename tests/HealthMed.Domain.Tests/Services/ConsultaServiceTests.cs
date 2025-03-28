@@ -31,12 +31,12 @@ public class ConsultaServiceTests(
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
         var valorConsulta = 100;
-        var consulta = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
+        var consulta = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
             medicoRepositoryMock.Object);
@@ -45,7 +45,8 @@ public class ConsultaServiceTests(
         var consultaRetorno = await consultaService.ObterPorId(Guid.NewGuid());
 
         //Assert
-        consultaRepositoryMock.Verify(repo => repo.ObterPorId(It.IsAny<Guid>()), Times.Once);
+        consultaRepositoryMock.Verify(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()),
+            Times.Once);
         consultaRetorno.Should().NotBeNull();
     }
 
@@ -71,13 +72,13 @@ public class ConsultaServiceTests(
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
         var valorConsulta = 100;
-        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
-        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
+        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
+        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         consultaRepositoryMock
-            .Setup(repo => repo.ObterConsultasPaciente(pacienteId))
+            .Setup(repo => repo.ObterConsultasPaciente(pacienteId, It.IsAny<CancellationToken>()))
             .ReturnsAsync([consulta1, consulta2]);
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
             medicoRepositoryMock.Object);
@@ -86,7 +87,8 @@ public class ConsultaServiceTests(
         var consultasPaciente = (await consultaService.ObterConsultasPaciente(pacienteId))?.ToList();
 
         //Assert
-        consultaRepositoryMock.Verify(repo => repo.ObterConsultasPaciente(pacienteId), Times.Once);
+        consultaRepositoryMock.Verify(repo => repo.ObterConsultasPaciente(pacienteId, It.IsAny<CancellationToken>()),
+            Times.Once);
         consultasPaciente.Should().NotBeNull();
         consultasPaciente.Should().HaveCount(2);
     }
@@ -98,14 +100,13 @@ public class ConsultaServiceTests(
         var pacienteId = Guid.NewGuid();
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
-        var valorConsulta = 100;
-        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
-        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario, valorConsulta);
+        var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
+        var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         consultaRepositoryMock
-            .Setup(repo => repo.ObterConsultasMedico(medicoId))
+            .Setup(repo => repo.ObterConsultasMedico(medicoId, It.IsAny<CancellationToken>()))
             .ReturnsAsync([consulta1, consulta2]);
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
             medicoRepositoryMock.Object);
@@ -114,7 +115,8 @@ public class ConsultaServiceTests(
         var consultasMedico = (await consultaService.ObterConsultasMedico(medicoId))?.ToList();
 
         //Assert
-        consultaRepositoryMock.Verify(repo => repo.ObterConsultasMedico(medicoId), Times.Once);
+        consultaRepositoryMock.Verify(repo => repo.ObterConsultasMedico(medicoId, It.IsAny<CancellationToken>()),
+            Times.Once);
         consultasMedico.Should().NotBeNull();
         consultasMedico.Should().HaveCount(2);
     }
@@ -134,7 +136,7 @@ public class ConsultaServiceTests(
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterTodos(It.IsAny<Guid?>()))
+            .Setup(repo => repo.ObterTodos(It.IsAny<Guid?>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync([medico1, medico2]);
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
             medicoRepositoryMock.Object);
@@ -143,7 +145,8 @@ public class ConsultaServiceTests(
         var medicos = (await consultaService.ObterMedicos())?.ToList();
 
         //Assert
-        medicoRepositoryMock.Verify(repo => repo.ObterTodos(It.IsAny<Guid?>()), Times.Once);
+        medicoRepositoryMock.Verify(repo => repo.ObterTodos(It.IsAny<Guid?>(), It.IsAny<CancellationToken>()),
+            Times.Once);
         medicos.Should().NotBeNull();
         medicos.Should().HaveCount(2);
     }
@@ -175,18 +178,18 @@ public class ConsultaServiceTests(
             disponibilidadeMedico);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.PacienteId))
+            .Setup(repo => repo.ObterPorId(consulta.PacienteId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
 
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.MedicoId))
+            .Setup(repo => repo.ObterPorId(consulta.MedicoId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -220,18 +223,18 @@ public class ConsultaServiceTests(
             disponibilidadeMedico);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.PacienteId))
+            .Setup(repo => repo.ObterPorId(consulta.PacienteId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
 
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.MedicoId))
+            .Setup(repo => repo.ObterPorId(consulta.MedicoId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -257,23 +260,23 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
-        var consultaMarcada = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
+        var consultaMarcada = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.PacienteId))
+            .Setup(repo => repo.ObterPorId(consulta.PacienteId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
 
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.MedicoId))
+            .Setup(repo => repo.ObterPorId(consulta.MedicoId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterConsultasPendentesMedico(consulta.MedicoId))
+            .Setup(repo => repo.ObterConsultasPendentesMedico(consulta.MedicoId, It.IsAny<CancellationToken>()))
             .ReturnsAsync([consultaMarcada]);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -299,14 +302,14 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.PacienteId))
+            .Setup(repo => repo.ObterPorId(consulta.PacienteId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(() => null);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -332,18 +335,18 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = consultaFixture.ProximaSegundaAsOito();
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.PacienteId))
+            .Setup(repo => repo.ObterPorId(consulta.PacienteId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
 
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.MedicoId))
+            .Setup(repo => repo.ObterPorId(consulta.MedicoId, It.IsAny<CancellationToken>()))
             .ReturnsAsync(() => null);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -369,14 +372,14 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -406,7 +409,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Cancelar("Cancelada");
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -414,7 +417,7 @@ public class ConsultaServiceTests(
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -441,14 +444,14 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddSeconds(3);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -479,14 +482,14 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -512,14 +515,14 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -549,7 +552,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Aceitar();
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -557,7 +560,7 @@ public class ConsultaServiceTests(
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -583,7 +586,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Cancelar("Motivo cancelamento.");
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -591,7 +594,7 @@ public class ConsultaServiceTests(
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -600,7 +603,7 @@ public class ConsultaServiceTests(
         //Act && Assert
         await Assert.ThrowsAsync<ConsultaJaCanceladaException>(() => consultaService.Aceitar(consulta.Id));
     }
-    
+
     [Fact(DisplayName = "Deve poder recusar consulta com sucesso.")]
     public async Task ConsultaService_Recusar_ComSucesso()
     {
@@ -617,14 +620,14 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -637,7 +640,7 @@ public class ConsultaServiceTests(
         consultaRepositoryMock.Verify(repo => repo.Atualizar(consulta), Times.Once);
         consulta.Status.Should().Be(StatusConsulta.Recusada);
     }
-    
+
     [Fact(DisplayName = "Não deve recusar consulta quando já recusada.")]
     public async Task ConsultaService_NaoDeveRecusar_QuandoJaRecusada()
     {
@@ -654,7 +657,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Recusar();
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -662,7 +665,7 @@ public class ConsultaServiceTests(
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,
@@ -671,7 +674,7 @@ public class ConsultaServiceTests(
         //Act && Assert
         await Assert.ThrowsAsync<ConsultaJaRecusadaException>(() => consultaService.Recusar(consulta.Id));
     }
-    
+
     [Fact(DisplayName = "Não deve recusar consulta quando cancelada.")]
     public async Task ConsultaService_NaoDeveRecusar_QuandoCancelada()
     {
@@ -688,7 +691,7 @@ public class ConsultaServiceTests(
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
 
         var horario = DateTime.Now.AddHours(1);
-        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario, medico.ValorConsulta);
+        var consulta = consultaFixture.CriarConsulta(paciente.Id, medico.Id, horario);
         consulta.Cancelar("Motivo cancelamento.");
 
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
@@ -696,7 +699,7 @@ public class ConsultaServiceTests(
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
 
         consultaRepositoryMock
-            .Setup(repo => repo.ObterPorId(consulta.Id))
+            .Setup(repo => repo.ObterPorId(consulta.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(consulta);
 
         var consultaService = new ConsultaService(consultaRepositoryMock.Object, pacienteRepositoryMock.Object,

@@ -13,17 +13,21 @@ public class ConsultaService(
     IPacienteRepository pacienteRepository,
     IMedicoRepository medicoRepository) : IConsultaService
 {
-    public async Task<Consulta> ObterPorId(Guid consultaId)
-        => await consultaRepository.ObterPorId(consultaId) ?? throw new ConsultaNaoEncontradaException();
+    public async Task<Consulta> ObterPorId(Guid consultaId, CancellationToken cancellationToken = default)
+        => await consultaRepository.ObterPorId(consultaId, cancellationToken) ??
+           throw new ConsultaNaoEncontradaException();
 
-    public async Task<IEnumerable<Consulta>?> ObterConsultasPaciente(Guid pacienteId) =>
-        await consultaRepository.ObterConsultasPaciente(pacienteId);
+    public async Task<IEnumerable<Consulta>?> ObterConsultasPaciente(Guid pacienteId,
+        CancellationToken cancellationToken = default) =>
+        await consultaRepository.ObterConsultasPaciente(pacienteId, cancellationToken);
 
-    public async Task<IEnumerable<Consulta>?> ObterConsultasMedico(Guid medicoId)
-        => await consultaRepository.ObterConsultasMedico(medicoId);
+    public async Task<IEnumerable<Consulta>?> ObterConsultasMedico(Guid medicoId,
+        CancellationToken cancellationToken = default)
+        => await consultaRepository.ObterConsultasMedico(medicoId, cancellationToken);
 
-    public async Task<IEnumerable<Medico>?> ObterMedicos(Guid? especialidadeId = null) =>
-        await medicoRepository.ObterTodos(especialidadeId);
+    public async Task<IEnumerable<Medico>?> ObterMedicos(Guid? especialidadeId = null,
+        CancellationToken cancellationToken = default) =>
+        await medicoRepository.ObterTodos(especialidadeId, cancellationToken);
 
     public async Task Agendar(Consulta consulta)
     {
@@ -41,6 +45,8 @@ public class ConsultaService(
         if (horarioConsultaIndisponivel)
             throw new HorarioConsultaIndisponivelException();
 
+        consulta.DefinirValorConsulta(medico.ValorConsulta);
+        
         await consultaRepository.Adicionar(consulta);
     }
 
@@ -53,7 +59,7 @@ public class ConsultaService(
 
         if (consulta.HorarioUltrapassado)
             throw new HorarioConsultaJaUltrapassadoException();
-        
+
         consulta.Cancelar(justificativaCancelamento);
 
         consultaRepository.Atualizar(consulta);
@@ -65,7 +71,7 @@ public class ConsultaService(
 
         if (consulta.Status == StatusConsulta.Aceita)
             throw new ConsultaJaAceitaException();
-        
+
         if (consulta.Status == StatusConsulta.Cancelada)
             throw new ConsultaJaCanceladaException();
 
@@ -80,7 +86,7 @@ public class ConsultaService(
 
         if (consulta.Status == StatusConsulta.Recusada)
             throw new ConsultaJaRecusadaException();
-        
+
         if (consulta.Status == StatusConsulta.Cancelada)
             throw new ConsultaJaCanceladaException();
 

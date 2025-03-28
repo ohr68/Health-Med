@@ -30,7 +30,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var horarioConsulta = DateTime.Now.AddHours(1);
         
         //Act 
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, medico.ValorConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
         
         // Assert
         consulta.MedicoId.Should().Be(medico.Id);
@@ -46,7 +46,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var horarioConsulta = DateTime.Now.AddHours(-3);
         
         //Act && Assert
-        Assert.Throws<DomainException>(() => new Consulta(Guid.Empty, Guid.Empty, horarioConsulta, 100));
+        Assert.Throws<DomainException>(() => new Consulta(Guid.Empty, Guid.Empty, horarioConsulta));
     }
     
     [Fact(DisplayName = "Deve poder cancelar consulta")]
@@ -65,7 +65,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
         var justificativaCancelamento = "Motivo";
         
         //Act 
@@ -93,7 +93,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
         var justificativaCancelamento = "";
         
         //Act && Assert
@@ -116,7 +116,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
         var atualizadoEm = consulta.AtualizadoEm;
         
         //Act 
@@ -143,7 +143,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         
         var horarioConsulta = DateTime.Now.AddHours(1);
-        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta, valorConsulta);
+        var consulta = new Consulta(paciente.Id, medico.Id, horarioConsulta);
         var atualizadoEm = consulta.AtualizadoEm;
         
         //Act 

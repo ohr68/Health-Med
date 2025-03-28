@@ -25,7 +25,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
@@ -33,7 +33,8 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var pacienteRetorno = await pacienteService.ObterPorId(Guid.NewGuid());
 
         //Assert
-        pacienteRepositoryMock.Verify(repo => repo.ObterPorId(It.IsAny<Guid>()), Times.Once);
+        pacienteRepositoryMock.Verify(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()),
+            Times.Once);
         pacienteRetorno.Should().NotBeNull();
     }
 
@@ -57,7 +58,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
@@ -68,7 +69,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         pacienteRepositoryMock.Verify(repo => repo.Adicionar(paciente), Times.Once);
         paciente.Eventos.Should().ContainItemsAssignableTo<PacienteCadastradoEvent>();
     }
-    
+
     [Fact(DisplayName = "Cadastrar paciente deve lançar exceção quando email já está em uso.")]
     public async Task PacienteService_CadastrarPacienteDeveLancarExcecao_QuandoEmailJaEstaEmUso()
     {
@@ -78,10 +79,10 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorEmail(emailPaciente))
+            .Setup(repo => repo.ObterPorEmail(emailPaciente, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
@@ -99,7 +100,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var nomePacienteAlterado = "Nome Paciente Alterado";
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(paciente.Id))
+            .Setup(repo => repo.ObterPorId(paciente.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
@@ -132,7 +133,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
-            .Setup(repo => repo.ObterPorId(paciente.Id))
+            .Setup(repo => repo.ObterPorId(paciente.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(paciente);
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 

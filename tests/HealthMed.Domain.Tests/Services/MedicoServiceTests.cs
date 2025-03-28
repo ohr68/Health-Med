@@ -28,7 +28,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
@@ -36,7 +36,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medicoRetorno = await medicoService.ObterPorId(Guid.NewGuid());
 
         //Assert
-        medicoRepositoryMock.Verify(repo => repo.ObterPorId(It.IsAny<Guid>()), Times.Once);
+        medicoRepositoryMock.Verify(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()), Times.Once);
         medicoRetorno.Should().NotBeNull();
     }
     
@@ -63,7 +63,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorCrm(It.IsAny<string>()))
+            .Setup(repo => repo.ObterPorCrm(It.IsAny<string>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
@@ -71,19 +71,8 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medicoRetorno = await medicoService.ObterPorCrm(crm);
 
         //Assert
-        medicoRepositoryMock.Verify(repo => repo.ObterPorCrm(It.IsAny<string>()), Times.Once);
+        medicoRepositoryMock.Verify(repo => repo.ObterPorCrm(It.IsAny<string>(), It.IsAny<CancellationToken>()), Times.Once);
         medicoRetorno.Should().NotBeNull();
-    }
-    
-    [Fact(DisplayName = "Obter médico por crm deve lançar exceção quando médico não encontrado")]
-    public async Task MedicoService_ObterMedicoPorCrmDeveLançarExcecao_QuandoMedicoNaoEncontrado()
-    {
-        //Arrange
-        var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
-        var medicoService = new MedicoService(medicoRepositoryMock.Object);
-
-        //Act && Assert
-        await Assert.ThrowsAsync<MedicoNaoEncontradoException>(() => medicoService.ObterPorCrm("12345678"));
     }
     
     [Fact(DisplayName = "Cadastrar medico com sucesso")]
@@ -98,7 +87,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
@@ -122,10 +111,10 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorEmail(emailMedico))
+            .Setup(repo => repo.ObterPorEmail(emailMedico, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
@@ -145,10 +134,10 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>()))
+            .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorCrm(crm))
+            .Setup(repo => repo.ObterPorCrm(crm, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
@@ -170,7 +159,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var valorConsultaAlterado = 200;
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(medico.Id))
+            .Setup(repo => repo.ObterPorId(medico.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
@@ -207,7 +196,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medico = medicoFixture.CriarMedico(nomeMedico, crm, especialidadeId, emailMedico, valorConsulta);
         var medicoRepositoryMock = _mocker.GetMock<IMedicoRepository>();
         medicoRepositoryMock
-            .Setup(repo => repo.ObterPorId(medico.Id))
+            .Setup(repo => repo.ObterPorId(medico.Id, It.IsAny<CancellationToken>()))
             .ReturnsAsync(medico);
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 

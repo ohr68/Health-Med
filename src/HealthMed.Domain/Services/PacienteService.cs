@@ -9,8 +9,8 @@ namespace HealthMed.Domain.Services;
 
 public class PacienteService(IPacienteRepository pacienteRepository) : IPacienteService
 {
-    public async Task<Paciente> ObterPorId(Guid pacienteId) =>
-        await pacienteRepository.ObterPorId(pacienteId) ??
+    public async Task<Paciente> ObterPorId(Guid pacienteId, CancellationToken cancellationToken = default) =>
+        await pacienteRepository.ObterPorId(pacienteId, cancellationToken) ??
         throw new PacienteNaoEncontradoException();
 
     public async Task Cadastrar(Paciente paciente)

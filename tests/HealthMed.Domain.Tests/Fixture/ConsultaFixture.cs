@@ -4,9 +4,9 @@ namespace HealthMed.Domain.Tests.Fixture;
 
 public class ConsultaFixture
 {
-    public Consulta CriarConsulta(Guid pacienteId, Guid medicoId, DateTime horario, decimal valor)
+    public Consulta CriarConsulta(Guid pacienteId, Guid medicoId, DateTime horario)
     {
-        return new Consulta(pacienteId, medicoId, horario, valor);
+        return new Consulta(pacienteId, medicoId, horario);
     }
     
     public DateTime ProximaSegundaAsOito()

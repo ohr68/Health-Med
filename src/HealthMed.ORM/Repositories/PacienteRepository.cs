@@ -7,17 +7,17 @@ namespace HealthMed.ORM.Repositories;
 
 internal class PacienteRepository(ApplicationDbContext context) : IPacienteRepository
 {
-    public async Task<Paciente?> ObterPorId(Guid pacienteId) =>
+    public async Task<Paciente?> ObterPorId(Guid pacienteId, CancellationToken cancellationToken = default) =>
         await context.Pacientes
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Id == pacienteId);
+            .FirstOrDefaultAsync(p => p.Id == pacienteId, cancellationToken);
 
-    public async Task<Paciente?> ObterPorEmail(string email) =>
+    public async Task<Paciente?> ObterPorEmail(string email, CancellationToken cancellationToken = default) =>
         await context.Pacientes
             .AsNoTracking()
-            .FirstOrDefaultAsync(p => p.Email == email);
+            .FirstOrDefaultAsync(p => p.Email.Valor == email, cancellationToken);
 
-    public async Task Adicionar(Paciente paciente) => await context.AddAsync(paciente);
+    public async Task Adicionar(Paciente paciente) => await context.Pacientes.AddAsync(paciente);
 
-    public void Atualizar(Paciente paciente) => context.Update(paciente);
+    public void Atualizar(Paciente paciente) => context.Pacientes.Update(paciente);
 }

@@ -8,35 +8,38 @@ namespace HealthMed.ORM.Repositories;
 
 internal class ConsultaRepository(ApplicationDbContext context) : IConsultaRepository
 {
-    public async Task<Consulta?> ObterPorId(Guid consultaId) =>
+    public async Task<Consulta?> ObterPorId(Guid consultaId, CancellationToken cancellationToken = default) =>
         await context.Consultas
             .AsNoTracking()
-            .FirstOrDefaultAsync(c => c.Id == consultaId);
+            .FirstOrDefaultAsync(c => c.Id == consultaId, cancellationToken);
 
-    public async Task<IEnumerable<Consulta>?> ObterConsultasPaciente(Guid pacienteId) =>
+    public async Task<IEnumerable<Consulta>?> ObterConsultasPaciente(Guid pacienteId,
+        CancellationToken cancellationToken = default) =>
         await context
             .Consultas
             .AsNoTracking()
             .Where(c => c.PacienteId == pacienteId)
             .OrderBy(c => c.Horario)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
 
-    public async Task<IEnumerable<Consulta>?> ObterConsultasMedico(Guid medicoId) =>
+    public async Task<IEnumerable<Consulta>?> ObterConsultasMedico(Guid medicoId,
+        CancellationToken cancellationToken = default) =>
         await context
             .Consultas
             .AsNoTracking()
             .Where(c => c.MedicoId == medicoId)
             .OrderBy(c => c.Horario)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
 
-    public async Task<IEnumerable<Consulta>?> ObterConsultasPendentesMedico(Guid medicoId) =>
+    public async Task<IEnumerable<Consulta>?> ObterConsultasPendentesMedico(Guid medicoId,
+        CancellationToken cancellationToken = default) =>
         await context
             .Consultas
             .AsNoTracking()
             .Where(c => c.MedicoId == medicoId
                         && c.Horario >= DateTime.Now
                         && c.Status == StatusConsulta.Aceita)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
 
     public async Task Adicionar(Consulta consulta) => await context.AddAsync(consulta);
 

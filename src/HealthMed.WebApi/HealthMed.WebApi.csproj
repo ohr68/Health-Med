@@ -28,6 +28,7 @@
       <ProjectReference Include="..\HealthMed.Common\HealthMed.Common.csproj" />
       <ProjectReference Include="..\HealthMed.Domain\HealthMed.Domain.csproj" />
       <ProjectReference Include="..\HealthMed.Ioc\HealthMed.Ioc.csproj" />
+      <ProjectReference Include="..\HealthMed.Messaging\HealthMed.Messaging.csproj" />
     </ItemGroup>
 
 </Project>

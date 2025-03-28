@@ -18,8 +18,4 @@
       <ProjectReference Include="..\HealthMed.Domain\HealthMed.Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Models\ViewModels\" />
-    </ItemGroup>
-
 </Project>
