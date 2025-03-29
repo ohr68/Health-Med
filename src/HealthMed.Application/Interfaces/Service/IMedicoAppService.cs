@@ -12,4 +12,6 @@ public interface IMedicoAppService
     Task Cadastrar(CadastroMedicoInputModel input, CancellationToken cancellationToken = default);
     Task Atualizar(Guid medicoId, AtualizacaoMedicoInputModel input, CancellationToken cancellationToken = default);
     Task Excluir(Guid medicoId, CancellationToken cancellationToken = default);
+    Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedicoInputModel> disponibilidade,
+        CancellationToken cancellationToken = default);
 }

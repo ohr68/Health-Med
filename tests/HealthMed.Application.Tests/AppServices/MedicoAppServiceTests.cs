@@ -374,4 +374,67 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         var medicoRet = await medicoRepository.ObterPorId(medico.Id);
         medicoRet.Should().BeNull();
     }
+    
+    [Fact(DisplayName = "Deve atualizar disponibilidade médico com sucesso.")]
+    public async Task MedicoAppService_AtualizarDisponibilidade_ComSucesso()
+    {
+        //Arrange
+        using var scope = fixture.ServiceProvider.CreateScope();
+        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        await context.Database.EnsureCreatedAsync();
+        
+        var especialidade = new Especialidade("Teste");
+        context.Especialidades.Add(especialidade);
+        await context.SaveChangesAsync();
+        context.ChangeTracker.Clear();
+
+        var nomeMedico = _faker.Person.FullName;
+        var emailMedico = _faker.Person.Email;
+        var crmMedico = "1234567";
+        var valorConsulta = 100;
+        var especialidadeId = especialidade.Id;
+        List<DisponibilidadeMedico> disponibilidadeMedico =
+        [
+            new DisponibilidadeMedico((int)DayOfWeek.Monday, 0, 23),
+            new DisponibilidadeMedico((int)DayOfWeek.Tuesday, 0, 23),
+            new DisponibilidadeMedico((int)DayOfWeek.Wednesday, 0, 23),
+            new DisponibilidadeMedico((int)DayOfWeek.Thursday, 0, 23),
+            new DisponibilidadeMedico((int)DayOfWeek.Friday, 0, 23),
+            new DisponibilidadeMedico((int)DayOfWeek.Saturday, 0, 23),
+            new DisponibilidadeMedico((int)DayOfWeek.Sunday, 0, 23),
+        ];
+        var medico = new Medico(
+            nomeMedico,
+            emailMedico,
+            crmMedico,
+            especialidadeId,
+            valorConsulta,
+            disponibilidadeMedico);
+        var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
+        await medicoRepository.Adicionar(medico);
+        await context.SaveChangesAsync();
+        context.ChangeTracker.Clear();
+        var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
+
+        List<DisponibilidadeMedicoInputModel> disponibilidadeMedicoAlterar =
+        [
+            new DisponibilidadeMedicoInputModel((int)DayOfWeek.Monday, 8, 17),
+            new DisponibilidadeMedicoInputModel((int)DayOfWeek.Tuesday, 8, 17),
+        ];
+        
+        //Act
+        await appService.AtualizarDisponibilidade(medico.Id, disponibilidadeMedicoAlterar);
+
+        //Assert
+        var medicoCadastrado = await medicoRepository.ObterPorId(medico.Id);
+        medicoCadastrado!.Disponibilidade.Should().NotBeNull();
+        medicoCadastrado.Disponibilidade.Should().HaveCount(2);
+        medicoCadastrado.Disponibilidade.Should()
+            .Match(x => x.Any(y => y.DiaSemana == (int)DayOfWeek.Monday));
+        medicoCadastrado.Disponibilidade.Should()
+            .Match(x => x.Any(y => y.DiaSemana == (int)DayOfWeek.Tuesday));
+        medicoCadastrado.Disponibilidade.Should()
+            .Match(x => x.All(y => y.DiaSemana != (int)DayOfWeek.Monday 
+                                   || y.DiaSemana != (int)DayOfWeek.Tuesday));
+    }
 }

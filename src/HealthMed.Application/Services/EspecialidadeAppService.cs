@@ -6,7 +6,7 @@ using Mapster;
 
 namespace HealthMed.Application.Services;
 
-public class EspecialidadeAppService(IEspecialidadeService especialidadeService) : IEspecialidadeAppService
+internal class EspecialidadeAppService(IEspecialidadeService especialidadeService) : IEspecialidadeAppService
 {
     public async Task<IEnumerable<EspecialidadeViewModel>?> ObterTodas(CancellationToken cancellationToken = default)
     {

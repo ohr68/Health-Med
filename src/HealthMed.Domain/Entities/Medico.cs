@@ -12,7 +12,7 @@ public class Medico : Entidade
     public Guid EspecialidadeId { get; private set; }
     public virtual Especialidade Especialidade { get; private set; }
     
-    private readonly List<DisponibilidadeMedico>? _disponibilidade;
+    private List<DisponibilidadeMedico>? _disponibilidade;
     public virtual IReadOnlyCollection<DisponibilidadeMedico>? Disponibilidade => _disponibilidade?.AsReadOnly();
     public virtual ICollection<Consulta> Consultas { get; private set; }
 
@@ -68,5 +68,16 @@ public class Medico : Entidade
                 d.DiaSemana == (int)diaSemana && hora >= d.HoraInicio && hora <= d.HoraFim);
 
         return true;
+    }
+
+    public void AtualizarDisponibilidade(IEnumerable<DisponibilidadeMedico> disponibilidade)
+    {
+        _disponibilidade?.Clear();
+
+        foreach (var d in disponibilidade)
+        {
+            d.SetarMedico(Id);
+            _disponibilidade?.Add(d);
+        }
     }
 }

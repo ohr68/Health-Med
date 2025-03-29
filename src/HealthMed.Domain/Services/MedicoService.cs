@@ -50,6 +50,15 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
         medicoRepository.Atualizar(medico);
     }
 
+    public async Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedico> disponibilidade)
+    {
+        var medico = await ObterPorId(medicoId);
+        
+        medico.AtualizarDisponibilidade(disponibilidade);
+        
+        await medicoRepository.AtualizarDisponibilidade(medicoId, medico.Disponibilidade!);
+    }
+
     private async Task VerificarEmailEmUso(Medico medico)
     {
         var medicoBd = await medicoRepository.ObterPorEmail(medico.Email);
