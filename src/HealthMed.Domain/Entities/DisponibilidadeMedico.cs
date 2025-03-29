@@ -30,4 +30,6 @@ public class DisponibilidadeMedico : Entidade
 
         MedicoId = medicoId;
     }
+
+    public void SetarMedico(Guid medicoId) => MedicoId = medicoId;
 }

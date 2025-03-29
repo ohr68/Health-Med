@@ -10,4 +10,5 @@ public interface IMedicoService
     Task Cadastrar(Medico medico);
     Task Atualizar(Guid medicoId, string nome, decimal valorConsulta);
     Task Excluir(Guid medicoId);
+    Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedico> disponibilidade);
 }

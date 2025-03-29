@@ -30,7 +30,6 @@ public class ConsultaServiceTests(
         var pacienteId = Guid.NewGuid();
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
-        var valorConsulta = 100;
         var consulta = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
@@ -71,7 +70,6 @@ public class ConsultaServiceTests(
         var pacienteId = Guid.NewGuid();
         var medicoId = Guid.NewGuid();
         var horario = DateTime.Now.AddHours(1);
-        var valorConsulta = 100;
         var consulta1 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consulta2 = consultaFixture.CriarConsulta(pacienteId, medicoId, horario);
         var consultaRepositoryMock = _mocker.GetMock<IConsultaRepository>();

@@ -10,7 +10,7 @@ using Mapster;
 
 namespace HealthMed.Application.Services;
 
-public class ConsultaAppService(
+internal class ConsultaAppService(
     IUnitOfWork uow,
     IConsultaService consultaService,
     AgendarConsultaInputModelValidation agendarConsultaInputModelValidation,

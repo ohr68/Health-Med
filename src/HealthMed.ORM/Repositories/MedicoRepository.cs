@@ -39,6 +39,19 @@ internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepositor
 
     public void Atualizar(Medico medico) => context.Update(medico);
 
+    public async Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedico> disponibilidade)
+    {
+        var disponibilidadesRemover = await context.DisponibilidadeMedicos
+            .Where(x => x.MedicoId == medicoId)
+            .ToListAsync();
+
+        if (disponibilidadesRemover.Any())
+            foreach (var d in disponibilidadesRemover)
+                context.DisponibilidadeMedicos.Remove(d);
+        
+        context.DisponibilidadeMedicos.AddRange(disponibilidade);
+    }
+
     public async Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId,
         CancellationToken cancellationToken = default) =>
         await context.DisponibilidadeMedicos

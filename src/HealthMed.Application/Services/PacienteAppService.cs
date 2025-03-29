@@ -11,7 +11,7 @@ using Mapster;
 
 namespace HealthMed.Application.Services;
 
-public class PacienteAppService(
+internal class PacienteAppService(
     IUnitOfWork uow,
     IPacienteService pacienteService,
     IBusService busService,

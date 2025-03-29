@@ -12,7 +12,7 @@ using Mapster;
 
 namespace HealthMed.Application.Services;
 
-public class MedicoAppService(
+internal class MedicoAppService(
     IUnitOfWork uow,
     IMedicoService medicoService,
     IBusService busService,
@@ -66,6 +66,15 @@ public class MedicoAppService(
     public async Task Excluir(Guid medicoId, CancellationToken cancellationToken = default)
     {
         await medicoService.Excluir(medicoId);
+
+        await uow.CommitAsync(cancellationToken);
+    }
+
+    public async Task AtualizarDisponibilidade(Guid medicoId,
+        IEnumerable<DisponibilidadeMedicoInputModel> disponibilidade, CancellationToken cancellationToken = default)
+    {
+        await medicoService.AtualizarDisponibilidade(medicoId,
+            disponibilidade.Adapt<IEnumerable<DisponibilidadeMedico>>());
 
         await uow.CommitAsync(cancellationToken);
     }
