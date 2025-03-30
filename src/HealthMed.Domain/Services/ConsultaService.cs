@@ -61,8 +61,6 @@ public class ConsultaService(
             throw new HorarioConsultaJaUltrapassadoException();
 
         consulta.Cancelar(justificativaCancelamento);
-
-        consultaRepository.Atualizar(consulta);
     }
 
     public async Task Aceitar(Guid consultaId)
@@ -76,8 +74,6 @@ public class ConsultaService(
             throw new ConsultaJaCanceladaException();
 
         consulta.Aceitar();
-
-        consultaRepository.Atualizar(consulta);
     }
 
     public async Task Recusar(Guid consultaId)
@@ -91,7 +87,5 @@ public class ConsultaService(
             throw new ConsultaJaCanceladaException();
 
         consulta.Recusar();
-
-        consultaRepository.Atualizar(consulta);
     }
 }

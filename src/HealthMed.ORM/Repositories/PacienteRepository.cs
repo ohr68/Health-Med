@@ -9,7 +9,6 @@ internal class PacienteRepository(ApplicationDbContext context) : IPacienteRepos
 {
     public async Task<Paciente?> ObterPorId(Guid pacienteId, CancellationToken cancellationToken = default) =>
         await context.Pacientes
-            .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Id == pacienteId, cancellationToken);
 
     public async Task<Paciente?> ObterPorEmail(string email, CancellationToken cancellationToken = default) =>

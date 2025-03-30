@@ -170,7 +170,6 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         await medicoService.Atualizar(medico.Id, nomeMedicoAlterado, valorConsultaAlterado);
 
         //Assert
-        medicoRepositoryMock.Verify(repo => repo.Atualizar(medico), Times.Once);
         medico.Nome.Should().Be(nomeMedicoAlterado);
         medico.ValorConsulta.Should().Be(valorConsultaAlterado);
     }
@@ -207,7 +206,6 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         await medicoService.Excluir(medico.Id);
 
         //Assert
-        medicoRepositoryMock.Verify(repo => repo.Atualizar(medico), Times.Once);
         medico.Apagado.Should().Be(true);
     }
 

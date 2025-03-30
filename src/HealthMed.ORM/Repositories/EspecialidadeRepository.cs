@@ -9,6 +9,5 @@ public class EspecialidadeRepository(ApplicationDbContext context) : IEspecialid
 {
     public async Task<IEnumerable<Especialidade>?> ObterTodas(CancellationToken cancellationToken = default) =>
         await context.Especialidades
-            .AsNoTracking()
             .ToListAsync(cancellationToken);
 }

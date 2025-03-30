@@ -108,7 +108,6 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         await pacienteService.Atualizar(paciente.Id, nomePacienteAlterado);
 
         //Assert
-        pacienteRepositoryMock.Verify(repo => repo.Atualizar(paciente), Times.Once);
         paciente.Nome.Should().Be(nomePacienteAlterado);
     }
 
@@ -141,7 +140,6 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         await pacienteService.Excluir(paciente.Id);
 
         //Assert
-        pacienteRepositoryMock.Verify(repo => repo.Atualizar(paciente), Times.Once);
         paciente.Apagado.Should().Be(true);
     }
 

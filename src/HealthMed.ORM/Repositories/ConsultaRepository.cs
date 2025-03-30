@@ -10,7 +10,6 @@ internal class ConsultaRepository(ApplicationDbContext context) : IConsultaRepos
 {
     public async Task<Consulta?> ObterPorId(Guid consultaId, CancellationToken cancellationToken = default) =>
         await context.Consultas
-            .AsNoTracking()
             .FirstOrDefaultAsync(c => c.Id == consultaId, cancellationToken);
 
     public async Task<IEnumerable<Consulta>?> ObterConsultasPaciente(Guid pacienteId,

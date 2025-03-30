@@ -387,7 +387,6 @@ public class ConsultaServiceTests(
         await consultaService.Cancelar(consulta.Id, "Motivo cancelamento.");
 
         // Assert
-        consultaRepositoryMock.Verify(repo => repo.Atualizar(consulta), Times.Once);
         consulta.Status.Should().Be(StatusConsulta.Cancelada);
     }
 
@@ -530,7 +529,6 @@ public class ConsultaServiceTests(
         await consultaService.Aceitar(consulta.Id);
 
         // Assert
-        consultaRepositoryMock.Verify(repo => repo.Atualizar(consulta), Times.Once);
         consulta.Status.Should().Be(StatusConsulta.Aceita);
     }
 
@@ -635,7 +633,6 @@ public class ConsultaServiceTests(
         await consultaService.Recusar(consulta.Id);
 
         // Assert
-        consultaRepositoryMock.Verify(repo => repo.Atualizar(consulta), Times.Once);
         consulta.Status.Should().Be(StatusConsulta.Recusada);
     }
 

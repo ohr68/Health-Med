@@ -72,12 +72,16 @@ public class Medico : Entidade
 
     public void AtualizarDisponibilidade(IEnumerable<DisponibilidadeMedico> disponibilidade)
     {
-        _disponibilidade?.Clear();
+        _disponibilidade ??= new List<DisponibilidadeMedico>();
+
+        _disponibilidade.Clear();
 
         foreach (var d in disponibilidade)
         {
             d.SetarMedico(Id);
-            _disponibilidade?.Add(d);
+            _disponibilidade.Add(d);
         }
+        
+        DefinirAtualizacao();
     }
 }
