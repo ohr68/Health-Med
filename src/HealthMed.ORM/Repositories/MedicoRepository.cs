@@ -9,7 +9,6 @@ internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepositor
 {
     public async Task<Medico?> ObterPorId(Guid medicoId, CancellationToken cancellationToken = default) =>
         await context.Medicos
-            .AsNoTracking()
             .FirstOrDefaultAsync(x => x.Id == medicoId, cancellationToken);
 
     public async Task<Medico?> ObterPorCrm(string crm, CancellationToken cancellationToken = default) =>
@@ -39,17 +38,15 @@ internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepositor
 
     public void Atualizar(Medico medico) => context.Update(medico);
 
-    public async Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedico> disponibilidade)
+    public void AtualizarDisponibilidade(Medico medico)
     {
-        var disponibilidadesRemover = await context.DisponibilidadeMedicos
-            .Where(x => x.MedicoId == medicoId)
-            .ToListAsync();
+        context.Entry(medico).State = EntityState.Modified;
 
-        if (disponibilidadesRemover.Any())
-            foreach (var d in disponibilidadesRemover)
-                context.DisponibilidadeMedicos.Remove(d);
+        if (!medico.Disponibilidade?.Any() ?? true)
+            return;
         
-        context.DisponibilidadeMedicos.AddRange(disponibilidade);
+        foreach (var disponibilidade in medico.Disponibilidade)
+            context.Entry(disponibilidade).State = EntityState.Added;
     }
 
     public async Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId,

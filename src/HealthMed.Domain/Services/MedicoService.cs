@@ -37,8 +37,6 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
         var medico = await ObterPorId(medicoId);
 
         medico.Atualizar(nome, valorConsulta);
-
-        medicoRepository.Atualizar(medico);
     }
 
     public async Task Excluir(Guid medicoId)
@@ -46,8 +44,6 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
         var medico = await ObterPorId(medicoId);
 
         medico.MarcarComoApagado();
-
-        medicoRepository.Atualizar(medico);
     }
 
     public async Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedico> disponibilidade)
@@ -55,8 +51,8 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
         var medico = await ObterPorId(medicoId);
         
         medico.AtualizarDisponibilidade(disponibilidade);
-        
-        await medicoRepository.AtualizarDisponibilidade(medicoId, medico.Disponibilidade!);
+
+        medicoRepository.AtualizarDisponibilidade(medico);
     }
 
     private async Task VerificarEmailEmUso(Medico medico)

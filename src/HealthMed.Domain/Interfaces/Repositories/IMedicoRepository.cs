@@ -11,5 +11,5 @@ public interface IMedicoRepository
     Task Adicionar(Medico medico);
     void Atualizar(Medico medico);
     Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId, CancellationToken cancellationToken = default);
-    Task AtualizarDisponibilidade(Guid medicoId, IEnumerable<DisponibilidadeMedico> disponibilidade);
+    void AtualizarDisponibilidade(Medico medico);
 }
