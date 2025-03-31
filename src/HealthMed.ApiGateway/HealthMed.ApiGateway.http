@@ -1,0 +1,6 @@
+@HealthMed.ApiGateway_HostAddress = http://localhost:5140
+
+GET {{HealthMed.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
