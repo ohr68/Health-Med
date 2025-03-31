@@ -55,6 +55,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{25857C80-8D06-4116-85F6-C2DFA9592AA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMed.ApiGateway", "src\HealthMed.ApiGateway\HealthMed.ApiGateway.csproj", "{58B5059E-14EB-433A-8BA9-E1B1332A718E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +86,8 @@ Global
 		{B232A07A-1FD0-4D2D-B028-A524299FF55C} = {B8466553-4BE4-4E0F-B19E-6164762E74C1}
 		{FE274B98-77E3-4E3D-B95F-D2A590EAB0B8} = {64577BBA-73C2-4C74-B306-591CE616314E}
 		{7E94809D-F059-4C3F-A77B-5DE4291AEEE7} = {3EC45174-5B8B-421E-AB29-2668B5E1254A}
+		{25857C80-8D06-4116-85F6-C2DFA9592AA9} = {849F8445-1054-43E6-875D-F9DB38F28145}
+		{58B5059E-14EB-433A-8BA9-E1B1332A718E} = {25857C80-8D06-4116-85F6-C2DFA9592AA9}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6D58EF83-CEAF-4EF8-ADBD-303C7733D72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -132,5 +138,9 @@ Global
 		{7E94809D-F059-4C3F-A77B-5DE4291AEEE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E94809D-F059-4C3F-A77B-5DE4291AEEE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E94809D-F059-4C3F-A77B-5DE4291AEEE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58B5059E-14EB-433A-8BA9-E1B1332A718E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58B5059E-14EB-433A-8BA9-E1B1332A718E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58B5059E-14EB-433A-8BA9-E1B1332A718E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58B5059E-14EB-433A-8BA9-E1B1332A718E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

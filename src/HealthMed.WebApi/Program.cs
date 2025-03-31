@@ -1,11 +1,12 @@
 using System.Reflection;
+using HealthMed.Common.Filters;
 using HealthMed.Common.HealthChecks;
 using HealthMed.Common.Logging;
-using HealthMed.WebApi.Filters;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using HealthMed.Ioc;
 using HealthMed.ORM.Context;
+
 
 try
 {
