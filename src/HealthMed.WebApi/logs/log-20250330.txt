@@ -1,0 +1,731 @@
+2025-03-30 13:01:18.660 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-30 13:01:20.664 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (161ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [HealthMed];
+2025-03-30 13:01:20.750 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (81ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [HealthMed] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-30 13:01:20.778 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-30 13:01:20.844 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Administradores] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Administradores] PRIMARY KEY ([Id])
+);
+2025-03-30 13:01:20.846 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Especialidades] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Especialidades] PRIMARY KEY ([Id])
+);
+2025-03-30 13:01:20.848 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Pacientes] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Pacientes] PRIMARY KEY ([Id])
+);
+2025-03-30 13:01:20.849 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Medicos] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [Crm] nvarchar(50) NOT NULL,
+    [ValorConsulta] decimal(18,2) NOT NULL,
+    [EspecialidadeId] uniqueidentifier NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Medicos] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Medicos_Especialidades_EspecialidadeId] FOREIGN KEY ([EspecialidadeId]) REFERENCES [Especialidades] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:01:20.851 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Consultas] (
+    [Id] uniqueidentifier NOT NULL,
+    [PacienteId] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [Horario] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [JustificativaCancelamento] nvarchar(500) NULL,
+    [Valor] decimal(18,2) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Consultas] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Consultas_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Consultas_Pacientes_PacienteId] FOREIGN KEY ([PacienteId]) REFERENCES [Pacientes] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:01:20.852 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DisponibilidadeMedico] (
+    [Id] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [DiaSemana] int NOT NULL,
+    [HoraInicio] int NOT NULL,
+    [HoraFim] int NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_DisponibilidadeMedico] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DisponibilidadeMedico_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:01:20.854 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Administrador_Email] ON [Administradores] ([Email]);
+2025-03-30 13:01:20.855 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_MedicoId] ON [Consultas] ([MedicoId]);
+2025-03-30 13:01:20.856 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_PacienteId] ON [Consultas] ([PacienteId]);
+2025-03-30 13:01:20.857 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DisponibilidadeMedico_MedicoId] ON [DisponibilidadeMedico] ([MedicoId]);
+2025-03-30 13:01:20.858 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Especialidade_Nome] ON [Especialidades] ([Nome]);
+2025-03-30 13:01:20.859 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Crm] ON [Medicos] ([Crm]);
+2025-03-30 13:01:20.860 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Email] ON [Medicos] ([Email]);
+2025-03-30 13:01:20.861 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_EspecialidadeId] ON [Medicos] ([EspecialidadeId]);
+2025-03-30 13:01:20.862 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_Nome] ON [Medicos] ([Nome]);
+2025-03-30 13:01:20.863 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Paciente_Email] ON [Pacientes] ([Email]);
+2025-03-30 13:01:20.927 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-03-30 13:01:20.927 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-30 13:01:20.928 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-30 13:01:20.928 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-03-30 13:01:21.966 +00:00 [INF] MassTransit Retrying "00:00:06.3910000": Broker unreachable: guest@healthmed_rabbitmq:5672/
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@healthmed_rabbitmq:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 172.19.0.2:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 172.19.0.2:5672
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 101
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 128
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 73
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 202
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 210
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2025-03-30 13:01:28.454 +00:00 [INF] MassTransit Bus started: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:05:03.846 +00:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-30 13:05:03.883 +00:00 [INF] MassTransit Bus stopped: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:05:54.865 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-30 13:05:59.706 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (181ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [HealthMed];
+2025-03-30 13:05:59.788 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [HealthMed] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-30 13:05:59.806 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-30 13:05:59.869 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Administradores] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Administradores] PRIMARY KEY ([Id])
+);
+2025-03-30 13:05:59.871 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Especialidades] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Especialidades] PRIMARY KEY ([Id])
+);
+2025-03-30 13:05:59.873 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Pacientes] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Pacientes] PRIMARY KEY ([Id])
+);
+2025-03-30 13:05:59.875 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Medicos] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [Crm] nvarchar(50) NOT NULL,
+    [ValorConsulta] decimal(18,2) NOT NULL,
+    [EspecialidadeId] uniqueidentifier NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Medicos] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Medicos_Especialidades_EspecialidadeId] FOREIGN KEY ([EspecialidadeId]) REFERENCES [Especialidades] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:05:59.877 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Consultas] (
+    [Id] uniqueidentifier NOT NULL,
+    [PacienteId] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [Horario] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [JustificativaCancelamento] nvarchar(500) NULL,
+    [Valor] decimal(18,2) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Consultas] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Consultas_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Consultas_Pacientes_PacienteId] FOREIGN KEY ([PacienteId]) REFERENCES [Pacientes] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:05:59.878 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DisponibilidadeMedico] (
+    [Id] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [DiaSemana] int NOT NULL,
+    [HoraInicio] int NOT NULL,
+    [HoraFim] int NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_DisponibilidadeMedico] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DisponibilidadeMedico_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:05:59.879 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Administrador_Email] ON [Administradores] ([Email]);
+2025-03-30 13:05:59.880 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_MedicoId] ON [Consultas] ([MedicoId]);
+2025-03-30 13:05:59.881 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_PacienteId] ON [Consultas] ([PacienteId]);
+2025-03-30 13:05:59.882 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DisponibilidadeMedico_MedicoId] ON [DisponibilidadeMedico] ([MedicoId]);
+2025-03-30 13:05:59.883 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Especialidade_Nome] ON [Especialidades] ([Nome]);
+2025-03-30 13:05:59.884 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Crm] ON [Medicos] ([Crm]);
+2025-03-30 13:05:59.886 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Email] ON [Medicos] ([Email]);
+2025-03-30 13:05:59.887 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_EspecialidadeId] ON [Medicos] ([EspecialidadeId]);
+2025-03-30 13:05:59.888 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_Nome] ON [Medicos] ([Nome]);
+2025-03-30 13:05:59.889 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Paciente_Email] ON [Pacientes] ([Email]);
+2025-03-30 13:05:59.948 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-03-30 13:05:59.948 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-30 13:05:59.948 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-30 13:05:59.949 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-03-30 13:06:00.963 +00:00 [INF] MassTransit Retrying "00:00:05.6580000": Broker unreachable: guest@healthmed_rabbitmq:5672/
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@healthmed_rabbitmq:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 172.19.0.2:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 172.19.0.2:5672
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 101
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 128
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 73
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 202
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 210
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2025-03-30 13:06:06.692 +00:00 [INF] MassTransit Bus started: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:06:42.671 +00:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-30 13:06:42.708 +00:00 [INF] MassTransit Bus stopped: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:07:12.998 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-30 13:07:17.825 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (164ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [HealthMed];
+2025-03-30 13:07:17.905 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (76ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [HealthMed] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-30 13:07:17.925 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-30 13:07:17.983 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Administradores] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Administradores] PRIMARY KEY ([Id])
+);
+2025-03-30 13:07:17.985 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Especialidades] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Especialidades] PRIMARY KEY ([Id])
+);
+2025-03-30 13:07:17.987 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Pacientes] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Pacientes] PRIMARY KEY ([Id])
+);
+2025-03-30 13:07:17.988 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Medicos] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [Crm] nvarchar(50) NOT NULL,
+    [ValorConsulta] decimal(18,2) NOT NULL,
+    [EspecialidadeId] uniqueidentifier NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Medicos] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Medicos_Especialidades_EspecialidadeId] FOREIGN KEY ([EspecialidadeId]) REFERENCES [Especialidades] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:07:17.990 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Consultas] (
+    [Id] uniqueidentifier NOT NULL,
+    [PacienteId] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [Horario] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [JustificativaCancelamento] nvarchar(500) NULL,
+    [Valor] decimal(18,2) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Consultas] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Consultas_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Consultas_Pacientes_PacienteId] FOREIGN KEY ([PacienteId]) REFERENCES [Pacientes] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:07:17.991 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DisponibilidadeMedico] (
+    [Id] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [DiaSemana] int NOT NULL,
+    [HoraInicio] int NOT NULL,
+    [HoraFim] int NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_DisponibilidadeMedico] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DisponibilidadeMedico_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:07:17.992 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Administrador_Email] ON [Administradores] ([Email]);
+2025-03-30 13:07:17.993 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_MedicoId] ON [Consultas] ([MedicoId]);
+2025-03-30 13:07:17.994 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_PacienteId] ON [Consultas] ([PacienteId]);
+2025-03-30 13:07:17.995 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DisponibilidadeMedico_MedicoId] ON [DisponibilidadeMedico] ([MedicoId]);
+2025-03-30 13:07:17.996 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Especialidade_Nome] ON [Especialidades] ([Nome]);
+2025-03-30 13:07:17.997 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Crm] ON [Medicos] ([Crm]);
+2025-03-30 13:07:17.998 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Email] ON [Medicos] ([Email]);
+2025-03-30 13:07:17.999 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_EspecialidadeId] ON [Medicos] ([EspecialidadeId]);
+2025-03-30 13:07:18.000 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_Nome] ON [Medicos] ([Nome]);
+2025-03-30 13:07:18.001 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Paciente_Email] ON [Pacientes] ([Email]);
+2025-03-30 13:07:18.054 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-03-30 13:07:18.054 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-30 13:07:18.054 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-30 13:07:18.055 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-03-30 13:07:19.078 +00:00 [INF] MassTransit Retrying "00:00:06.5970000": Broker unreachable: guest@healthmed_rabbitmq:5672/
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@healthmed_rabbitmq:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 172.19.0.3:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 172.19.0.3:5672
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 101
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 128
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 73
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 202
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 210
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2025-03-30 13:07:25.749 +00:00 [INF] MassTransit Bus started: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:08:49.174 +00:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-30 13:08:49.210 +00:00 [INF] MassTransit Bus stopped: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:09:11.492 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-30 13:09:15.900 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (179ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [HealthMed];
+2025-03-30 13:09:16.007 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (102ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [HealthMed] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-30 13:09:16.024 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-30 13:09:16.085 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Administradores] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Administradores] PRIMARY KEY ([Id])
+);
+2025-03-30 13:09:16.087 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Especialidades] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Especialidades] PRIMARY KEY ([Id])
+);
+2025-03-30 13:09:16.089 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Pacientes] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Pacientes] PRIMARY KEY ([Id])
+);
+2025-03-30 13:09:16.090 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Medicos] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [Crm] nvarchar(50) NOT NULL,
+    [ValorConsulta] decimal(18,2) NOT NULL,
+    [EspecialidadeId] uniqueidentifier NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Medicos] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Medicos_Especialidades_EspecialidadeId] FOREIGN KEY ([EspecialidadeId]) REFERENCES [Especialidades] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:09:16.092 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Consultas] (
+    [Id] uniqueidentifier NOT NULL,
+    [PacienteId] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [Horario] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [JustificativaCancelamento] nvarchar(500) NULL,
+    [Valor] decimal(18,2) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Consultas] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Consultas_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Consultas_Pacientes_PacienteId] FOREIGN KEY ([PacienteId]) REFERENCES [Pacientes] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:09:16.093 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DisponibilidadeMedico] (
+    [Id] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [DiaSemana] int NOT NULL,
+    [HoraInicio] int NOT NULL,
+    [HoraFim] int NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_DisponibilidadeMedico] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DisponibilidadeMedico_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:09:16.094 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Administrador_Email] ON [Administradores] ([Email]);
+2025-03-30 13:09:16.095 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_MedicoId] ON [Consultas] ([MedicoId]);
+2025-03-30 13:09:16.096 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_PacienteId] ON [Consultas] ([PacienteId]);
+2025-03-30 13:09:16.097 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DisponibilidadeMedico_MedicoId] ON [DisponibilidadeMedico] ([MedicoId]);
+2025-03-30 13:09:16.098 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Especialidade_Nome] ON [Especialidades] ([Nome]);
+2025-03-30 13:09:16.098 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Crm] ON [Medicos] ([Crm]);
+2025-03-30 13:09:16.099 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Email] ON [Medicos] ([Email]);
+2025-03-30 13:09:16.100 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_EspecialidadeId] ON [Medicos] ([EspecialidadeId]);
+2025-03-30 13:09:16.101 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_Nome] ON [Medicos] ([Nome]);
+2025-03-30 13:09:16.102 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Paciente_Email] ON [Pacientes] ([Email]);
+2025-03-30 13:09:16.155 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-03-30 13:09:16.156 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-30 13:09:16.156 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-30 13:09:16.156 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-03-30 13:09:16.422 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger - null null
+2025-03-30 13:09:16.466 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger - 301 0 null 43.9537ms
+2025-03-30 13:09:16.469 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/index.html - null null
+2025-03-30 13:09:16.521 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/index.html - 200 null text/html;charset=utf-8 52.3852ms
+2025-03-30 13:09:16.536 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/swagger-ui.css - null null
+2025-03-30 13:09:16.537 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/swagger-ui-standalone-preset.js - null null
+2025-03-30 13:09:16.537 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/swagger-ui-bundle.js - null null
+2025-03-30 13:09:16.564 +00:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-03-30 13:09:16.566 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/swagger-ui.css - 200 152034 text/css 30.1627ms
+2025-03-30 13:09:16.586 +00:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-03-30 13:09:16.587 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 50.2866ms
+2025-03-30 13:09:16.634 +00:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-03-30 13:09:16.635 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 98.3422ms
+2025-03-30 13:09:16.732 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json - null null
+2025-03-30 13:09:16.745 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/favicon-32x32.png - null null
+2025-03-30 13:09:16.746 +00:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-03-30 13:09:16.746 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/favicon-32x32.png - 200 628 image/png 1.0689ms
+2025-03-30 13:09:16.825 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 93.1599ms
+2025-03-30 13:09:17.182 +00:00 [INF] MassTransit Retrying "00:00:05.8270000": Broker unreachable: guest@healthmed_rabbitmq:5672/
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@healthmed_rabbitmq:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed, host 172.19.0.2:5672)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed, host 172.19.0.2:5672
+ ---> System.Net.Sockets.SocketException (111): Connection refused
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Net.Sockets.Socket.<ConnectAsync>g__WaitForConnectWithCancellation|285_0(AwaitableSocketAsyncEventArgs saea, ValueTask connectTask, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFactory.ConnectUsingAddressFamilyAsync(IPEndPoint endpoint, Func`2 socketFactory, AddressFamily family, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFactory.OpenAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.CreateAsync(AmqpTcpEndpoint amqpTcpEndpoint, Func`2 socketFactory, TimeSpan connectionTimeout, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandlerAsync(AmqpTcpEndpoint endpoint, CancellationToken cancellationToken)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOneAsync[T](IEndpointResolver resolver, Func`3 selector, CancellationToken cancellationToken)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnectionAsync(IEndpointResolver endpointResolver, String clientProvidedName, CancellationToken cancellationToken)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 101
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 128
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 73
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.SupervisorExtensions.<>c__DisplayClass5_0`2.<<CreateAgent>g__HandleSupervisorTask|0>d.MoveNext() in /_/src/MassTransit/SupervisorExtensions.cs:line 139
+--- End of stack trace from previous location ---
+   at MassTransit.SupervisorExtensions.CreateAgent[T,TAgent](ISupervisor`1 supervisor, IAsyncPipeContextAgent`1 asyncContext, Func`3 agentFactory, CancellationToken cancellationToken) in /_/src/MassTransit/SupervisorExtensions.cs:line 158
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 202
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 210
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.Run() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 145
+2025-03-30 13:09:23.099 +00:00 [INF] MassTransit Bus started: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:13:04.951 +00:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-30 13:13:04.988 +00:00 [INF] MassTransit Bus stopped: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:16:56.194 +00:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-30 13:16:57.423 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (160ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [HealthMed];
+2025-03-30 13:16:57.504 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (78ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [HealthMed] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-30 13:16:57.522 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-30 13:16:57.581 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Administradores] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Administradores] PRIMARY KEY ([Id])
+);
+2025-03-30 13:16:57.583 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Especialidades] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Especialidades] PRIMARY KEY ([Id])
+);
+2025-03-30 13:16:57.585 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Pacientes] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Pacientes] PRIMARY KEY ([Id])
+);
+2025-03-30 13:16:57.586 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Medicos] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [Crm] nvarchar(50) NOT NULL,
+    [ValorConsulta] decimal(18,2) NOT NULL,
+    [EspecialidadeId] uniqueidentifier NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Medicos] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Medicos_Especialidades_EspecialidadeId] FOREIGN KEY ([EspecialidadeId]) REFERENCES [Especialidades] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:16:57.588 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Consultas] (
+    [Id] uniqueidentifier NOT NULL,
+    [PacienteId] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [Horario] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [JustificativaCancelamento] nvarchar(500) NULL,
+    [Valor] decimal(18,2) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Consultas] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Consultas_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Consultas_Pacientes_PacienteId] FOREIGN KEY ([PacienteId]) REFERENCES [Pacientes] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:16:57.589 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DisponibilidadeMedico] (
+    [Id] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [DiaSemana] int NOT NULL,
+    [HoraInicio] int NOT NULL,
+    [HoraFim] int NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_DisponibilidadeMedico] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DisponibilidadeMedico_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE
+);
+2025-03-30 13:16:57.591 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Administrador_Email] ON [Administradores] ([Email]);
+2025-03-30 13:16:57.592 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_MedicoId] ON [Consultas] ([MedicoId]);
+2025-03-30 13:16:57.593 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_PacienteId] ON [Consultas] ([PacienteId]);
+2025-03-30 13:16:57.594 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DisponibilidadeMedico_MedicoId] ON [DisponibilidadeMedico] ([MedicoId]);
+2025-03-30 13:16:57.595 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Especialidade_Nome] ON [Especialidades] ([Nome]);
+2025-03-30 13:16:57.596 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Crm] ON [Medicos] ([Crm]);
+2025-03-30 13:16:57.596 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Email] ON [Medicos] ([Email]);
+2025-03-30 13:16:57.597 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_EspecialidadeId] ON [Medicos] ([EspecialidadeId]);
+2025-03-30 13:16:57.598 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_Nome] ON [Medicos] ([Nome]);
+2025-03-30 13:16:57.599 +00:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Paciente_Email] ON [Pacientes] ([Email]);
+2025-03-30 13:16:57.653 +00:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-03-30 13:16:57.653 +00:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-30 13:16:57.653 +00:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-30 13:16:57.654 +00:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-03-30 13:16:57.694 +00:00 [INF] MassTransit Bus started: "rabbitmq://healthmed_rabbitmq/"
+2025-03-30 13:17:15.215 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/index.html - null null
+2025-03-30 13:17:15.294 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/index.html - 200 null text/html;charset=utf-8 79.4986ms
+2025-03-30 13:17:15.341 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json - null null
+2025-03-30 13:17:15.425 +00:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:8080/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 84.0074ms
+2025-03-30 13:17:27.074 +00:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-30 13:17:27.116 +00:00 [INF] MassTransit Bus stopped: "rabbitmq://healthmed_rabbitmq/"

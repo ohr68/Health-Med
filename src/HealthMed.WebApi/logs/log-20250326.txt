@@ -1,0 +1,127 @@
+2025-03-26 12:28:51.565 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-26 12:28:51.727 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.DefaultActionDescriptorCollectionProvider No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-03-26 12:28:53.439 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (242ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [HealthMed];
+2025-03-26 12:28:53.560 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (112ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [HealthMed] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+2025-03-26 12:28:53.597 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-26 12:28:53.674 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Administradores] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Administradores] PRIMARY KEY ([Id])
+);
+2025-03-26 12:28:53.678 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Especialidades] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Especialidades] PRIMARY KEY ([Id])
+);
+2025-03-26 12:28:53.681 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Pacientes] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Pacientes] PRIMARY KEY ([Id])
+);
+2025-03-26 12:28:53.685 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Medicos] (
+    [Id] uniqueidentifier NOT NULL,
+    [Nome] nvarchar(200) NOT NULL,
+    [Email] nvarchar(200) NOT NULL,
+    [Crm] nvarchar(50) NOT NULL,
+    [ValorConsulta] decimal(18,2) NOT NULL,
+    [EspecialidadeId] uniqueidentifier NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Medicos] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Medicos_Especialidades_EspecialidadeId] FOREIGN KEY ([EspecialidadeId]) REFERENCES [Especialidades] ([Id]) ON DELETE CASCADE
+);
+2025-03-26 12:28:53.688 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Consultas] (
+    [Id] uniqueidentifier NOT NULL,
+    [PacienteId] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [Horario] datetime2 NOT NULL,
+    [Status] int NOT NULL,
+    [JustificativaCancelamento] nvarchar(500) NULL,
+    [Valor] decimal(18,2) NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_Consultas] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Consultas_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Consultas_Pacientes_PacienteId] FOREIGN KEY ([PacienteId]) REFERENCES [Pacientes] ([Id]) ON DELETE CASCADE
+);
+2025-03-26 12:28:53.691 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [DisponibilidadeMedico] (
+    [Id] uniqueidentifier NOT NULL,
+    [MedicoId] uniqueidentifier NOT NULL,
+    [DiaSemana] int NOT NULL,
+    [HoraInicio] int NOT NULL,
+    [HoraFim] int NOT NULL,
+    [CriadoEm] datetime2 NOT NULL,
+    [AtualizadoEm] datetime2 NULL,
+    [Apagado] bit NOT NULL,
+    CONSTRAINT [PK_DisponibilidadeMedico] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_DisponibilidadeMedico_Medicos_MedicoId] FOREIGN KEY ([MedicoId]) REFERENCES [Medicos] ([Id]) ON DELETE CASCADE
+);
+2025-03-26 12:28:53.694 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Administrador_Email] ON [Administradores] ([Email]);
+2025-03-26 12:28:53.697 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_MedicoId] ON [Consultas] ([MedicoId]);
+2025-03-26 12:28:53.699 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Consultas_PacienteId] ON [Consultas] ([PacienteId]);
+2025-03-26 12:28:53.702 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_DisponibilidadeMedico_MedicoId] ON [DisponibilidadeMedico] ([MedicoId]);
+2025-03-26 12:28:53.704 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Especialidade_Nome] ON [Especialidades] ([Nome]);
+2025-03-26 12:28:53.706 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Crm] ON [Medicos] ([Crm]);
+2025-03-26 12:28:53.708 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Medico_Email] ON [Medicos] ([Email]);
+2025-03-26 12:28:53.711 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_EspecialidadeId] ON [Medicos] ([EspecialidadeId]);
+2025-03-26 12:28:53.714 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE INDEX [IX_Medico_Nome] ON [Medicos] ([Nome]);
+2025-03-26 12:28:53.716 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE UNIQUE INDEX [IX_Paciente_Email] ON [Pacientes] ([Email]);
+2025-03-26 12:28:53.812 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7139
+2025-03-26 12:28:53.813 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5058
+2025-03-26 12:28:53.814 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-26 12:28:53.815 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-26 12:28:53.816 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: E:\Code\Health-Med\src\HealthMed.WebApi
+2025-03-26 12:28:54.210 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger - null null
+2025-03-26 12:28:54.249 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger - 301 0 null 39.8775ms
+2025-03-26 12:28:54.255 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2025-03-26 12:28:54.373 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 115.1729ms
+2025-03-26 12:28:54.382 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/swagger-ui.css - null null
+2025-03-26 12:28:54.382 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/swagger-ui-bundle.js - null null
+2025-03-26 12:28:54.382 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/swagger-ui-standalone-preset.js - null null
+2025-03-26 12:28:54.403 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+2025-03-26 12:28:54.404 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+2025-03-26 12:28:54.405 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/swagger-ui-standalone-preset.js - 200 230280 text/javascript 22.3441ms
+2025-03-26 12:28:54.405 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/swagger-ui.css - 200 152034 text/css 23.3276ms
+2025-03-26 12:28:54.416 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+2025-03-26 12:28:54.417 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/swagger-ui-bundle.js - 200 1456926 text/javascript 34.788ms
+2025-03-26 12:28:54.533 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2025-03-26 12:28:54.546 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/favicon-32x32.png - null null
+2025-03-26 12:28:54.548 -03:00 [INF] Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware Sending file. Request path: '/favicon-32x32.png'. Physical path: 'N/A'
+2025-03-26 12:28:54.549 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/favicon-32x32.png - 200 628 image/png 2.885ms
+2025-03-26 12:28:54.561 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 28.2946ms
+2025-03-26 12:29:01.146 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...

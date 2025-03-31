@@ -1,0 +1,139 @@
+2025-03-29 11:27:56.060 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-29 12:11:05.420 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-29 12:11:06.483 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-29 12:11:06.518 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-03-29 12:11:06.619 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7139
+2025-03-29 12:11:06.620 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5058
+2025-03-29 12:11:06.621 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-29 12:11:06.622 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-29 12:11:06.623 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: E:\Code\Health-Med\src\HealthMed.WebApi
+2025-03-29 12:11:06.719 -03:00 [INF] MassTransit Bus started: "rabbitmq://localhost/"
+2025-03-29 12:11:07.102 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2025-03-29 12:11:07.261 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 160.2582ms
+2025-03-29 12:11:07.408 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2025-03-29 12:11:07.513 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 104.4452ms
+2025-03-29 12:13:02.512 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-29 12:13:02.580 -03:00 [INF] MassTransit Bus stopped: "rabbitmq://localhost/"
+2025-03-29 12:48:24.775 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-29 12:48:25.844 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-29 12:48:25.870 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-03-29 12:48:25.947 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7139
+2025-03-29 12:48:25.948 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5058
+2025-03-29 12:48:25.949 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-29 12:48:25.950 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-29 12:48:25.950 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: E:\Code\Health-Med\src\HealthMed.WebApi
+2025-03-29 12:48:26.029 -03:00 [INF] MassTransit Bus started: "rabbitmq://localhost/"
+2025-03-29 12:48:26.522 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2025-03-29 12:48:26.668 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 146.7432ms
+2025-03-29 12:48:26.738 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2025-03-29 12:48:26.855 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 117.4557ms
+2025-03-29 12:49:27.272 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/api/Consulta/f40e80f6-c83a-493d-ae88-3cd446059fb8 - null null
+2025-03-29 12:49:27.281 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterPorId (HealthMed.WebApi)'
+2025-03-29 12:49:27.302 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-03-29 12:49:27.311 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-03-29 12:49:27.356 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterPorId (HealthMed.WebApi) in 50.5894ms
+2025-03-29 12:49:27.357 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterPorId (HealthMed.WebApi)'
+2025-03-29 12:49:27.358 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/api/Consulta/f40e80f6-c83a-493d-ae88-3cd446059fb8 - 500 null application/problem+json; charset=utf-8 85.9716ms
+2025-03-29 12:49:51.659 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/api/Consulta/f40e80f6-c83a-493d-ae88-3cd446059fb8 - null null
+2025-03-29 12:49:51.662 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterPorId (HealthMed.WebApi)'
+2025-03-29 12:49:51.663 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-03-29 12:49:51.665 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2025-03-29 12:49:51.667 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterPorId (HealthMed.WebApi) in 2.3805ms
+2025-03-29 12:49:51.668 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterPorId (HealthMed.WebApi)'
+2025-03-29 12:49:51.669 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/api/Consulta/f40e80f6-c83a-493d-ae88-3cd446059fb8 - 500 null application/problem+json; charset=utf-8 9.666ms
+2025-03-29 12:49:53.576 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-29 12:49:53.636 -03:00 [INF] MassTransit Bus stopped: "rabbitmq://localhost/"
+2025-03-29 12:57:51.345 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-29 12:57:52.363 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-29 12:57:52.388 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-03-29 12:57:52.466 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7139
+2025-03-29 12:57:52.467 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5058
+2025-03-29 12:57:52.468 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-29 12:57:52.469 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-29 12:57:52.469 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: E:\Code\Health-Med\src\HealthMed.WebApi
+2025-03-29 12:57:52.554 -03:00 [INF] MassTransit Bus started: "rabbitmq://localhost/"
+2025-03-29 12:57:52.639 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2025-03-29 12:57:52.781 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 142.7298ms
+2025-03-29 12:57:52.851 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2025-03-29 12:57:52.952 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 100.9972ms
+2025-03-29 12:58:28.391 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-29 12:58:28.460 -03:00 [INF] MassTransit Bus stopped: "rabbitmq://localhost/"
+2025-03-29 13:59:34.824 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-29 13:59:35.844 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-29 13:59:35.872 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-03-29 13:59:35.949 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7139
+2025-03-29 13:59:35.949 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5058
+2025-03-29 13:59:35.951 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-29 13:59:35.951 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-29 13:59:35.952 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: E:\Code\Health-Med\src\HealthMed.WebApi
+2025-03-29 13:59:36.049 -03:00 [INF] MassTransit Bus started: "rabbitmq://localhost/"
+2025-03-29 13:59:36.091 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/index.html - null null
+2025-03-29 13:59:36.233 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/index.html - 200 null text/html;charset=utf-8 142.9114ms
+2025-03-29 13:59:36.303 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - null null
+2025-03-29 13:59:36.414 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:7139/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 110.1889ms
+2025-03-29 13:59:49.215 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-29 13:59:49.282 -03:00 [INF] MassTransit Bus stopped: "rabbitmq://localhost/"

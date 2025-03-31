@@ -1,0 +1,28 @@
+2025-03-27 16:45:06.925 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-03-27 16:45:06.987 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.DefaultActionDescriptorCollectionProvider No action descriptors found. This may indicate an incorrectly configured application or missing application parts. To learn more, visit https://aka.ms/aspnet/mvc/app-parts
+2025-03-27 16:45:08.438 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-03-27 16:45:08.472 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-03-27 16:45:08.556 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://localhost:7139
+2025-03-27 16:45:08.557 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://localhost:5058
+2025-03-27 16:45:08.557 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-03-27 16:45:08.558 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-03-27 16:45:08.559 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: E:\Code\Health-Med\src\HealthMed.WebApi
+2025-03-27 16:45:08.653 -03:00 [INF] MassTransit Bus started: "rabbitmq://localhost/"
+2025-03-27 16:47:41.171 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-03-27 16:47:41.226 -03:00 [INF] MassTransit Bus stopped: "rabbitmq://localhost/"
