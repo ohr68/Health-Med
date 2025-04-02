@@ -73,12 +73,32 @@ namespace HealthMed.WebApi.Controllers
         }
 
         /// <summary>
+        /// Obter consultas pendentes do médico
+        /// </summary>
+        /// <param name="medicoId"></param>
+        /// <returns></returns>
+        [HttpGet("ObterConsultasPendentesMedico/{medicoId:guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ConsultaViewModel>))]
+        public async Task<IActionResult> ObterConsultasPendentesMedico([FromRoute] Guid medicoId,
+            CancellationToken cancellationToken)
+        {
+            logger.LogTrace("Obtendo consultas pendentes do medico Id = {0}", medicoId);
+
+            var consultas = await consultaAppService.ObterConsultasPendentesMedico(medicoId, cancellationToken);
+
+            logger.LogTrace(!consultas?.Any() ?? true ? "Nenhum consulta encontrada" : "{0} consultas encontradas",
+                consultas?.Count());
+
+            return Ok(consultas);
+        }
+
+        /// <summary>
         /// Obter médicos disponíveis para consulta
         /// </summary>
         /// <param name="especialidadeId"></param>
         /// <returns></returns>
         [HttpGet("ObterMedicos")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<ConsultaViewModel>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<MedicoViewModel>))]
         public async Task<IActionResult> ObterMedicos([FromQuery] Guid? especialidadeId,
             CancellationToken cancellationToken)
         {
@@ -158,7 +178,7 @@ namespace HealthMed.WebApi.Controllers
 
             return NoContent();
         }
-        
+
         /// <summary>
         /// Médico recusar consulta
         /// </summary>

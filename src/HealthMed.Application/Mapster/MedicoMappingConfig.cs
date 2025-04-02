@@ -20,6 +20,7 @@ public class MedicoMappingConfig : IRegister
 
         config.NewConfig<Medico, MedicoViewModel>()
             .ConstructUsing(src => new MedicoViewModel(
+                src.Id,
                 src.Nome,
                 src.Email,
                 src.Crm,

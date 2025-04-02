@@ -38,6 +38,14 @@ internal class ConsultaAppService(
 
         return consultas.Adapt<IEnumerable<ConsultaViewModel>>();
     }
+    
+    public async Task<IEnumerable<ConsultaViewModel>?> ObterConsultasPendentesMedico(Guid medicoId,
+        CancellationToken cancellationToken = default)
+    {
+        var consultas = await consultaService.ObterConsultasPendentesMedico(medicoId, cancellationToken);
+
+        return consultas.Adapt<IEnumerable<ConsultaViewModel>>();
+    }
 
     public async Task<IEnumerable<MedicoViewModel>?> ObterMedicos(Guid? especialidadeId = null,
         CancellationToken cancellationToken = default)

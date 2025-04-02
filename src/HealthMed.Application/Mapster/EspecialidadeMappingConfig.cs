@@ -9,6 +9,6 @@ public class EspecialidadeMappingConfig : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<Especialidade, EspecialidadeViewModel>()
-            .ConstructUsing(src => new EspecialidadeViewModel(src.Nome));
+            .ConstructUsing(src => new EspecialidadeViewModel(src.Id, src.Nome));
     }
 }

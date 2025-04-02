@@ -25,6 +25,10 @@ public class ConsultaService(
         CancellationToken cancellationToken = default)
         => await consultaRepository.ObterConsultasMedico(medicoId, cancellationToken);
 
+    public async Task<IEnumerable<Consulta>?> ObterConsultasPendentesMedico(Guid medicoId,
+        CancellationToken cancellationToken = default) =>
+        await consultaRepository.ObterConsultasPendentesMedico(medicoId, cancellationToken);
+
     public async Task<IEnumerable<Medico>?> ObterMedicos(Guid? especialidadeId = null,
         CancellationToken cancellationToken = default) =>
         await medicoRepository.ObterTodos(especialidadeId, cancellationToken);
@@ -46,7 +50,7 @@ public class ConsultaService(
             throw new HorarioConsultaIndisponivelException();
 
         consulta.DefinirValorConsulta(medico.ValorConsulta);
-        
+
         await consultaRepository.Adicionar(consulta);
     }
 

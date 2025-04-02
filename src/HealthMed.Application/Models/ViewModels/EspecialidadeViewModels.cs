@@ -1,3 +1,3 @@
 ﻿namespace HealthMed.Application.Models.ViewModels;
 
-public record EspecialidadeViewModel(string Nome);
+public record EspecialidadeViewModel(Guid Id, string Nome);

@@ -8,6 +8,9 @@ public interface IConsultaService
     Task<IEnumerable<Consulta>?> ObterConsultasPaciente(Guid pacienteId, CancellationToken cancellationToken = default);
     Task<IEnumerable<Consulta>?> ObterConsultasMedico(Guid medicoId, CancellationToken cancellationToken = default);
 
+    Task<IEnumerable<Consulta>?> ObterConsultasPendentesMedico(Guid medicoId,
+        CancellationToken cancellationToken = default);
+
     Task<IEnumerable<Medico>?> ObterMedicos(Guid? especialidadeId = null,
         CancellationToken cancellationToken = default);
 

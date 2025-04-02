@@ -1,6 +1,7 @@
 ﻿namespace HealthMed.Application.Models.ViewModels;
 
 public record MedicoViewModel(
+    Guid Id,
     string Nome,
     string Email,
     string Crm,
