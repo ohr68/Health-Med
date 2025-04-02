@@ -13,6 +13,6 @@ public class PacienteMappingConfig : IRegister
             .ConstructUsing(src => new Paciente(src.Nome, src.Email));
 
         config.NewConfig<Paciente, PacienteViewModel>()
-            .ConstructUsing(src => new PacienteViewModel(src.Nome, src.Email));
+            .ConstructUsing(src => new PacienteViewModel(src.Id, src.Nome, src.Email));
     }
 }

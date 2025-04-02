@@ -1,6 +1,7 @@
 ﻿namespace HealthMed.Application.Models.ViewModels;
 
 public record ConsultaViewModel(
+    Guid Id,
     DateTime Horario,
     string Status,
     string? JustificativaCancelamento,

@@ -37,7 +37,7 @@ internal class ConsultaRepository(ApplicationDbContext context) : IConsultaRepos
             .AsNoTracking()
             .Where(c => c.MedicoId == medicoId
                         && c.Horario >= DateTime.Now
-                        && c.Status == StatusConsulta.Aceita)
+                        && (c.Status == StatusConsulta.AguardandoAceite || c.Status == StatusConsulta.Aceita))
             .ToListAsync(cancellationToken);
 
     public async Task Adicionar(Consulta consulta) => await context.AddAsync(consulta);

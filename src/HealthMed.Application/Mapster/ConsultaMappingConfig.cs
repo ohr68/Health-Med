@@ -17,6 +17,7 @@ public class ConsultaMappingConfig : IRegister
 
         config.NewConfig<Consulta, ConsultaViewModel>()
             .ConstructUsing(src => new ConsultaViewModel(
+                src.Id,
                 src.Horario,
                 src.ObterStatusDesc(),
                 src.JustificativaCancelamento,
