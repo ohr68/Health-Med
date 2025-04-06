@@ -147,7 +147,7 @@ namespace HealthMed.WebApi.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
         [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ValidationProblemDetails))]
-        public async Task<IActionResult> Agendar([FromRoute] Guid id, [FromBody] CancelarConsultaInputModel input,
+        public async Task<IActionResult> Cancelar([FromRoute] Guid id, [FromBody] CancelarConsultaInputModel input,
             CancellationToken cancellationToken)
         {
             logger.LogTrace("Cancelando consulta Id = {0}", id);
@@ -192,7 +192,7 @@ namespace HealthMed.WebApi.Controllers
         {
             logger.LogTrace("Recusando consulta Id = {0}", id);
 
-            await consultaAppService.Aceitar(id, cancellationToken);
+            await consultaAppService.Recusar(id, cancellationToken);
 
             logger.LogTrace("Consulta recusada com sucesso");
 

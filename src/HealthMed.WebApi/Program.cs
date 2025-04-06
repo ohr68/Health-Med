@@ -41,16 +41,22 @@ try
         options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
     });
 
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowAny", cfg => cfg
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+    });
+
     builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
 
     var app = builder.Build();
 
     app.UseSwagger();
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Health & Med Web API V1");
-    });
-    
+    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "Health & Med Web API V1"); });
+
+    app.UseCors("AllowAny");
     app.UseHttpsRedirection();
     app.UseBasicHealthChecks();
     app.MapControllers();

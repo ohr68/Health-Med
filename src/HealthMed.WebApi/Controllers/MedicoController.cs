@@ -137,8 +137,7 @@ namespace HealthMed.WebApi.Controllers
         [HttpDelete("{id:guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
-        public async Task<IActionResult> Excluir([FromRoute] Guid id, [FromBody] AtualizacaoMedicoInputModel input,
-            CancellationToken cancellationToken)
+        public async Task<IActionResult> Excluir([FromRoute] Guid id, CancellationToken cancellationToken)
         {
             logger.LogTrace("Excluindo médico");
 
