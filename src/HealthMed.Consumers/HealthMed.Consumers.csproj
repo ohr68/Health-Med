@@ -8,6 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="MassTransit" Version="8.4.1-develop.2255" />
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.4.1-develop.2255" />
       <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
       <PackageReference Include="Serilog" Version="4.2.0" />
     </ItemGroup>
@@ -15,6 +17,7 @@
     <ItemGroup>
       <ProjectReference Include="..\HealthMed.Common\HealthMed.Common.csproj" />
       <ProjectReference Include="..\HealthMed.Ioc\HealthMed.Ioc.csproj" />
+      <ProjectReference Include="..\HealthMed.Keycloak\HealthMed.Keycloak.csproj" />
     </ItemGroup>
 
 </Project>
