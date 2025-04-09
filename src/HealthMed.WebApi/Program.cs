@@ -9,6 +9,7 @@ using HealthMed.ORM.Context;
 using HealthMed.WebApi.Constants;
 
 
+
 try
 {
     Log.Information("Starting web application");
