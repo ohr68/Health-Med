@@ -1,13 +1,11 @@
 using System.Reflection;
+using HealthMed.AuthApi.Constants;
+using HealthMed.AuthApi.Extensions;
 using HealthMed.Common.Filters;
 using HealthMed.Common.HealthChecks;
 using HealthMed.Common.Logging;
 using Microsoft.OpenApi.Models;
 using Serilog;
-using HealthMed.Ioc;
-using HealthMed.ORM.Context;
-using HealthMed.WebApi.Constants;
-
 
 try
 {
@@ -25,7 +23,8 @@ try
         });
 
     builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
-
+    builder.Services.AddOpenApi();
+    builder.Services.AddPresentationLayer(builder.Configuration);
     builder.Services.AddEndpointsApiExplorer();
 
     builder.AddBasicHealthChecks();
@@ -35,7 +34,7 @@ try
         options.SwaggerDoc("v1", new OpenApiInfo
         {
             Version = "v1",
-            Title = "Health & Med Web API",
+            Title = "Health & Med Auth Web API",
             Description = ""
         });
 
@@ -56,22 +55,14 @@ try
             .AllowAnyMethod());
     });
 
-    builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
-
     var app = builder.Build();
 
-    app.UseSwagger();
-    app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "Health & Med Web API V1"); });
+    if (app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+    }
 
-    app.UseCors("AllowAny");
     app.UseHttpsRedirection();
-    app.UseBasicHealthChecks();
-    app.MapControllers();
-
-    // When the app runs, it first creates the Database.
-    using var scope = app.Services.CreateScope();
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    context.Database.EnsureCreated();
 
     app.Run();
 }

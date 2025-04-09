@@ -9,6 +9,7 @@ using Serilog.Exceptions.Core;
 using Serilog.Exceptions.EntityFrameworkCore.Destructurers;
 using Serilog.Sinks.SystemConsole.Themes;
 using System.Diagnostics;
+using Microsoft.Extensions.Hosting;
 
 namespace HealthMed.Common.Logging;
 
@@ -83,5 +84,36 @@ public static class LoggingExtensions
         logger.LogInformation("Logging enabled for '{Application}' on '{Environment}' - Mode: {Mode}",
             app.Environment.ApplicationName, app.Environment.EnvironmentName, mode);
         return app;
+    }
+    
+    public static IHostApplicationBuilder AddDefaultHostAppLogging(this IHostApplicationBuilder builder)
+    {
+        Log.Logger = new LoggerConfiguration()
+            .Enrich.WithMachineName()
+            .Enrich.WithProperty("Environment", builder.Environment.EnvironmentName)
+            .Enrich.WithProperty("Application", builder.Environment.ApplicationName)
+            .Enrich.FromLogContext()
+            .Enrich.WithExceptionDetails()
+            .Filter.ByExcluding(FilterPredicate)
+            .WriteTo.Console(
+                outputTemplate: "{Timestamp:yyyy-MM-dd HH:mm:ss.fff zzz} [{Level:u3}] {SourceContext} {Message:lj}{NewLine}{Exception}",
+                theme: SystemConsoleTheme.Colored)
+            .WriteTo.File("logs/log-.txt", rollingInterval: RollingInterval.Day)
+            .CreateLogger();
+
+        builder.Services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog());
+
+        return builder;
+    }
+
+    public static IHost UseDefaultHostAppLogging(this IHost host)
+    {
+        var logger = host.Services.GetRequiredService<ILogger<Logger>>();
+
+        var mode = Debugger.IsAttached ? "Debug" : "Release";
+
+        logger.LogInformation("Logging enabled for Worker Service - Mode: {Mode}", mode);
+
+        return host;
     }
 }
