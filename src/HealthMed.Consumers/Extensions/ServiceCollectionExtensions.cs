@@ -1,6 +1,6 @@
 ﻿using HealthMed.Application.Extensions;
-using HealthMed.Consumers.Configuration;
 using HealthMed.Consumers.Consumers;
+using HealthMed.Domain.Configuration;
 using HealthMed.Domain.Interfaces.Messaging;
 using HealthMed.Keycloak.Extensions;
 using HealthMed.Messaging.Services;
@@ -13,7 +13,8 @@ namespace HealthMed.Consumers.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration, bool isDevelopment)
+    public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration,
+        bool isDevelopment)
     {
         services
             .AddApplicationLayer()
@@ -31,8 +32,15 @@ public static class ServiceCollectionExtensions
         services.AddMassTransit(busConfig =>
         {
             busConfig.AddConsumer<MedicoCadastradoConsumer>();
-            busConfig.AddConsumer<MedicoAlteradoConsumer>();
-            
+            busConfig.AddConsumer<PacienteCadastradoConsumer>();
+
+            if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Testing")
+            {
+                busConfig.UsingInMemory((context, cfg) => { cfg.ConfigureEndpoints(context); });
+
+                return;
+            }
+
             busConfig.UsingRabbitMq((context, config) =>
             {
                 var massTansitSettings = configuration.GetSection("MasstransitSettings").Get<MassTransitSettings>()
@@ -48,8 +56,8 @@ public static class ServiceCollectionExtensions
                 config.ConfigureEndpoints(context);
             });
         });
-        
-        services.AddScoped<IBusService, BusService >();
+
+        services.AddScoped<IBusService, BusService>();
 
         return services;
     }

@@ -18,7 +18,7 @@
       "DownstreamHostAndPorts": [
         {
           "Host": "localhost",
-          "Port": 7139
+          "Port": 8081
         }
       ],
       "UpstreamPathTemplate": "/med",

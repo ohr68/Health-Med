@@ -8,7 +8,7 @@ public class ConsultaMap : IEntityTypeConfiguration<Consulta>
 {
     public void Configure(EntityTypeBuilder<Consulta> builder)
     {
-        builder.HasKey(p => p.Id);
+        builder.ToTable("Consultas");
         
         builder
             .Property(p => p.PacienteId)
@@ -38,7 +38,8 @@ public class ConsultaMap : IEntityTypeConfiguration<Consulta>
 
         builder.HasOne(p => p.Paciente)
             .WithMany(p => p.Consultas)
-            .HasForeignKey(p => p.PacienteId);
+            .HasForeignKey(p => p.PacienteId)
+            .OnDelete(DeleteBehavior.Restrict);
         
         builder.HasOne(p => p.Medico)
             .WithMany(p => p.Consultas)
@@ -49,9 +50,5 @@ public class ConsultaMap : IEntityTypeConfiguration<Consulta>
         
         builder.Navigation(x => x.Medico)
             .AutoInclude();
-        
-        builder.HasQueryFilter(p => !p.Apagado);
-        
-        builder.ToTable("Consultas");
     }
 }

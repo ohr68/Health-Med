@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthMed.ORM.Repositories;
 
-public class EspecialidadeRepository(ApplicationDbContext context) : IEspecialidadeRepository
+public class EspecialidadeRepository(HealthMedDbContext context) : IEspecialidadeRepository
 {
     public async Task<IEnumerable<Especialidade>?> ObterTodas(CancellationToken cancellationToken = default) =>
         await context.Especialidades

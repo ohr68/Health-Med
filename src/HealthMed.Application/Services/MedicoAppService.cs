@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using HealthMed.Application.Extensions;
+using HealthMed.Application.Features.Usuarios.CadastrarUsuario;
 using HealthMed.Application.Interfaces.Service;
 using HealthMed.Application.Models.InputModels;
 using HealthMed.Application.Models.ViewModels;
@@ -9,6 +10,7 @@ using HealthMed.Domain.Interfaces.Messaging;
 using HealthMed.Domain.Interfaces.Services;
 using HealthMed.Domain.Interfaces.UnitOfWork;
 using Mapster;
+using MediatR;
 
 namespace HealthMed.Application.Services;
 
@@ -16,6 +18,7 @@ internal class MedicoAppService(
     IUnitOfWork uow,
     IMedicoService medicoService,
     IBusService busService,
+    IMediator mediator,
     CadastroMedicoInputModelValidation cadastroMedicoInputModelValidation,
     AtualizacaoMedicoInputModelValidation atualizacaoMedicoInputModelValidation) : IMedicoAppService
 {
@@ -44,9 +47,13 @@ internal class MedicoAppService(
     {
         await cadastroMedicoInputModelValidation.ValidateAndThrowAsync(input, cancellationToken);
 
+        var usuario = input.Adapt<CadastrarUsuarioCommand>();
+        
+        var usuarioCadastrado = await mediator.Send(usuario, cancellationToken);
+        
         var medico = input.Adapt<Medico>();
 
-        await medicoService.Cadastrar(medico);
+        await medicoService.Cadastrar(medico, usuarioCadastrado.Senha, cancellationToken);
 
         await uow.CommitAsync(cancellationToken);
 

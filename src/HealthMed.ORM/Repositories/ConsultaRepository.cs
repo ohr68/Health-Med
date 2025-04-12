@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthMed.ORM.Repositories;
 
-internal class ConsultaRepository(ApplicationDbContext context) : IConsultaRepository
+internal class ConsultaRepository(HealthMedDbContext context) : IConsultaRepository
 {
     public async Task<Consulta?> ObterPorId(Guid consultaId, CancellationToken cancellationToken = default) =>
         await context.Consultas

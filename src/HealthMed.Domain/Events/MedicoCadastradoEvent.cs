@@ -1,19 +1,13 @@
 ﻿namespace HealthMed.Domain.Events;
 
-public class MedicoCadastradoEvent : IEventoDominio
+public class MedicoCadastradoEvent(Guid medicoId, string email, string nome, string crm, string senha)
+    : IEventoDominio
 {
-    public Guid MedicoId { get; private set; }
-    public string Email { get; private set; }
-    public string Nome { get; private set; }
-    public DateTime CriadoEm { get; }
-    public string Tipo { get; }
-    
-    public MedicoCadastradoEvent(Guid medicoId, string email, string nome)
-    {
-        MedicoId = medicoId;
-        Email = email;
-        Nome = nome;
-        CriadoEm = DateTime.UtcNow;
-        Tipo = nameof(PacienteCadastradoEvent);
-    }
+    public Guid MedicoId { get; private set; } = medicoId;
+    public string Email { get; private set; } = email;
+    public string Nome { get; private set; } = nome;
+    public string Crm { get; private set; } = crm;
+    public string Senha { get; private set; } = senha;
+    public DateTime CriadoEm { get; } = DateTime.UtcNow;
+    public string Tipo { get; } = nameof(MedicoCadastradoEvent);
 }

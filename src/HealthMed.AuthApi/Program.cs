@@ -1,10 +1,9 @@
-using System.Reflection;
 using HealthMed.AuthApi.Constants;
 using HealthMed.AuthApi.Extensions;
-using HealthMed.Common.Filters;
 using HealthMed.Common.HealthChecks;
 using HealthMed.Common.Logging;
-using Microsoft.OpenApi.Models;
+using HealthMed.Ioc;
+using Scalar.AspNetCore;
 using Serilog;
 
 try
@@ -22,25 +21,32 @@ try
                 $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}");
         });
 
-    builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
-    builder.Services.AddOpenApi();
-    builder.Services.AddPresentationLayer(builder.Configuration);
-    builder.Services.AddEndpointsApiExplorer();
-
-    builder.AddBasicHealthChecks();
-
-    builder.Services.AddSwaggerGen(options =>
+    builder.Services.AddOpenApi(options =>
     {
-        options.SwaggerDoc("v1", new OpenApiInfo
+        options.AddDocumentTransformer((document, context, _) =>
         {
-            Version = "v1",
-            Title = "Health & Med Auth Web API",
-            Description = ""
+            document.Info = new()
+            {
+                Title = "Health & Med Auth Api",
+                Version = "v1",
+                Description = "Utilizada para autenticar usuários dos aplicativos clientes.",
+                Contact = new()
+                {
+                    Name = "API Support",
+                    Email = "api@example.com",
+                    Url = new Uri("https://api.example.com/support")
+                }
+            };
+            return Task.CompletedTask;
         });
-
-        var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-        options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
     });
+    
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+    builder.Services.AddPresentationLayer(builder.Configuration);
+    builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
+    builder.Services.AddHttpContextAccessor();
+    builder.AddBasicHealthChecks();
 
     builder.Services.AddCors(options =>
     {
@@ -57,13 +63,27 @@ try
 
     var app = builder.Build();
 
-    if (app.Environment.IsDevelopment())
+    app.MapOpenApi();
+    app.MapScalarApiReference(options =>
     {
-        app.MapOpenApi();
-    }
+        options
+            .WithTitle("Health & Med Auth Api")
+            .WithTheme(ScalarTheme.BluePlanet)
+            .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+
+        var https = builder.Configuration["ScalarDocs"]!;
+        options.Servers = [new ScalarServer(https)];
+    });
+                
+    // Redirect root to Scalar UI
+    app.MapGet("/", () => Results.Redirect("/scalar/v1"))
+        .ExcludeFromDescription();
 
     app.UseHttpsRedirection();
-
+    app.UseDefaultLogging();
+    app.UseGlobalExceptionHandler();
+    app.AddEndpoints();
+    
     app.Run();
 }
 catch (Exception ex)

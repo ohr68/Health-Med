@@ -1,4 +1,5 @@
-﻿using HealthMed.Domain.Interfaces.Messaging;
+﻿using HealthMed.Domain.Configuration;
+using HealthMed.Domain.Interfaces.Messaging;
 using HealthMed.Messaging.Services;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -24,11 +25,13 @@ public static class ServiceCollectionExtensions
     
     private static IServiceCollection AddMassTransit(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddMassTransit(config =>
+        services.Configure<MassTransitSettings>(configuration.GetSection("MasstransitSettings"));
+        
+        services.AddMassTransit(busConfig =>
         {
             if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Testing")
             {
-                config.UsingInMemory((context, cfg) =>
+                busConfig.UsingInMemory((context, cfg) =>
                 {
                     cfg.ConfigureEndpoints(context);
                 });
@@ -36,20 +39,19 @@ public static class ServiceCollectionExtensions
                 return;
             }
             
-            config.UsingRabbitMq((context, cfg) =>
+            busConfig.UsingRabbitMq((context, config) =>
             {
-                var rabbitMqConfig = configuration.GetSection("RabbitMq");
-                var host = rabbitMqConfig["Host"]!;
-                var username = rabbitMqConfig["Username"]!;
-                var password = rabbitMqConfig["Password"]!;
-                
-                cfg.Host(host, h =>
+                var massTansitSettings = configuration.GetSection("MasstransitSettings").Get<MassTransitSettings>()
+                                         ?? throw new InvalidOperationException(
+                                             $"A chave {nameof(MassTransitSettings)} não foi encontrada ou não foi configurada corretamente.");
+
+                config.Host(massTansitSettings.Host!, virtualHost: "/", x =>
                 {
-                    h.Username(username);
-                    h.Password(password);
+                    x.Username(massTansitSettings.User!);
+                    x.Password(massTansitSettings.Password!);
                 });
 
-                cfg.ConfigureEndpoints(context);
+                config.ConfigureEndpoints(context);
             });
         });
 

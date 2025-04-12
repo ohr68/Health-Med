@@ -8,7 +8,7 @@ public class EspecialidadeMap : IEntityTypeConfiguration<Especialidade>
 {
     public void Configure(EntityTypeBuilder<Especialidade> builder)
     {
-        builder.HasKey(p => p.Id);
+        builder.ToTable("Especialidades");
         
         builder
             .Property(m => m.Nome)
@@ -16,23 +16,7 @@ public class EspecialidadeMap : IEntityTypeConfiguration<Especialidade>
             .IsRequired();
         
         builder
-            .Property(m => m.CriadoEm)
-            .IsRequired();
-        
-        builder
-            .Property(m => m.AtualizadoEm)
-            .IsRequired(false);
-        
-        builder
-            .Property(m => m.Apagado)
-            .IsRequired();
-        
-        builder.HasQueryFilter(m => !m.Apagado);
-        
-        builder
             .HasIndex(p => p.Nome)
             .HasDatabaseName("IX_Especialidade_Nome");
-        
-        builder.ToTable("Especialidades");
     }
 }

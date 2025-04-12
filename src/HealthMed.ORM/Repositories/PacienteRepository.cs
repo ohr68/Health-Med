@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthMed.ORM.Repositories;
 
-internal class PacienteRepository(ApplicationDbContext context) : IPacienteRepository
+internal class PacienteRepository(HealthMedDbContext context) : IPacienteRepository
 {
     public async Task<Paciente?> ObterPorId(Guid pacienteId, CancellationToken cancellationToken = default) =>
         await context.Pacientes
@@ -16,7 +16,7 @@ internal class PacienteRepository(ApplicationDbContext context) : IPacienteRepos
             .AsNoTracking()
             .FirstOrDefaultAsync(p => p.Email.Valor == email, cancellationToken);
 
-    public async Task Adicionar(Paciente paciente) => await context.Pacientes.AddAsync(paciente);
+    public async Task Adicionar(Paciente paciente, CancellationToken cancellationToken = default) => await context.Pacientes.AddAsync(paciente, cancellationToken);
 
     public void Atualizar(Paciente paciente) => context.Pacientes.Update(paciente);
 }

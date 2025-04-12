@@ -19,15 +19,15 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
     public async Task<IEnumerable<Medico>?> ObterTodos(CancellationToken cancellationToken = default)
         => await medicoRepository.ObterTodos(null, cancellationToken);
 
-    public async Task Cadastrar(Medico medico)
+    public async Task Cadastrar(Medico medico, string senha, CancellationToken cancellationToken = default)
     {
         await VerificarEmailEmUso(medico);
 
         await VerificarCrmEmUso(medico);
 
-        await medicoRepository.Adicionar(medico);
+        await medicoRepository.Adicionar(medico, cancellationToken);
 
-        var evento = new MedicoCadastradoEvent(medico.Id, medico.Email, medico.Nome);
+        var evento = new MedicoCadastradoEvent(medico.Id, medico.Email, medico.Nome, medico.Crm, senha);
 
         medico.AdicionarEvento(evento);
     }

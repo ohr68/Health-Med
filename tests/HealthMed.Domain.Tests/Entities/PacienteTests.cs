@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Bogus.Extensions.Brazil;
 using FluentAssertions;
 using HealthMed.Domain.Exceptions;
 using HealthMed.Domain.Tests.Fixture;
@@ -15,9 +16,10 @@ public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<Paci
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
+        var cpfPaciente = _faker.Person.Cpf();
         
         //Act
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         // Assert
         paciente.Nome.Should().Be(nomePaciente);
@@ -28,11 +30,12 @@ public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<Paci
     public void Paciente_NaoDeveCriar_QuandoInvalido()
     {
         //Arrange
-        var nomePaciente = "";
+        var nomePaciente = string.Empty;
         var emailPaciente = "email_invalido";
+        var cpfPaciente = string.Empty;
         
         //Act && Assert
-        Assert.Throws<DomainException>(() => pacienteFixture.CriarPaciente(nomePaciente, emailPaciente));
+        Assert.Throws<DomainException>(() => pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente));
     }
     
     [Fact(DisplayName = "Deve poder atualizar paciente quando dados válidos.")]
@@ -41,7 +44,8 @@ public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<Paci
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var nomePacienteAlterar = "Nome Alterado";
         
         //Act
@@ -58,7 +62,8 @@ public class PacienteTests(PacienteFixture pacienteFixture) : IClassFixture<Paci
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var nomePacienteAlterar = "";
         
         //Act && Assert

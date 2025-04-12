@@ -8,8 +8,6 @@ using HealthMed.Ioc;
 using HealthMed.ORM.Context;
 using HealthMed.WebApi.Constants;
 
-
-
 try
 {
     Log.Information("Starting web application");
@@ -25,6 +23,7 @@ try
                 $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}");
         });
 
+    builder.Services.AddOpenApi();
     builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
 
     builder.Services.AddEndpointsApiExplorer();
@@ -58,20 +57,26 @@ try
     });
 
     builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
-
+    builder.Services.AddHttpContextAccessor();
+    
     var app = builder.Build();
 
+    app.MapOpenApi();
+                
     app.UseSwagger();
     app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "Health & Med Web API V1"); });
-
-    app.UseCors("AllowAny");
+    
+    app.UseCors(config =>
+    {
+        config.WithOrigins(CorsConfiguration.AllowHealthMedDoctorClient, CorsConfiguration.AllowHealthMedDoctorClient);
+    });
     app.UseHttpsRedirection();
     app.UseBasicHealthChecks();
     app.MapControllers();
 
     // When the app runs, it first creates the Database.
     using var scope = app.Services.CreateScope();
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+    var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
     context.Database.EnsureCreated();
 
     app.Run();

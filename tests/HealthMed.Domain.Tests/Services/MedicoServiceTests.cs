@@ -95,10 +95,10 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
         //Act
-        await medicoService.Cadastrar(medico);
+        await medicoService.Cadastrar(medico, _faker.Internet.Password());
 
         //Assert
-        medicoRepositoryMock.Verify(repo => repo.Adicionar(medico), Times.Once);
+        medicoRepositoryMock.Verify(repo => repo.Adicionar(medico, CancellationToken.None), Times.Once);
         medico.Eventos.Should().ContainItemsAssignableTo<MedicoCadastradoEvent>();
     }
 
@@ -122,7 +122,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
         //Act && Assert
-        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => medicoService.Cadastrar(medico));
+        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => medicoService.Cadastrar(medico, _faker.Internet.Password()));
     }
 
     [Fact(DisplayName = "Cadastrar medico deve lançar exceção quando crm já está em uso.")]
@@ -145,7 +145,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
         var medicoService = new MedicoService(medicoRepositoryMock.Object);
 
         //Act && Assert
-        await Assert.ThrowsAsync<CrmJaEstaEmUsoException>(() => medicoService.Cadastrar(medico));
+        await Assert.ThrowsAsync<CrmJaEstaEmUsoException>(() => medicoService.Cadastrar(medico, _faker.Internet.Password()));
     }
 
     [Fact(DisplayName = "Atualizar medico com sucesso")]

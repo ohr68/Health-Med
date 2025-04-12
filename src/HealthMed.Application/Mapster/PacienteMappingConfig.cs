@@ -10,7 +10,7 @@ public class PacienteMappingConfig : IRegister
     public void Register(TypeAdapterConfig config)
     {
         config.NewConfig<CadastroPacienteInputModel, Paciente>()
-            .ConstructUsing(src => new Paciente(src.Nome, src.Email));
+            .ConstructUsing(src => new Paciente(src.Nome, src.Email, src.Cpf));
 
         config.NewConfig<Paciente, PacienteViewModel>()
             .ConstructUsing(src => new PacienteViewModel(src.Id, src.Nome, src.Email));

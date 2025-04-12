@@ -1,20 +1,23 @@
 ﻿using HealthMed.Domain.Exceptions;
+using HealthMed.Domain.Interfaces;
 using HealthMed.Domain.ValueObjects;
 
 namespace HealthMed.Domain.Entities;
 
-public class Medico : Entidade
+public class Medico : Entidade, IUsuario
 {
     public string Nome { get; private set; }
     public Email Email { get; private set; }
-    public string Crm { get; private set; }
+    public Crm Crm { get; private set; }
     public decimal ValorConsulta { get; private set; }
     public Guid EspecialidadeId { get; private set; }
-    public virtual Especialidade Especialidade { get; private set; }
+    public Guid UsuarioId { get; private set; }
+    public virtual Especialidade? Especialidade { get; private set; }
     
     private List<DisponibilidadeMedico>? _disponibilidade;
     public virtual IReadOnlyCollection<DisponibilidadeMedico>? Disponibilidade => _disponibilidade?.AsReadOnly();
-    public virtual ICollection<Consulta> Consultas { get; private set; }
+    public virtual ICollection<Consulta>? Consultas { get; private set; }
+    public virtual Usuario? Usuario { get; private set; }
 
     private Medico()
     {
@@ -72,7 +75,7 @@ public class Medico : Entidade
 
     public void AtualizarDisponibilidade(IEnumerable<DisponibilidadeMedico> disponibilidade)
     {
-        _disponibilidade ??= new List<DisponibilidadeMedico>();
+        _disponibilidade ??= [];
 
         _disponibilidade.Clear();
 

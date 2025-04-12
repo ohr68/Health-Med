@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Bogus.Extensions.Brazil;
 using FluentAssertions;
 using HealthMed.Domain.Entities;
 using HealthMed.Domain.Enums;
@@ -18,7 +19,8 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";
@@ -55,7 +57,8 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";
@@ -83,7 +86,8 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";
@@ -106,7 +110,8 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";
@@ -133,7 +138,8 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         //Arrange
         var nomePaciente = _faker.Name.FullName();
         var emailPaciente = _faker.Internet.Email();
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
         var crm = "12345678";

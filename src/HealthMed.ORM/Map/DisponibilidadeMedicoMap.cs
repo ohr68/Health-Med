@@ -8,8 +8,6 @@ public class DisponibilidadeMedicoMap : IEntityTypeConfiguration<Disponibilidade
 {
     public void Configure(EntityTypeBuilder<DisponibilidadeMedico> builder)
     {
-        builder.HasKey(c => c.Id);
-
         builder
             .Property(p => p.MedicoId)
             .IsRequired();
@@ -32,9 +30,7 @@ public class DisponibilidadeMedicoMap : IEntityTypeConfiguration<Disponibilidade
         builder.HasOne(p => p.Medico)
             .WithMany(p => p.Disponibilidade)
             .HasForeignKey(p => p.MedicoId);
-
-        builder.HasQueryFilter(p => !p.Apagado);
-
+        
         builder.ToTable("DisponibilidadeMedico");
     }
 }

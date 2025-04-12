@@ -40,4 +40,27 @@ public class Email
     {
         return StringComparer.OrdinalIgnoreCase.GetHashCode(Valor);
     }
+    
+    public static bool TryParse(string valor, out Email? email)
+    {
+        if (EhValido(valor))
+        {
+            email = new Email(valor);
+            return true;
+        }
+
+        email = null;
+        return false;
+    }
+    
+    public static bool TryParse(string valor) => EhValido(valor);
+    
+    
+    private static bool EhValido(string valor)
+    {
+        if (string.IsNullOrWhiteSpace(valor)) return false;
+        valor = valor.Trim().ToLowerInvariant();
+        return EmailRegex.IsMatch(valor);
+    }
+
 }

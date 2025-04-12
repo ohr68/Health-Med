@@ -33,12 +33,6 @@ public class Program
 
             var app = builder.Build();
 
-            if (app.Environment.IsDevelopment())
-            {
-                app.UseSwagger();
-                app.UseSwaggerUI();
-            }
-
             await app.UseOcelot();
             app.UseHttpsRedirection();
             app.UseDefaultLogging();

@@ -1,6 +1,5 @@
 ﻿using HealthMed.Domain.Events;
 using HealthMed.Domain.Exceptions;
-using HealthMed.Domain.Interfaces.Messaging;
 using HealthMed.Keycloak.Saga.CreateUser;
 using HealthMed.ORM.Context;
 using Mapster;
@@ -11,7 +10,7 @@ using Microsoft.Extensions.Logging;
 
 namespace HealthMed.Consumers.Consumers;
 
-public class MedicoCadastradoConsumer(IMediator mediator, IBusService busService, ApplicationDbContext dbContext, ILogger<MedicoCadastradoConsumer> logger) : IConsumer<MedicoCadastradoEvent>
+public class MedicoCadastradoConsumer(IMediator mediator, HealthMedDbContext dbContext, ILogger<MedicoCadastradoConsumer> logger) : IConsumer<MedicoCadastradoEvent>
 {
     public async Task Consume(ConsumeContext<MedicoCadastradoEvent> context)
     {
@@ -19,12 +18,17 @@ public class MedicoCadastradoConsumer(IMediator mediator, IBusService busService
         
         var message = context.Message;
         
-        var createUserSagaRequest = request.Adapt<CreateUserSagaRequest>();
+        var medico = await dbContext.Medicos
+                         .Include(m => m.Usuario)
+                         .SingleOrDefaultAsync(x => x.Id == message.MedicoId)
+            ?? throw new NotFoundException($"Médico {message.MedicoId} não encontrado.");
+        
+        var createUserSagaRequest = message.Adapt<CreateUserSagaRequest>();
 
         await mediator.Send(createUserSagaRequest, context.CancellationToken);
 
-        userSync.Synchronized();
-        dbContext.Entry(userSync).State = EntityState.Modified;
+        medico.Usuario!.CadastroSincronizado();
+        dbContext.Entry(medico).State = EntityState.Modified;
 
         var updateResult = await dbContext.SaveChangesAsync(context.CancellationToken) > 0;
 

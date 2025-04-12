@@ -1,5 +1,6 @@
 ﻿using AutoMoq;
 using Bogus;
+using Bogus.Extensions.Brazil;
 using FluentAssertions;
 using HealthMed.Domain.Events;
 using HealthMed.Domain.Exceptions;
@@ -22,7 +23,8 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         //Arrange
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = _faker.Person.Email;
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
             .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
@@ -55,7 +57,8 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         //Arrange
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = _faker.Person.Email;
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
             .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
@@ -63,10 +66,10 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
         //Act
-        await pacienteService.Cadastrar(paciente);
+        await pacienteService.Cadastrar(paciente, _faker.Internet.Password());
 
         //Assert
-        pacienteRepositoryMock.Verify(repo => repo.Adicionar(paciente), Times.Once);
+        pacienteRepositoryMock.Verify(repo => repo.Adicionar(paciente, CancellationToken.None), Times.Once);
         paciente.Eventos.Should().ContainItemsAssignableTo<PacienteCadastradoEvent>();
     }
 
@@ -76,7 +79,8 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         //Arrange
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = _faker.Person.Email;
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
             .Setup(repo => repo.ObterPorId(It.IsAny<Guid>(), It.IsAny<CancellationToken>()))
@@ -87,7 +91,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
         //Act && Assert
-        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => pacienteService.Cadastrar(paciente));
+        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => pacienteService.Cadastrar(paciente, _faker.Internet.Password()));
     }
 
     [Fact(DisplayName = "Atualizar paciente com sucesso")]
@@ -96,7 +100,8 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         //Arrange
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = _faker.Person.Email;
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var nomePacienteAlterado = "Nome Paciente Alterado";
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
@@ -129,7 +134,8 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         //Arrange
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = _faker.Person.Email;
-        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente);
+        var cpfPaciente = _faker.Person.Cpf();
+        var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         var pacienteRepositoryMock = _mocker.GetMock<IPacienteRepository>();
         pacienteRepositoryMock
             .Setup(repo => repo.ObterPorId(paciente.Id, It.IsAny<CancellationToken>()))

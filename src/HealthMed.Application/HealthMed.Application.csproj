@@ -15,11 +15,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\HealthMed.Caching\HealthMed.Caching.csproj" />
       <ProjectReference Include="..\HealthMed.Domain\HealthMed.Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Features\Auth\" />
+      <ProjectReference Include="..\HealthMed.Keycloak\HealthMed.Keycloak.csproj" />
+      <ProjectReference Include="..\HealthMed.ORM\HealthMed.ORM.csproj" />
     </ItemGroup>
 
 </Project>

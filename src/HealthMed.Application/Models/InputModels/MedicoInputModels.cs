@@ -6,6 +6,7 @@ public record CadastroMedicoInputModel(
     string Crm,
     decimal ValorConsulta,
     Guid EspecialidadeId,
+    string Senha,
     IEnumerable<DisponibilidadeMedicoInputModel>? Disponibilidade);
 
 public record DisponibilidadeMedicoInputModel(int DiaSemana, int HoraInicio, int HoraFim);

@@ -1,4 +1,4 @@
-﻿namespace HealthMed.Consumers.Configuration;
+﻿namespace HealthMed.Domain.Configuration;
 
 public class MassTransitSettings
 {

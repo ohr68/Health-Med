@@ -50,11 +50,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMed.Messaging", "src\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMed.Application.Tests", "tests\HealthMed.Application.Tests\HealthMed.Application.Tests.csproj", "{7E94809D-F059-4C3F-A77B-5DE4291AEEE7}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2DEB86B3-507B-45B1-B925-20695AC77CBF}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.yml = docker-compose.yml
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMed.ApiGateway", "src\HealthMed.ApiGateway\HealthMed.ApiGateway.csproj", "{58B5059E-14EB-433A-8BA9-E1B1332A718E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMed.Keycloak", "src\HealthMed.Keycloak\HealthMed.Keycloak.csproj", "{92CFDD0E-73F3-419F-B207-D6BF0EF9A6F5}"
@@ -66,6 +61,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{F898965F-A3A3-4A2D-8D62-C6DED2905670}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AuthApi", "AuthApi", "{55D2C537-D64C-4A15-93EF-405CCE64EDEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HealthMed.Caching", "src\HealthMed.Caching\HealthMed.Caching.csproj", "{EE1CD577-7632-4306-94A9-2531019D706F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "docker-compose", "docker-compose.dcproj", "{4AF79501-F785-4B98-8EE5-54BE186D67A2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -100,6 +99,7 @@ Global
 		{58B5059E-14EB-433A-8BA9-E1B1332A718E} = {F898965F-A3A3-4A2D-8D62-C6DED2905670}
 		{55D2C537-D64C-4A15-93EF-405CCE64EDEF} = {849F8445-1054-43E6-875D-F9DB38F28145}
 		{1C3124D7-B85A-4E3A-B789-B802E0B91A44} = {55D2C537-D64C-4A15-93EF-405CCE64EDEF}
+		{EE1CD577-7632-4306-94A9-2531019D706F} = {64577BBA-73C2-4C74-B306-591CE616314E}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{6D58EF83-CEAF-4EF8-ADBD-303C7733D72E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -158,5 +158,9 @@ Global
 		{A45552AD-1EF1-4EDB-949B-DAC307E9FE73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92CFDD0E-73F3-419F-B207-D6BF0EF9A6F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{92CFDD0E-73F3-419F-B207-D6BF0EF9A6F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1CD577-7632-4306-94A9-2531019D706F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE1CD577-7632-4306-94A9-2531019D706F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE1CD577-7632-4306-94A9-2531019D706F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE1CD577-7632-4306-94A9-2531019D706F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

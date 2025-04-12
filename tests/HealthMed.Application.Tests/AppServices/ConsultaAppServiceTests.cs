@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Bogus.Extensions.Brazil;
 using FluentAssertions;
 using HealthMed.Application.Interfaces.Service;
 using HealthMed.Application.Models.InputModels;
@@ -23,7 +24,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -40,7 +41,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
@@ -63,7 +64,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -80,7 +81,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
@@ -106,7 +107,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -123,7 +124,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
@@ -149,7 +150,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -190,7 +191,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -207,7 +208,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         await context.SaveChangesAsync();
@@ -235,7 +236,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -268,14 +269,14 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         await context.SaveChangesAsync();
@@ -295,7 +296,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -312,7 +313,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         await context.SaveChangesAsync();
@@ -332,7 +333,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -349,7 +350,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
@@ -380,7 +381,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -397,7 +398,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
@@ -422,7 +423,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -439,7 +440,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
@@ -469,7 +470,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
 
         var especialidade = new Especialidade("Teste");
@@ -486,7 +487,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         await medicoRepository.Adicionar(medico);
 
         var pacienteRepository = scope.ServiceProvider.GetRequiredService<IPacienteRepository>();
-        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email);
+        var paciente = new Paciente(_faker.Person.FullName, _faker.Person.Email, _faker.Person.Cpf());
         await pacienteRepository.Adicionar(paciente);
 
         var consultaRepository = scope.ServiceProvider.GetRequiredService<IConsultaRepository>();
