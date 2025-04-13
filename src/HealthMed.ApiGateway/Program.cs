@@ -26,18 +26,18 @@ public class Program
             builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
             builder.Services.AddOcelot();
             builder.AddBasicHealthChecks();
-
             
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             var app = builder.Build();
-
-            await app.UseOcelot();
-            app.UseHttpsRedirection();
+            
+            // app.UseHttpsRedirection();
             app.UseDefaultLogging();
             app.UseBasicHealthChecks();
 
+            await app.UseOcelot();
+            
             await app.RunAsync();
         }
         catch (Exception ex)

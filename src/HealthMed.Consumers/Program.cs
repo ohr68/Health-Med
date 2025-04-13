@@ -1,5 +1,6 @@
 ﻿
 using HealthMed.Common.Logging;
+using HealthMed.Consumers.Extensions;
 using Microsoft.Extensions.Hosting;
 using Serilog;
 
@@ -14,7 +15,7 @@ public class Program
             var builder = Host.CreateApplicationBuilder(args);
 
             builder.AddDefaultHostAppLogging();
-            //builder.Services.AddServices(builder.Configuration, builder.Environment.IsDevelopment());
+            builder.Services.AddServices(builder.Configuration, builder.Environment.IsDevelopment());
             
             var host = builder.Build();
             host.UseDefaultHostAppLogging();

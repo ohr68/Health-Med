@@ -7,6 +7,7 @@ using Serilog;
 using HealthMed.Ioc;
 using HealthMed.ORM.Context;
 using HealthMed.WebApi.Constants;
+using Microsoft.EntityFrameworkCore;
 
 try
 {
@@ -49,7 +50,7 @@ try
             .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod());
-        
+
         options.AddPolicy(CorsConfiguration.AllowHealthMedPatientClient, cfg => cfg
             .AllowAnyOrigin()
             .AllowAnyHeader()
@@ -58,26 +59,22 @@ try
 
     builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
     builder.Services.AddHttpContextAccessor();
-    
+
     var app = builder.Build();
 
     app.MapOpenApi();
-                
+
     app.UseSwagger();
     app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "Health & Med Web API V1"); });
-    
+
     app.UseCors(config =>
     {
-        config.WithOrigins(CorsConfiguration.AllowHealthMedDoctorClient, CorsConfiguration.AllowHealthMedDoctorClient);
+        config.WithOrigins(CorsConfiguration.AllowHealthMedDoctorClient,
+            CorsConfiguration.AllowHealthMedDoctorClient);
     });
-    app.UseHttpsRedirection();
+    // app.UseHttpsRedirection();
     app.UseBasicHealthChecks();
     app.MapControllers();
-
-    // When the app runs, it first creates the Database.
-    using var scope = app.Services.CreateScope();
-    var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
-    context.Database.EnsureCreated();
 
     app.Run();
 }

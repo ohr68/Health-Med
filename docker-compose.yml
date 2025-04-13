@@ -26,7 +26,6 @@
     networks:
       - health-med-net
   
-  
   healthmed.webapi:
     container_name: healthmed_webapi
     image: ${DOCKER_REGISTRY-}healthmed-webapi
@@ -63,6 +62,7 @@
       - "8081:8081"
     networks:
       - health-med-net
+    command: sh -c "sleep 10 && dotnet ef database update && dotnet HealthMed.WebApi.dll"
 
   healthmed.auth.api:
     container_name: healthmed_auth_api
@@ -124,6 +124,9 @@
     environment:
       - DOTNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__HealthMed=Server=healthmed_sqlserver;Database=HealthMed;User=sa;Password=Senha@123;TrustServerCertificate=True
+      - MasstransitSettings__Host=healthmed_rabbitmq
+      - MasstransitSettings__Username=guest
+      - MasstransitSettings__Password=guest
     networks:
       - health-med-net
     restart: always
@@ -139,7 +142,7 @@
     ports:
       - "1433:1433"
     volumes:
-      - sqlserver_data:/var/opt/mssql  # Mapeia o volume
+      - sqlserver_data:/var/opt/mssql
     healthcheck:
       test: [ "CMD-SHELL", "pidof sqlservr || exit 1" ]
       interval: 10s
@@ -176,7 +179,7 @@
       KEYCLOAK_ADMIN_PASSWORD: admin
       KC_HEALTH_ENABLED: "true"
       KC_LOG_LEVEL: debug
-      KC_LOG_OUTPUT: json   # Options: json, default (plain text), file
+      KC_LOG_OUTPUT: json  
       KC_LOG_FILE: /opt/keycloak/logs/keycloak.log
       KC_PROFILE: dev
     healthcheck:

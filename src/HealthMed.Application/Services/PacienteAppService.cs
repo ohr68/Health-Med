@@ -39,6 +39,8 @@ internal class PacienteAppService(
         
         var paciente = input.Adapt<Paciente>();
         
+        paciente.SetUsuario(usuarioCadastrado.Id);
+        
         await pacienteService.Cadastrar(paciente, usuarioCadastrado.Senha, cancellationToken);
 
         await uow.CommitAsync(cancellationToken);

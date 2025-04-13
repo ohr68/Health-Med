@@ -1,17 +1,17 @@
-﻿services:
-  auth.api:
-    environment:
-      - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=Senha@123
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_HTTP_PORTS=80
-      - ASPNETCORE_HTTPS_PORTS=443
-      - ConnectionStrings__Auth=Server=sql-server;Database=AuthDb;User Id=sa;Password=Senha@123;Encrypt=True;TrustServerCertificate=True;
-    ports:
-      - "5000:80"
-      - "5001:443"
-    volumes:
-      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
-      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
-      - ${USERPROFILE}\.aspnet\https:/https:ro
+﻿# services:
+#   auth.api:
+#     environment:
+#       - ASPNETCORE_URLS=https://+:443;http://+:80
+#       - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+#       - ASPNETCORE_Kestrel__Certificates__Default__Password=Senha@123
+#       - ASPNETCORE_ENVIRONMENT=Development
+#       - ASPNETCORE_HTTP_PORTS=80
+#       - ASPNETCORE_HTTPS_PORTS=443
+#       - ConnectionStrings__Auth=Server=sql-server;Database=AuthDb;User Id=sa;Password=Senha@123;Encrypt=True;TrustServerCertificate=True;
+#     ports:
+#       - "5000:80"
+#       - "5001:443"
+#     volumes:
+#       - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+#       - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+#       - ${USERPROFILE}\.aspnet\https:/https:ro

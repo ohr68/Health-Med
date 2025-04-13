@@ -5,6 +5,7 @@ using HealthMed.Keycloak.Interfaces;
 using HealthMed.Keycloak.Interfaces.Services;
 using HealthMed.Keycloak.RequestHandlers;
 using HealthMed.Keycloak.Requests;
+using HealthMed.Keycloak.Saga.CreateUser;
 using HealthMed.Keycloak.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -40,7 +41,8 @@ public static class ServiceCollectionExtensions
 
         services
             .AddClients(configuration, isApi: false)
-            .AddServices();
+            .AddServices()
+            .AddMediator();
 
         return services;
     }
@@ -94,6 +96,14 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IRealmHandler, RealmHandler>();
         services.AddScoped<IKeycloakClientHandler, KeycloakClientHandler>();
         services.AddScoped<IJwtService, JwtService>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddMediator(this IServiceCollection services)
+    {
+        services.AddMediatR(cfg => 
+            cfg.RegisterServicesFromAssembly(typeof(CreateUserSagaHandler).Assembly));
 
         return services;
     }

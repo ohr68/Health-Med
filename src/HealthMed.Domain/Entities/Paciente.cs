@@ -38,4 +38,9 @@ public class Paciente : Entidade, IUsuario
         Nome = nome;
         DefinirAtualizacao();
     }
+
+    public void SetUsuario(Guid usuarioId)
+    {
+        UsuarioId = usuarioId;
+    }
 }

@@ -50,6 +50,7 @@ namespace HealthMed.ORM.Migrations
                     Senha = table.Column<string>(type: "varchar(max)", nullable: false),
                     LoginLiberado = table.Column<bool>(type: "bit", nullable: false, defaultValue: false),
                     Status = table.Column<int>(type: "int", nullable: false),
+                    TipoUsuario = table.Column<int>(type: "int", nullable: false),
                     CriadoEm = table.Column<DateTime>(type: "datetime2(7)", nullable: false),
                     AtualizadoEm = table.Column<DateTime>(type: "datetime2(7)", nullable: true),
                     Apagado = table.Column<bool>(type: "bit", nullable: false)
@@ -162,13 +163,13 @@ namespace HealthMed.ORM.Migrations
                         column: x => x.MedicoId,
                         principalTable: "Medicos",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_Consultas_Pacientes_PacienteId",
                         column: x => x.PacienteId,
                         principalTable: "Pacientes",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(

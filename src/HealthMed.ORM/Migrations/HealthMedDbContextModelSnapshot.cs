@@ -4,7 +4,6 @@ using HealthMed.ORM.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -12,11 +11,9 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HealthMed.ORM.Migrations
 {
     [DbContext(typeof(HealthMedDbContext))]
-    [Migration("20250412154950_Initial")]
-    partial class Initial
+    partial class HealthMedDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -162,11 +159,6 @@ namespace HealthMed.ORM.Migrations
                     b.Property<DateTime>("CriadoEm")
                         .HasColumnType("datetime2(7)");
 
-                    b.Property<string>("Crm")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<Guid>("EspecialidadeId")
                         .HasColumnType("uniqueidentifier");
 
@@ -183,10 +175,6 @@ namespace HealthMed.ORM.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("Crm")
-                        .IsUnique()
-                        .HasDatabaseName("IX_Medico_Crm");
 
                     b.HasIndex("EspecialidadeId")
                         .HasDatabaseName("IX_Medico_EspecialidadeId");
@@ -256,6 +244,9 @@ namespace HealthMed.ORM.Migrations
                     b.Property<int>("Status")
                         .HasColumnType("int");
 
+                    b.Property<int>("TipoUsuario")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Usuarios", (string)null);
@@ -295,13 +286,13 @@ namespace HealthMed.ORM.Migrations
                     b.HasOne("HealthMed.Domain.Entities.Medico", "Medico")
                         .WithMany("Consultas")
                         .HasForeignKey("MedicoId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("HealthMed.Domain.Entities.Paciente", "Paciente")
                         .WithMany("Consultas")
                         .HasForeignKey("PacienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Medico");
@@ -416,6 +407,32 @@ namespace HealthMed.ORM.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("MedicoId");
                         });
+
+                    b.OwnsOne("HealthMed.Domain.ValueObjects.Crm", "Crm", b1 =>
+                        {
+                            b1.Property<Guid>("MedicoId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Valor")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("Crm");
+
+                            b1.HasKey("MedicoId");
+
+                            b1.HasIndex("Valor")
+                                .IsUnique()
+                                .HasDatabaseName("IX_Medico_Crm");
+
+                            b1.ToTable("Medicos");
+
+                            b1.WithOwner()
+                                .HasForeignKey("MedicoId");
+                        });
+
+                    b.Navigation("Crm")
+                        .IsRequired();
 
                     b.Navigation("Email")
                         .IsRequired();

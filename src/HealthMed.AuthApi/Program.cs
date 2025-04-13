@@ -79,7 +79,7 @@ try
     app.MapGet("/", () => Results.Redirect("/scalar/v1"))
         .ExcludeFromDescription();
 
-    app.UseHttpsRedirection();
+    // app.UseHttpsRedirection();
     app.UseDefaultLogging();
     app.UseGlobalExceptionHandler();
     app.AddEndpoints();

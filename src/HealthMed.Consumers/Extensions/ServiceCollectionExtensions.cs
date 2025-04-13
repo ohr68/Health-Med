@@ -1,6 +1,8 @@
 ﻿using HealthMed.Application.Extensions;
+using HealthMed.Caching.Extensions;
 using HealthMed.Consumers.Consumers;
 using HealthMed.Domain.Configuration;
+using HealthMed.Domain.Extensions;
 using HealthMed.Domain.Interfaces.Messaging;
 using HealthMed.Keycloak.Extensions;
 using HealthMed.Messaging.Services;
@@ -17,9 +19,11 @@ public static class ServiceCollectionExtensions
         bool isDevelopment)
     {
         services
+            .AddDomainLayer()    
             .AddApplicationLayer()
             .AddPersistenceLayer(configuration, isDevelopment)
             .AddMessaging(configuration)
+            .AddCaching(configuration)
             .ConfigureKeycloakConsumerIntegration(configuration);
 
         return services;
