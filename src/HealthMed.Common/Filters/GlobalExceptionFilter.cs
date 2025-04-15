@@ -21,7 +21,7 @@ public class GlobalExceptionFilter(ILogger<GlobalExceptionFilter> logger) : IExc
             UnauthorizedException => StatusCodes.Status401Unauthorized,
             ForbiddenException => StatusCodes.Status403Forbidden,
             NotFoundException => StatusCodes.Status404NotFound,
-            ValidationException => StatusCodes.Status422UnprocessableEntity,
+            ValidationException or DomainException => StatusCodes.Status422UnprocessableEntity,
             DbUpdateException
             {
                 InnerException: SqlException { Number: 2601 }
@@ -37,7 +37,7 @@ public class GlobalExceptionFilter(ILogger<GlobalExceptionFilter> logger) : IExc
         var message = context.Exception switch
         {
             BadRequestException or UnauthorizedException or ForbiddenException or NotFoundException
-                or ValidationException => context.Exception.Message,
+                or ValidationException or DomainException => context.Exception.Message,
             DbUpdateException { InnerException: SqlException { Number: 2601 } } => context.Exception.InnerException
                 .Message,
             DbUpdateException { InnerException: SqlException { Number: 547 } } => context.Exception.InnerException
