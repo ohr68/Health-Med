@@ -57,7 +57,15 @@ public class LoginCommandHandler(
         var (grantType, clientId, clientSecret) = authRequestHandler.GetAuthRequestData(GrantType.Password);
         request.SetAuthData(grantType, clientId, clientSecret);
 
-        var authResponse = await authService.AuthenticateAsync(request.Adapt<AuthRequest>(), cancellationToken);
+        var authRequest = new AuthRequest()
+        {
+            Username = request.Usuario,
+            Password = request.Senha,
+            GrantType = grantType,
+            ClientId = clientId,
+            ClientSecret = clientSecret
+        };
+        var authResponse = await authService.AuthenticateAsync(authRequest, cancellationToken);
 
         Console.WriteLine($"Setting cache for user '{usuario.Id}'");
         await cache.SetRecordAsync(usuario.Id.ToString(), authResponse.AccessToken, keycloakDefaultUser.Value.ExpireIn, cancellationToken: cancellationToken);

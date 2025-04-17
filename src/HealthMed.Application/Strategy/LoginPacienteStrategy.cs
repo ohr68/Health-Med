@@ -18,7 +18,7 @@ public class LoginPacienteStrategy(HealthMedDbContext context, IPasswordHasher p
             paciente = await context.Pacientes
                 .Include(m => m.Usuario)
                 .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.Cpf.Valor.Equals(dadosLogin.Usuario, StringComparison.OrdinalIgnoreCase),
+                .SingleOrDefaultAsync(m => m.Cpf.Valor.ToLower() == dadosLogin.Usuario.ToLower(),
                     cancellationToken);
         }
 
@@ -27,7 +27,7 @@ public class LoginPacienteStrategy(HealthMedDbContext context, IPasswordHasher p
             paciente = await context.Pacientes
                 .Include(m => m.Usuario)
                 .AsNoTracking()
-                .SingleOrDefaultAsync(m => m.Email.Valor.Equals(dadosLogin.Usuario, StringComparison.OrdinalIgnoreCase),
+                .SingleOrDefaultAsync(m => m.Email.Valor.ToLower() == dadosLogin.Usuario.ToLower(),
                     cancellationToken);
         }
 

@@ -10,7 +10,7 @@
         }
       ],
       "UpstreamPathTemplate": "/auth/{everything}",
-      "UpstreamHttpMethod": [ "Get" ]
+      "UpstreamHttpMethod": [ "Get", "Post", "Put", "Patch", "Delete" ]
     },
     {
       "DownstreamPathTemplate": "/api/{everything}",

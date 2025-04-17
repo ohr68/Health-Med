@@ -49,8 +49,8 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection AddStrategies(this IServiceCollection services)
     {
-        services.AddScoped<ILoginStrategy, LoginMedicoStrategy>();
-        services.AddScoped<ILoginStrategy, LoginPacienteStrategy>();
+        services.AddScoped<LoginMedicoStrategy>();
+        services.AddScoped<LoginPacienteStrategy>();
         
         return services;
     }
