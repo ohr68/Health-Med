@@ -1,38 +1,7 @@
 ## 🏗️ Diagrama Lógico da Arquitetura
                          
-                         +------------------+
-                         |     Keycloak     |  <-- Auth Server (OpenID Connect)
-                         +--------+---------+
-                                  |
-                                  v
-                          +-------+--------+
-                          |   ApiGateway   |  <-- Ocelot Gateway
-                          +-------+--------+
-                                  |
-        +-------------------------+--------------------------+
-        |                        |                           |
-        v                        v                           v
-+---------------+     +---------------------+     +-------------------+
-|   Web API     |     |   Auth API          |     |  Messaging Infra  |
-| HealthMed.Web |     | HealthMed.AuthApi   |     | MassTransit + MQ  |
-+-------+-------+     +---------------------+     +-------------------+
-        |
-        v
-+-----------------------------+
-| Application (MediatR,      |
-|  FluentValidation, CQRS)   |
-+-------------+--------------+
-              |
-              v
-+-------------+--------------+
-| Domain (Entities, Rules)   |
-+-------------+--------------+
-              |
-              v
-+-------------+--------------+
-| Infrastructure (ORM, Cache)|
-|  ORM, Redis, Consumers     |
-+----------------------------+
+       ![image](https://github.com/user-attachments/assets/5ed12ab8-e18f-4858-a24d-620f5fce2989)
+
 
 
 ## ✅ Justificativa das Escolhas Técnicas
