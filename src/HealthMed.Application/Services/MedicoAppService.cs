@@ -52,6 +52,8 @@ internal class MedicoAppService(
         var usuarioCadastrado = await mediator.Send(usuario, cancellationToken);
         
         var medico = input.Adapt<Medico>();
+        
+        medico.SetUsuario(usuarioCadastrado.Id);
 
         await medicoService.Cadastrar(medico, usuarioCadastrado.Senha, cancellationToken);
 

@@ -87,4 +87,9 @@ public class Medico : Entidade, IUsuario
         
         DefinirAtualizacao();
     }
+    
+    public void SetUsuario(Guid usuarioId)
+    {
+        UsuarioId = usuarioId;
+    }
 }
