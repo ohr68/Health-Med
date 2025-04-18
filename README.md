@@ -1,6 +1,6 @@
 ## 🏗️ Diagrama Lógico da Arquitetura
                          
-  
+  ![Imagem do diagrama](https://github.com/ohr68/Health-Med/blob/master/images/diagrama.png?raw=true)
 
 
 ## ✅ Justificativa das Escolhas Técnicas
