@@ -23,8 +23,18 @@ public class Program
                         $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}");
                 });
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAny", cfg => cfg
+                    .AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod());
+            });
+            
             builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+            
             builder.Services.AddOcelot();
+            
             builder.AddBasicHealthChecks();
             
             builder.Services.AddEndpointsApiExplorer();
@@ -33,8 +43,12 @@ public class Program
             var app = builder.Build();
             
             // app.UseHttpsRedirection();
+            
             app.UseDefaultLogging();
+            
             app.UseBasicHealthChecks();
+            
+            app.UseCors("AllowAny");
 
             await app.UseOcelot();
             

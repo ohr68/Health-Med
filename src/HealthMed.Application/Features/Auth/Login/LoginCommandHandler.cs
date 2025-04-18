@@ -59,7 +59,7 @@ public class LoginCommandHandler(
 
         var authRequest = new AuthRequest()
         {
-            Username = request.Usuario,
+            Username = request.Usuario!.Replace("/", ""),
             Password = request.Senha,
             GrantType = grantType,
             ClientId = clientId,

@@ -14,7 +14,7 @@ internal class MedicoRepository(HealthMedDbContext context) : IMedicoRepository
     public async Task<Medico?> ObterPorCrm(string crm, CancellationToken cancellationToken = default) =>
         await context.Medicos
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Crm.Valor.Equals(crm, StringComparison.CurrentCultureIgnoreCase), cancellationToken);
+            .FirstOrDefaultAsync(x => x.Crm.Valor.ToLower() == crm.ToLower(), cancellationToken);
 
     public async Task<Medico?> ObterPorEmail(string email, CancellationToken cancellationToken = default) =>
         await context.Medicos

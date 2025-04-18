@@ -17,7 +17,7 @@ public class LoginMedicoStrategy(HealthMedDbContext context, IPasswordHasher pas
         var medico = await context.Medicos
             .Include(m => m.Usuario)
             .AsNoTracking()
-            .SingleOrDefaultAsync(m => m.Crm.Valor.Equals(crm!,StringComparison.OrdinalIgnoreCase), cancellationToken);
+            .SingleOrDefaultAsync(m => m.Crm.Valor.ToLower() == crm!.Valor.ToLower(), cancellationToken);
         
         if(medico is null)
             return (false, Guid.Empty);

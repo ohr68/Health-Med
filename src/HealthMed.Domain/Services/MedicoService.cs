@@ -27,7 +27,7 @@ public class MedicoService(IMedicoRepository medicoRepository) : IMedicoService
 
         await medicoRepository.Adicionar(medico, cancellationToken);
 
-        var evento = new MedicoCadastradoEvent(medico.Id, medico.Email, medico.Nome, medico.Crm, senha);
+        var evento = new MedicoCadastradoEvent(medico.Id, medico.Email, medico.Nome, medico.Crm.Valor.Replace("/", ""), senha);
 
         medico.AdicionarEvento(evento);
     }

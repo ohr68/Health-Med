@@ -1,5 +1,6 @@
 using HealthMed.Application.Interfaces.Service;
 using HealthMed.Application.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthMed.WebApi.Controllers
@@ -21,6 +22,7 @@ namespace HealthMed.WebApi.Controllers
         /// <returns></returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<EspecialidadeViewModel>))]
+        [AllowAnonymous]
         public async Task<IActionResult> ObterTodos(CancellationToken cancellationToken)
         {
             logger.LogTrace("Obtendo especialidades");
