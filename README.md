@@ -1,7 +1,6 @@
 ## 🏗️ Diagrama Lógico da Arquitetura
                          
-       ![image](https://github.com/user-attachments/assets/5ed12ab8-e18f-4858-a24d-620f5fce2989)
-
+  
 
 
 ## ✅ Justificativa das Escolhas Técnicas
