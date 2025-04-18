@@ -1,7 +1,11 @@
 ﻿using FluentValidation;
+using HealthMed.Application.Helpers;
 using HealthMed.Application.Interfaces.Service;
+using HealthMed.Application.Interfaces.Strategy;
 using HealthMed.Application.Mapster;
 using HealthMed.Application.Services;
+using HealthMed.Application.Strategy;
+using HealthMed.Domain.Interfaces.Helpers;
 using Mapster;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +18,8 @@ public static class ServiceCollectionExtensions
         services
             .AddServices()
             .AddValidation()
+            .AddHelpers()
+            .AddStrategies()
             .ConfigureMapster();
 
         return services;
@@ -34,11 +40,28 @@ public static class ServiceCollectionExtensions
         return services;
     }
 
+    private static IServiceCollection AddHelpers(this IServiceCollection services)
+    {
+        services.AddScoped<IPasswordHasher, CustomPasswordHasher>();
+
+        return services;
+    }
+
+    private static IServiceCollection AddStrategies(this IServiceCollection services)
+    {
+        services.AddScoped<LoginMedicoStrategy>();
+        services.AddScoped<LoginPacienteStrategy>();
+        
+        return services;
+    }
+    
     private static IServiceCollection ConfigureMapster(this IServiceCollection services)
     {
         services.AddMapster();
 
         TypeAdapterConfig.GlobalSettings.Scan(AppDomain.CurrentDomain.GetAssemblies());
+        TypeAdapterConfig.GlobalSettings.AllowImplicitSourceInheritance = true;
+        TypeAdapterConfig.GlobalSettings.AllowImplicitDestinationInheritance = true;
 
         return services;
     }

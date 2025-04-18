@@ -8,8 +8,8 @@ public class PacienteMap : IEntityTypeConfiguration<Paciente>
 {
     public void Configure(EntityTypeBuilder<Paciente> builder)
     {
-        builder.HasKey(p => p.Id);
-
+        builder.ToTable("Pacientes");
+        
         builder
             .Property(p => p.Nome)
             .HasMaxLength(200)
@@ -18,7 +18,7 @@ public class PacienteMap : IEntityTypeConfiguration<Paciente>
         builder.OwnsOne(p => p.Email, email =>
         {
             email.Property(e => e.Valor)
-                .HasColumnName("Email") // Mapeamento do campo de valor do Email
+                .HasColumnName("Email")
                 .HasMaxLength(200)
                 .IsRequired();
             
@@ -27,20 +27,16 @@ public class PacienteMap : IEntityTypeConfiguration<Paciente>
                 .IsUnique();
         });
         
-        builder
-            .Property(p => p.CriadoEm)
-            .IsRequired();
-        
-        builder
-            .Property(p => p.AtualizadoEm)
-            .IsRequired(false);
-        
-        builder
-            .Property(p => p.Apagado)
-            .IsRequired();
-        
-        builder.HasQueryFilter(p => !p.Apagado);
-        
-        builder.ToTable("Pacientes");
+        builder.OwnsOne(p => p.Cpf, cpf =>
+        {
+            cpf.Property(e => e.Valor)
+                .HasColumnName("Cpf")
+                .HasMaxLength(11)
+                .IsRequired();
+            
+            cpf.HasIndex(e => e.Valor)
+                .HasDatabaseName("IX_Paciente_Cpf")
+                .IsUnique();
+        });
     }
 }

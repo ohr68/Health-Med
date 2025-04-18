@@ -21,18 +21,18 @@ public class MedicoAppServiceTests(TestsFixture fixture)
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
         var medico = new Medico(
-            _faker.Person.FullName, 
-            _faker.Person.Email, 
-            "1234567", 
-            especialidade.Id, 
-            100, 
+            _faker.Person.FullName,
+            _faker.Person.Email,
+            "1234567",
+            especialidade.Id,
+            100,
             null);
         await medicoRepository.Adicionar(medico);
         await context.SaveChangesAsync();
@@ -46,24 +46,24 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         //Assert
         medicoRet.Should().NotBeNull();
     }
-    
+
     [Fact(DisplayName = "Deve obter médico por crm com sucesso.")]
     public async Task MedicoAppService_ObterPorCrm_ComSucesso()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
         var medico = new Medico(
-            _faker.Person.FullName, 
-            _faker.Person.Email, 
-            "1234567", 
-            especialidade.Id, 
-            100, 
+            _faker.Person.FullName,
+            _faker.Person.Email,
+            "1234567",
+            especialidade.Id,
+            100,
             null);
         await medicoRepository.Adicionar(medico);
         await context.SaveChangesAsync();
@@ -77,15 +77,15 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         //Assert
         medicoRet.Should().NotBeNull();
     }
-    
+
     [Fact(DisplayName = "Deve cadastrar médico com sucesso.")]
     public async Task MedicoAppService_Cadastrar_ComSucesso()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -102,7 +102,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            null);
+            _faker.Internet.Password(), null);
         var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
@@ -117,15 +117,15 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         medicoCadastrado.ValorConsulta.Should().Be(valorConsulta);
         medicoCadastrado.EspecialidadeId.Should().Be(especialidadeId);
     }
-    
+
     [Fact(DisplayName = "Não deve cadastrar médico quando email inválido.")]
     public async Task MedicoAppService_NaoDeveCadastrar_QuandoEmailInvalido()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -142,21 +142,21 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            null);
+            _faker.Internet.Password(), null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
         await Assert.ThrowsAsync<ValidationException>(() => appService.Cadastrar(cadastroMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Não deve cadastrar médico quando nome inválido.")]
     public async Task MedicoAppService_NaoDeveCadastrar_QuandoNomeInvalido()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -173,21 +173,21 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            null);
+            _faker.Internet.Password(), null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
         await Assert.ThrowsAsync<ValidationException>(() => appService.Cadastrar(cadastroMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Não deve cadastrar médico quando crm inválido.")]
     public async Task MedicoAppService_NaoDeveCadastrar_QuandoCrmInvalido()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -204,21 +204,21 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            null);
+            _faker.Internet.Password(), null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
         await Assert.ThrowsAsync<ValidationException>(() => appService.Cadastrar(cadastroMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Não deve cadastrar médico quando valor consulta inválido.")]
     public async Task MedicoAppService_NaoDeveCadastrar_QuandoValorConsultaInvalido()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -235,21 +235,21 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            null);
+            _faker.Internet.Password(), null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
         await Assert.ThrowsAsync<ValidationException>(() => appService.Cadastrar(cadastroMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Não deve cadastrar médico quando especialidade inválida.")]
     public async Task MedicoAppService_NaoDeveCadastrar_QuandoEspecialidadeInvalida()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -266,30 +266,30 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            null);
+            _faker.Internet.Password(), null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
         await Assert.ThrowsAsync<ValidationException>(() => appService.Cadastrar(cadastroMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Deve atualizar médico com sucesso.")]
     public async Task MedicoAppService_Atualizar_ComSucesso()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
         var medico = new Medico(
-            _faker.Person.FullName, 
-            _faker.Person.Email, 
-            "1234567", 
-            especialidade.Id, 
-            100, 
+            _faker.Person.FullName,
+            _faker.Person.Email,
+            "1234567",
+            especialidade.Id,
+            100,
             null);
         await medicoRepository.Adicionar(medico);
         await context.SaveChangesAsync();
@@ -309,58 +309,60 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         medicoCadastrado.Nome.Should().Be(nomeMedicoAlterar);
         medicoCadastrado.ValorConsulta.Should().Be(valorConsultaAlterar);
     }
-    
+
     [Fact(DisplayName = "Não deve atualizar médico quando nome inválido.")]
     public async Task MedicoAppService_NaoDeveAtualizar_QuandoNomeInvalido()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var nomeMedico = "";
         var valorConsulta = 100;
         var atualizaoMedicoInputModel = new AtualizacaoMedicoInputModel(nomeMedico, valorConsulta);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
-        await Assert.ThrowsAsync<ValidationException>(() => appService.Atualizar(Guid.Empty, atualizaoMedicoInputModel));
+        await Assert.ThrowsAsync<ValidationException>(() =>
+            appService.Atualizar(Guid.Empty, atualizaoMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Não deve atualizar médico quando valor consulta inválido.")]
     public async Task MedicoAppService_NaoDeveAtualizar_QuandoValorConsultaInvalido()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var nomeMedico = _faker.Person.FullName;
         var valorConsulta = 0;
         var atualizaoMedicoInputModel = new AtualizacaoMedicoInputModel(nomeMedico, valorConsulta);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
-        await Assert.ThrowsAsync<ValidationException>(() => appService.Atualizar(Guid.Empty, atualizaoMedicoInputModel));
+        await Assert.ThrowsAsync<ValidationException>(() =>
+            appService.Atualizar(Guid.Empty, atualizaoMedicoInputModel));
     }
-    
+
     [Fact(DisplayName = "Deve excluir médico com sucesso.")]
     public async Task MedicoAppService_Excluir_ComSucesso()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
         var medico = new Medico(
-            _faker.Person.FullName, 
-            _faker.Person.Email, 
-            "1234567", 
-            especialidade.Id, 
-            100, 
+            _faker.Person.FullName,
+            _faker.Person.Email,
+            "1234567",
+            especialidade.Id,
+            100,
             null);
         await medicoRepository.Adicionar(medico);
         await context.SaveChangesAsync();
@@ -374,15 +376,15 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         var medicoRet = await medicoRepository.ObterPorId(medico.Id);
         medicoRet.Should().BeNull();
     }
-    
+
     [Fact(DisplayName = "Deve atualizar disponibilidade médico com sucesso.")]
     public async Task MedicoAppService_AtualizarDisponibilidade_ComSucesso()
     {
         //Arrange
         using var scope = fixture.ServiceProvider.CreateScope();
-        var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
         await context.Database.EnsureCreatedAsync();
-        
+
         var especialidade = new Especialidade("Teste");
         context.Especialidades.Add(especialidade);
         await context.SaveChangesAsync();
@@ -421,7 +423,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             new DisponibilidadeMedicoInputModel((int)DayOfWeek.Monday, 8, 17),
             new DisponibilidadeMedicoInputModel((int)DayOfWeek.Tuesday, 8, 17),
         ];
-        
+
         //Act
         await appService.AtualizarDisponibilidade(medico.Id, disponibilidadeMedicoAlterar);
 
@@ -434,7 +436,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         medicoCadastrado.Disponibilidade.Should()
             .Match(x => x.Any(y => y.DiaSemana == (int)DayOfWeek.Tuesday));
         medicoCadastrado.Disponibilidade.Should()
-            .Match(x => x.All(y => y.DiaSemana != (int)DayOfWeek.Monday 
+            .Match(x => x.All(y => y.DiaSemana != (int)DayOfWeek.Monday
                                    || y.DiaSemana != (int)DayOfWeek.Tuesday));
     }
 }

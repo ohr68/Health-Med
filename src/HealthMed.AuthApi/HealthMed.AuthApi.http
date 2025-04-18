@@ -1,0 +1,6 @@
+@HealthMed.AuthApi_HostAddress = http://localhost:5150
+
+GET {{HealthMed.AuthApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

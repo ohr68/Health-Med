@@ -8,7 +8,7 @@ public interface IMedicoRepository
     Task<Medico?> ObterPorCrm(string crm, CancellationToken cancellationToken = default);
     Task<Medico?> ObterPorEmail(string email, CancellationToken cancellationToken = default);
     Task<IEnumerable<Medico>?> ObterTodos(Guid? especialidadeId = null, CancellationToken cancellationToken = default);
-    Task Adicionar(Medico medico);
+    Task Adicionar(Medico medico, CancellationToken cancellationToken = default);
     void Atualizar(Medico medico);
     Task<List<DisponibilidadeMedico>?> ObterDisponibilidade(Guid medicoId, CancellationToken cancellationToken = default);
     void AtualizarDisponibilidade(Medico medico);

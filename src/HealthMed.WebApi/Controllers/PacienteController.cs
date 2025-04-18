@@ -1,6 +1,7 @@
 ﻿using HealthMed.Application.Interfaces.Service;
 using HealthMed.Application.Models.InputModels;
 using HealthMed.Application.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HealthMed.WebApi.Controllers;
@@ -43,6 +44,7 @@ public class PacienteController(ILogger<PacienteController> logger, IPacienteApp
     [ProducesResponseType(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ProblemDetails))]
     [ProducesResponseType(StatusCodes.Status422UnprocessableEntity, Type = typeof(ValidationProblemDetails))]
+    [AllowAnonymous]
     public async Task<IActionResult> Cadastrar([FromBody] CadastroPacienteInputModel input,
         CancellationToken cancellationToken)
     {

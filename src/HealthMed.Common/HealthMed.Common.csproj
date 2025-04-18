@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="FluentValidation" Version="11.11.0" />
+      <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
       <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
       <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
       <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
@@ -22,6 +24,10 @@
         <HintPath>..\..\..\..\..\..\Program Files\dotnet\shared\Microsoft.AspNetCore.App\8.0.10\Microsoft.AspNetCore.dll</HintPath>
       </Reference>
       <Reference Include="Microsoft.AspNetCore.Hosting.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\HealthMed.Domain\HealthMed.Domain.csproj" />
     </ItemGroup>
 
 </Project>

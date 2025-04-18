@@ -1,5 +1,7 @@
 ﻿using HealthMed.Application.Extensions;
+using HealthMed.Caching.Extensions;
 using HealthMed.Domain.Extensions;
+using HealthMed.Keycloak.Extensions;
 using HealthMed.Messaging.Extensions;
 using HealthMed.ORM.Extensions;
 using Microsoft.Extensions.Configuration;
@@ -16,7 +18,9 @@ public static class ModuleInitializer
             .AddDomainLayer()    
             .AddApplicationLayer()
             .AddPersistenceLayer(configuration, isDevelopment)
-            .AddMessagingLayer(configuration);
+            .AddMessagingLayer(configuration)
+            .ConfigureKeycloakIntegration(configuration)
+            .AddCaching(configuration);
 
         return services;
     }

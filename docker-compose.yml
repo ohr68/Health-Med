@@ -1,27 +1,138 @@
-﻿version: '3.8'
-
-services:
+﻿services:
+  healthmed.api.gateway:
+    container_name: healthmed_api_gateway
+    image: ${DOCKER_REGISTRY-}healthmed-api-gateway
+    build:
+      context: .
+      dockerfile: src/HealthMed.ApiGateway/Dockerfile
+    depends_on:
+      keycloak:
+        condition: service_started
+    environment:
+      - ASPNETCORE_URLS=https://+:444;http://+:8080
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Senha@123
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=444
+      - TZ=America/Sao_Paulo
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${USERPROFILE}\.aspnet\https:/https:ro
+    ports:
+      - "5002:8080"
+      - "5003:444"
+    networks:
+      - health-med-net
+  
   healthmed.webapi:
-    image: healthmed.webapi
+    container_name: healthmed_webapi
+    image: ${DOCKER_REGISTRY-}healthmed-webapi
     build:
       context: .
       dockerfile: src/HealthMed.WebApi/Dockerfile
     depends_on:
-      healthmed_sqlserver:
-        condition: service_healthy
-      healthmed_rabbitmq:
-        condition: service_healthy
+      healthmed.sqlserver:
+        condition: service_started
+      healthmed.rabbitmq:
+        condition: service_started
+      healthmed.auth.api:
+        condition: service_started
+      healthmed.api.gateway:
+        condition: service_started
     environment:
+      - ASPNETCORE_URLS=https://+:8081;http://+:8080
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Senha@123
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=8080
+      - ASPNETCORE_HTTPS_PORTS=8081
       - ConnectionStrings__HealthMed=Server=healthmed_sqlserver;Database=HealthMed;User=sa;Password=Senha@123;TrustServerCertificate=True
-      - RabbitMq__Host=healthmed_rabbitmq
-      - RabbitMq__Username=guest
-      - RabbitMq__Password=guest
+      - MasstransitSettings__Host=healthmed_rabbitmq
+      - MasstransitSettings__Username=guest
+      - MasstransitSettings__Password=guest
       - TZ=America/Sao_Paulo
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${USERPROFILE}\.aspnet\https:/https:ro
     ports:
       - "8080:8080"
       - "8081:8081"
+    networks:
+      - health-med-net
+    command: sh -c "sleep 10 && dotnet ef database update && dotnet HealthMed.WebApi.dll"
 
-  healthmed_sqlserver:
+  healthmed.auth.api:
+    container_name: healthmed_auth_api
+    image: ${DOCKER_REGISTRY-}healthmed-auth-api
+    build:
+      context: .
+      dockerfile: src/HealthMed.AuthApi/Dockerfile
+    environment:
+      - ASPNETCORE_URLS=https://+:443;http://+:80
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/https/aspnetapp.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=Senha@123
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_HTTPS_PORTS=443
+      - ConnectionStrings__HealthMed=Server=healthmed_sqlserver;Database=HealthMed;User=sa;Password=Senha@123;TrustServerCertificate=True
+      - Keycloak__auth-server-url=http://keycloak:7080
+      - MasstransitSettings__Host=healthmed_rabbitmq
+      - MasstransitSettings__Username=guest
+      - MasstransitSettings__Password=guest
+    ports:
+      - "5000:80"
+      - "5001:443"
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/home/app/.microsoft/usersecrets:ro
+      - ${APPDATA}/ASP.NET/Https:/home/app/.aspnet/https:ro
+      - ${USERPROFILE}\.aspnet\https:/https:ro
+    depends_on:
+      keycloak:
+        condition: service_started
+      healthmed.sqlserver:
+        condition: service_started
+      healthmed.consumers:
+        condition: service_started
+      redis:
+        condition: service_started
+      healthmed.api.gateway:
+        condition: service_started
+    networks:
+      - health-med-net
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "https://localhost:5001/health" ]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+      timeout: 5s
+    command: sh -c "sleep 10 && dotnet ef database update && dotnet HealthMed.AuthApi.dll"
+  
+  healthmed.consumers:
+    container_name: healthmed_consumers
+    image: ${DOCKER_REGISTRY-}healthmed-consumers
+    build:
+      context: .
+      dockerfile: src/HealthMed.Consumers/Dockerfile
+    depends_on:
+      keycloak:
+        condition: service_started
+      healthmed.sqlserver:
+        condition: service_started
+    environment:
+      - DOTNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__HealthMed=Server=healthmed_sqlserver;Database=HealthMed;User=sa;Password=Senha@123;TrustServerCertificate=True
+      - MasstransitSettings__Host=healthmed_rabbitmq
+      - MasstransitSettings__Username=guest
+      - MasstransitSettings__Password=guest
+    networks:
+      - health-med-net
+    restart: always
+    command: sh -c "sleep 10 && dotnet ef database update && dotnet HealthMed.Consumers.dll"
+
+  healthmed.sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     container_name: healthmed_sqlserver
     environment:
@@ -31,14 +142,16 @@ services:
     ports:
       - "1433:1433"
     volumes:
-      - sqlserver_data:/var/opt/mssql  # Mapeia o volume
+      - sqlserver_data:/var/opt/mssql
     healthcheck:
       test: [ "CMD-SHELL", "pidof sqlservr || exit 1" ]
       interval: 10s
       retries: 5
       start_period: 30s
+    networks:
+      - health-med-net
 
-  healthmed_rabbitmq:
+  healthmed.rabbitmq:
     image: rabbitmq:3-management
     container_name: healthmed_rabbitmq
     environment:
@@ -52,6 +165,58 @@ services:
       interval: 10s
       retries: 5
       start_period: 10s
+    networks:
+        - health-med-net
 
+  keycloak:
+    image: quay.io/keycloak/keycloak:24.0
+    container_name: keycloak
+    environment:
+      KC_HOSTNAME_STRICT_BACKCHANNEL: "true"
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+      KC_HEALTH_ENABLED: "true"
+      KC_LOG_LEVEL: debug
+      KC_LOG_OUTPUT: json  
+      KC_LOG_FILE: /opt/keycloak/logs/keycloak.log
+      KC_PROFILE: dev
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:7080/health/ready" ]
+      interval: 15s
+      timeout: 2s
+      retries: 15
+    volumes:
+      - keycloak_data:/opt/keycloak/data
+      - ./keycloak-logs:/opt/keycloak/logs
+    command: [ "start-dev", "--http-port", "7080", "--https-port", "7443" ]
+    ports:
+      - "7080:7080"
+      - "7443:7443"
+    networks:
+      - health-med-net
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    command: [ "redis-server", "--save", "60", "1", "--loglevel", "verbose" ]
+    networks:
+      - health-med-net
+
+networks:
+  health-med-net:
+    driver: bridge
+    
 volumes:
   sqlserver_data:
+  keycloak_data:
+  redis_data:

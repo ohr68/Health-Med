@@ -8,8 +8,8 @@ public class AdministradorMap : IEntityTypeConfiguration<Administrator>
 {
     public void Configure(EntityTypeBuilder<Administrator> builder)
     {
-        builder.HasKey(p => p.Id);
-
+        builder.ToTable("Administradores");
+        
         builder
             .Property(p => p.Nome)
             .HasMaxLength(200)
@@ -26,21 +26,5 @@ public class AdministradorMap : IEntityTypeConfiguration<Administrator>
                 .HasDatabaseName("IX_Administrador_Email")
                 .IsUnique();
         });
-
-        builder
-            .Property(p => p.CriadoEm)
-            .IsRequired();
-
-        builder
-            .Property(p => p.AtualizadoEm)
-            .IsRequired(false);
-
-        builder
-            .Property(p => p.Apagado)
-            .IsRequired();
-
-        builder.HasQueryFilter(p => !p.Apagado);
-
-        builder.ToTable("Administradores");
     }
 }

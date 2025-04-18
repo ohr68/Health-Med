@@ -8,7 +8,7 @@ public class MedicoMap : IEntityTypeConfiguration<Medico>
 {
     public void Configure(EntityTypeBuilder<Medico> builder)
     {
-        builder.HasKey(m => m.Id);
+        builder.ToTable("Medicos");
         
         builder
             .Property(m => m.Nome)
@@ -27,10 +27,17 @@ public class MedicoMap : IEntityTypeConfiguration<Medico>
                 .IsUnique();
         });
         
-        builder
-            .Property(m => m.Crm)
-            .HasMaxLength(50)
-            .IsRequired();
+        builder.OwnsOne(p => p.Crm, crm =>
+        {
+            crm.Property(e => e.Valor)
+                .HasColumnName("Crm")
+                .HasMaxLength(50)
+                .IsRequired();
+            
+            crm.HasIndex(e => e.Valor)
+                .HasDatabaseName("IX_Medico_Crm")
+                .IsUnique();
+        });
         
         builder
             .Property(m => m.ValorConsulta)
@@ -40,27 +47,10 @@ public class MedicoMap : IEntityTypeConfiguration<Medico>
         builder
             .Property(m => m.EspecialidadeId)
             .IsRequired();
-        
-        builder
-            .Property(m => m.CriadoEm)
-            .IsRequired();
-        
-        builder
-            .Property(m => m.AtualizadoEm)
-            .IsRequired(false);
-        
-        builder
-            .Property(m => m.Apagado)
-            .IsRequired();
-
+       
         builder.HasOne(p => p.Especialidade)
             .WithMany(p => p.Medicos)
             .HasForeignKey(p => p.EspecialidadeId);
-        
-        builder
-            .HasIndex(m => m.Crm)
-            .HasDatabaseName("IX_Medico_Crm")
-            .IsUnique();
         
         builder
             .HasIndex(m => m.Nome)
@@ -75,9 +65,5 @@ public class MedicoMap : IEntityTypeConfiguration<Medico>
         
         builder.Navigation(x => x.Disponibilidade)
             .AutoInclude();
-        
-        builder.HasQueryFilter(m => !m.Apagado);
-        
-        builder.ToTable("Medicos");
     }
 }

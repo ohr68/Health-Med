@@ -13,13 +13,13 @@ public class PacienteService(IPacienteRepository pacienteRepository) : IPaciente
         await pacienteRepository.ObterPorId(pacienteId, cancellationToken) ??
         throw new PacienteNaoEncontradoException();
 
-    public async Task Cadastrar(Paciente paciente)
+    public async Task Cadastrar(Paciente paciente, string senha, CancellationToken cancellationToken = default)
     {
         await VerificarEmailEmUso(paciente);
 
-        await pacienteRepository.Adicionar(paciente);
+        await pacienteRepository.Adicionar(paciente, cancellationToken);
 
-        var evento = new PacienteCadastradoEvent(paciente.Id, paciente.Email, paciente.Nome);
+        var evento = new PacienteCadastradoEvent(paciente.Id, paciente.Email, paciente.Nome, paciente.Cpf, senha);
 
         paciente.AdicionarEvento(evento);
     }

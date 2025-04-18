@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace HealthMed.ORM.Repositories;
 
-internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepository
+internal class MedicoRepository(HealthMedDbContext context) : IMedicoRepository
 {
     public async Task<Medico?> ObterPorId(Guid medicoId, CancellationToken cancellationToken = default) =>
         await context.Medicos
@@ -14,7 +14,7 @@ internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepositor
     public async Task<Medico?> ObterPorCrm(string crm, CancellationToken cancellationToken = default) =>
         await context.Medicos
             .AsNoTracking()
-            .FirstOrDefaultAsync(x => x.Crm.ToLower() == crm.ToLower(), cancellationToken);
+            .FirstOrDefaultAsync(x => x.Crm.Valor.ToLower() == crm.ToLower(), cancellationToken);
 
     public async Task<Medico?> ObterPorEmail(string email, CancellationToken cancellationToken = default) =>
         await context.Medicos
@@ -34,7 +34,7 @@ internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepositor
             .ToListAsync(cancellationToken);
     }
 
-    public async Task Adicionar(Medico medico) => await context.AddAsync(medico);
+    public async Task Adicionar(Medico medico, CancellationToken cancellationToken = default) => await context.AddAsync(medico, cancellationToken);
 
     public void Atualizar(Medico medico) => context.Update(medico);
 
@@ -42,7 +42,7 @@ internal class MedicoRepository(ApplicationDbContext context) : IMedicoRepositor
     {
         context.Entry(medico).State = EntityState.Modified;
 
-        if (!medico.Disponibilidade?.Any() ?? true)
+        if (medico.Disponibilidade == null || medico.Disponibilidade.Count == 0)
             return;
         
         foreach (var disponibilidade in medico.Disponibilidade)

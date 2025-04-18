@@ -12,8 +12,8 @@ public class Consulta : Entidade
     public string? JustificativaCancelamento { get; private set; }
     public decimal Valor { get; private set; }
 
-    public virtual Paciente Paciente { get; protected set; }
-    public virtual Medico Medico { get; protected set; }
+    public virtual Paciente? Paciente { get; protected set; }
+    public virtual Medico? Medico { get; protected set; }
 
     public bool HorarioUltrapassado => DateTime.UtcNow > Horario.ToUniversalTime();
 

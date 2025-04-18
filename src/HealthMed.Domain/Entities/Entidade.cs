@@ -4,21 +4,14 @@ namespace HealthMed.Domain.Entities;
 
 public abstract class Entidade
 {
-    public Guid Id { get; private set; }
-    public DateTime CriadoEm { get; private set; }
+    public Guid Id { get; set; }
+    public DateTime CriadoEm { get; private set; } = DateTime.UtcNow;
     public DateTime? AtualizadoEm { get; private set; }
-    public bool Apagado { get; private set; }
+    public bool Apagado { get; private set; } = false;
 
-    private List<IEventoDominio> _eventos = new List<IEventoDominio>();
+    private readonly List<IEventoDominio> _eventos = [];
 
     public IReadOnlyCollection<IEventoDominio> Eventos => _eventos.AsReadOnly();
-
-    protected Entidade()
-    {
-        Id = Guid.NewGuid();
-        CriadoEm = DateTime.UtcNow;
-        Apagado = false;
-    }
 
     public void MarcarComoApagado()
     {
@@ -26,7 +19,7 @@ public abstract class Entidade
         DefinirAtualizacao();
     }
 
-    public void DefinirAtualizacao() => AtualizadoEm = DateTime.UtcNow;
+    protected void DefinirAtualizacao() => AtualizadoEm = DateTime.UtcNow;
 
     public void AdicionarEvento(IEventoDominio eventoDominio) => _eventos.Add(eventoDominio);
 

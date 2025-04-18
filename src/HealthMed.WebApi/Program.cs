@@ -1,11 +1,16 @@
 using System.Reflection;
+using HealthMed.Common.Filters;
 using HealthMed.Common.HealthChecks;
 using HealthMed.Common.Logging;
-using HealthMed.WebApi.Filters;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using HealthMed.Ioc;
 using HealthMed.ORM.Context;
+using HealthMed.WebApi.Constants;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 try
 {
@@ -22,7 +27,36 @@ try
                 $"{ctx.HttpContext.Request.Method} {ctx.HttpContext.Request.Path}");
         });
 
-    builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
+    builder.Services.AddOpenApi();
+    builder.Services.AddControllers(options =>
+    {
+        options.Filters.Add<GlobalExceptionFilter>();
+        
+        var policy = new AuthorizationPolicyBuilder()
+            .RequireAuthenticatedUser()
+            .Build();
+        
+        options.Filters.Add(new AuthorizeFilter(policy));
+    });
+    
+    builder.Services.AddAuthentication("Bearer")
+        .AddJwtBearer("Bearer", options =>
+        {
+            options.Authority = "http://keycloak:7080/realms/master";
+            options.RequireHttpsMetadata = false; 
+            options.Audience = "web-api";
+            options.TokenValidationParameters = new TokenValidationParameters
+            {
+                ValidateAudience = true,
+                ValidAudience = "web-api",
+                ValidateIssuer = true,
+                ValidIssuer = "http://keycloak:7080/realms/master",
+                ValidateLifetime = true,
+                ValidateIssuerSigningKey = true,
+            };
+        });
+
+    builder.Services.AddAuthorization();
 
     builder.Services.AddEndpointsApiExplorer();
 
@@ -43,28 +77,42 @@ try
 
     builder.Services.AddCors(options =>
     {
-        options.AddPolicy("AllowAny", cfg => cfg
+        options.AddPolicy(CorsConfiguration.AllowHealthMedDoctorClient, cfg => cfg
+            .AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod());
+
+        options.AddPolicy(CorsConfiguration.AllowHealthMedPatientClient, cfg => cfg
             .AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod());
     });
 
     builder.Services.ConfigureServices(builder.Configuration, builder.Environment.IsDevelopment());
+    builder.Services.AddHttpContextAccessor();
 
     var app = builder.Build();
+
+    app.MapOpenApi();
 
     app.UseSwagger();
     app.UseSwaggerUI(options => { options.SwaggerEndpoint("/swagger/v1/swagger.json", "Health & Med Web API V1"); });
 
-    app.UseCors("AllowAny");
-    app.UseHttpsRedirection();
+    app.UseCors(config =>
+    {
+        config.WithOrigins(CorsConfiguration.AllowHealthMedDoctorClient,
+            CorsConfiguration.AllowHealthMedDoctorClient);
+    });
+    
+    // app.UseHttpsRedirection();
+    
     app.UseBasicHealthChecks();
-    app.MapControllers();
 
-    // When the app runs, it first creates the Database.
-    using var scope = app.Services.CreateScope();
-    var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    context.Database.EnsureCreated();
+    app.UseAuthentication();
+    
+    app.UseAuthorization();
+    
+    app.MapControllers();
 
     app.Run();
 }

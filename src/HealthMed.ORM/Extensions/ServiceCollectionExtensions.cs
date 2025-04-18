@@ -23,7 +23,7 @@ public static class ServiceCollectionExtensions
     private static IServiceCollection AddDatabase(this IServiceCollection services, IConfiguration configuration,
         bool isDevelopment)
     {
-        services.AddDbContext<ApplicationDbContext>(
+        services.AddDbContext<HealthMedDbContext>(
             options =>
             {
                 if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Testing")
@@ -49,7 +49,7 @@ public static class ServiceCollectionExtensions
 
     private static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<ApplicationDbContext>());
+        services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<HealthMedDbContext>());
         
         services.AddScoped<IPacienteRepository, PacienteRepository>();
         
