@@ -1,0 +1,824 @@
+2025-04-03 09:20:32.656 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-03 09:20:34.335 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-04-03 09:20:34.373 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+
+IF EXISTS
+    (SELECT *
+     FROM [sys].[objects] o
+     WHERE [o].[type] = 'U'
+     AND [o].[is_ms_shipped] = 0
+     AND NOT EXISTS (SELECT *
+         FROM [sys].[extended_properties] AS [ep]
+         WHERE [ep].[major_id] = [o].[object_id]
+             AND [ep].[minor_id] = 0
+             AND [ep].[class] = 1
+             AND [ep].[name] = N'microsoft_database_tools_support'
+    )
+)
+SELECT 1 ELSE SELECT 0
+2025-04-03 09:20:34.444 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-03 09:20:34.445 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-03 09:20:34.445 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-03 09:20:34.446 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-03 09:20:34.490 -03:00 [INF] MassTransit Bus started: "rabbitmq://healthmed_rabbitmq/"
+2025-04-03 09:21:21.883 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - null null
+2025-04-03 09:21:21.926 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:21:21.939 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterTodos", controller = "Especialidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterTodos(System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.EspecialidadeController (HealthMed.WebApi).
+2025-04-03 09:21:22.112 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+FROM [Especialidades] AS [e]
+WHERE [e].[Apagado] = CAST(0 AS bit)
+2025-04-03 09:21:22.176 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Especialidade, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.EspecialidadeViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:21:22.218 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi) in 276.4793ms
+2025-04-03 09:21:22.219 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:21:22.226 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - 200 null application/json; charset=utf-8 343.564ms
+2025-04-03 09:21:27.873 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:21:27.875 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:21:27.879 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:21:28.082 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (60ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:21:28.107 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:21:28.125 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 245.6415ms
+2025-04-03 09:21:28.125 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:21:28.126 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 253.058ms
+2025-04-03 09:21:31.717 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:21:31.718 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:21:31.721 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Paciente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.PacienteController (HealthMed.WebApi).
+2025-04-03 09:21:31.739 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+FROM [Pacientes] AS [p]
+WHERE [p].[Apagado] = CAST(0 AS bit) AND [p].[Id] = @__pacienteId_0
+2025-04-03 09:21:31.760 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.PacienteViewModel'.
+2025-04-03 09:21:31.760 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi) in 38.971ms
+2025-04-03 09:21:31.761 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:21:31.761 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 44.3759ms
+2025-04-03 09:21:35.379 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:21:35.381 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:21:35.381 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:21:35.386 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:21:35.388 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:21:35.389 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 7.902ms
+2025-04-03 09:21:35.389 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:21:35.390 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 10.6123ms
+2025-04-03 09:21:38.860 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - null null
+2025-04-03 09:21:38.861 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:21:38.861 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterTodos", controller = "Especialidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterTodos(System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.EspecialidadeController (HealthMed.WebApi).
+2025-04-03 09:21:38.865 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+FROM [Especialidades] AS [e]
+WHERE [e].[Apagado] = CAST(0 AS bit)
+2025-04-03 09:21:38.865 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Especialidade, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.EspecialidadeViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:21:38.866 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi) in 4.1227ms
+2025-04-03 09:21:38.866 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:21:38.866 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - 200 null application/json; charset=utf-8 5.9244ms
+2025-04-03 09:21:40.556 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - null null
+2025-04-03 09:21:40.557 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:21:40.559 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterMedicos", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterMedicos(System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:21:40.583 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [t].[Id], [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[MedicoId], [t0].[DiaSemana], [t0].[HoraFim], [t0].[HoraInicio], [m].[Email], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Nome]
+FROM [Medicos] AS [m]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [m].[Id] = [t0].[MedicoId]
+WHERE [m].[Apagado] = CAST(0 AS bit)
+ORDER BY [m].[Nome], [m].[Id], [t].[Id]
+2025-04-03 09:21:40.586 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Medico, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.MedicoViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:21:40.586 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi) in 26.6831ms
+2025-04-03 09:21:40.587 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:21:40.587 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - 200 null application/json; charset=utf-8 30.5638ms
+2025-04-03 09:21:41.908 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Medico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - null null
+2025-04-03 09:21:41.909 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:21:41.912 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Medico"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.MedicoController (HealthMed.WebApi).
+2025-04-03 09:21:41.936 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (4ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Crm], [t0].[EspecialidadeId], [t0].[Nome], [t0].[ValorConsulta], [t0].[Id0], [t1].[Id], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[MedicoId], [t1].[DiaSemana], [t1].[HoraFim], [t1].[HoraInicio], [t0].[Email], [t0].[Apagado0], [t0].[AtualizadoEm0], [t0].[CriadoEm0], [t0].[Nome0]
+FROM (
+    SELECT TOP(1) [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email], [t].[Id] AS [Id0], [t].[Apagado] AS [Apagado0], [t].[AtualizadoEm] AS [AtualizadoEm0], [t].[CriadoEm] AS [CriadoEm0], [t].[Nome] AS [Nome0]
+    FROM [Medicos] AS [m]
+    INNER JOIN (
+        SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+        FROM [Especialidades] AS [e]
+        WHERE [e].[Apagado] = CAST(0 AS bit)
+    ) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+    WHERE [m].[Apagado] = CAST(0 AS bit) AND [m].[Id] = @__medicoId_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [t0].[Id] = [t1].[MedicoId]
+ORDER BY [t0].[Id], [t0].[Id0]
+2025-04-03 09:21:41.966 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.MedicoViewModel'.
+2025-04-03 09:21:41.967 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi) in 55.0627ms
+2025-04-03 09:21:41.967 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:21:41.968 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Medico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - 200 null application/json; charset=utf-8 59.4816ms
+2025-04-03 09:21:42.085 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPendentesMedico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - null null
+2025-04-03 09:21:42.086 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi)'
+2025-04-03 09:21:42.089 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPendentesMedico", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPendentesMedico(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:21:42.123 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (8ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[MedicoId] = @__medicoId_0 AND [c].[Horario] >= GETDATE() AND [c].[Status] IN (0, 1)
+ORDER BY [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:21:42.124 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:21:42.125 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi) in 35.8737ms
+2025-04-03 09:21:42.125 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi)'
+2025-04-03 09:21:42.125 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPendentesMedico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - 200 null application/json; charset=utf-8 40.0609ms
+2025-04-03 09:22:45.546 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:8080/api/Consulta - application/json 187
+2025-04-03 09:22:45.547 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.Agendar (HealthMed.WebApi)'
+2025-04-03 09:22:45.551 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Agendar", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Agendar(HealthMed.Application.Models.InputModels.AgendarConsultaInputModel, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:22:45.644 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+FROM [Pacientes] AS [p]
+WHERE [p].[Apagado] = CAST(0 AS bit) AND [p].[Id] = @__pacienteId_0
+2025-04-03 09:22:45.646 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Crm], [t0].[EspecialidadeId], [t0].[Nome], [t0].[ValorConsulta], [t0].[Id0], [t1].[Id], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[MedicoId], [t1].[DiaSemana], [t1].[HoraFim], [t1].[HoraInicio], [t0].[Email], [t0].[Apagado0], [t0].[AtualizadoEm0], [t0].[CriadoEm0], [t0].[Nome0]
+FROM (
+    SELECT TOP(1) [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email], [t].[Id] AS [Id0], [t].[Apagado] AS [Apagado0], [t].[AtualizadoEm] AS [AtualizadoEm0], [t].[CriadoEm] AS [CriadoEm0], [t].[Nome] AS [Nome0]
+    FROM [Medicos] AS [m]
+    INNER JOIN (
+        SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+        FROM [Especialidades] AS [e]
+        WHERE [e].[Apagado] = CAST(0 AS bit)
+    ) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+    WHERE [m].[Apagado] = CAST(0 AS bit) AND [m].[Id] = @__medicoId_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [t0].[Id] = [t1].[MedicoId]
+ORDER BY [t0].[Id], [t0].[Id0]
+2025-04-03 09:22:45.648 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[MedicoId] = @__medicoId_0 AND [c].[Horario] >= GETDATE() AND [c].[Status] IN (0, 1)
+ORDER BY [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:22:45.745 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@p0='bbde1ef6-86e7-4070-b3d5-8cb20dc13d36', @p1='False', @p2=NULL (DbType = DateTime2), @p3='2025-04-03T12:22:45.6417121Z', @p4='2025-04-23T12:00:00.0000000', @p5=NULL (Size = 500), @p6='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb', @p7='34ca26eb-e3d1-4a31-b8a2-07f529154795', @p8='0', @p9='300.00' (Precision = 18) (Scale = 2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Consultas] ([Id], [Apagado], [AtualizadoEm], [CriadoEm], [Horario], [JustificativaCancelamento], [MedicoId], [PacienteId], [Status], [Valor])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2025-04-03 09:22:45.751 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'null'.
+2025-04-03 09:22:45.752 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.Agendar (HealthMed.WebApi) in 200.5603ms
+2025-04-03 09:22:45.752 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.Agendar (HealthMed.WebApi)'
+2025-04-03 09:22:45.752 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:8080/api/Consulta - 204 null null 206.1408ms
+2025-04-03 09:22:52.367 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:22:52.368 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:22:52.368 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:22:52.371 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:22:52.372 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:22:52.372 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 4.1692ms
+2025-04-03 09:22:52.373 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:22:52.373 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 6.0644ms
+2025-04-03 09:23:12.601 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:23:12.602 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:23:12.602 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Paciente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.PacienteController (HealthMed.WebApi).
+2025-04-03 09:23:12.607 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+FROM [Pacientes] AS [p]
+WHERE [p].[Apagado] = CAST(0 AS bit) AND [p].[Id] = @__pacienteId_0
+2025-04-03 09:23:12.607 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.PacienteViewModel'.
+2025-04-03 09:23:12.608 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi) in 5.4654ms
+2025-04-03 09:23:12.608 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:23:12.608 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 7.1504ms
+2025-04-03 09:23:28.953 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:23:28.953 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:23:28.953 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:23:28.956 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:23:28.958 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:23:28.958 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 4.3202ms
+2025-04-03 09:23:28.958 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:23:28.959 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 6.0738ms
+2025-04-03 09:23:31.256 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - null null
+2025-04-03 09:23:31.257 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:23:31.257 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterTodos", controller = "Especialidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterTodos(System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.EspecialidadeController (HealthMed.WebApi).
+2025-04-03 09:23:31.260 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+FROM [Especialidades] AS [e]
+WHERE [e].[Apagado] = CAST(0 AS bit)
+2025-04-03 09:23:31.261 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Especialidade, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.EspecialidadeViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:23:31.261 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi) in 3.811ms
+2025-04-03 09:23:31.261 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:23:31.262 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - 200 null application/json; charset=utf-8 5.3771ms
+2025-04-03 09:23:39.691 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:23:39.691 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:23:39.691 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:23:39.694 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:23:39.695 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:23:39.696 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 4.2075ms
+2025-04-03 09:23:39.696 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:23:39.697 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 6.0263ms
+2025-04-03 09:23:41.815 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:23:41.815 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:23:41.816 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Paciente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.PacienteController (HealthMed.WebApi).
+2025-04-03 09:23:41.820 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+FROM [Pacientes] AS [p]
+WHERE [p].[Apagado] = CAST(0 AS bit) AND [p].[Id] = @__pacienteId_0
+2025-04-03 09:23:41.820 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.PacienteViewModel'.
+2025-04-03 09:23:41.821 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi) in 4.8402ms
+2025-04-03 09:23:41.821 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:23:41.821 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 6.548ms
+2025-04-03 09:23:43.433 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:23:43.434 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:23:43.434 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:23:43.437 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:23:43.438 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:23:43.438 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 3.93ms
+2025-04-03 09:23:43.439 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:23:43.439 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 5.8077ms
+2025-04-03 09:23:44.600 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - null null
+2025-04-03 09:23:44.601 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:23:44.601 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterTodos", controller = "Especialidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterTodos(System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.EspecialidadeController (HealthMed.WebApi).
+2025-04-03 09:23:44.603 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+FROM [Especialidades] AS [e]
+WHERE [e].[Apagado] = CAST(0 AS bit)
+2025-04-03 09:23:44.604 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Especialidade, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.EspecialidadeViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:23:44.604 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi) in 2.8655ms
+2025-04-03 09:23:44.604 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:23:44.605 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - 200 null application/json; charset=utf-8 4.7278ms
+2025-04-03 09:24:12.919 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:24:12.920 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:24:12.920 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:24:12.922 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:24:12.923 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:24:12.924 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 3.6679ms
+2025-04-03 09:24:12.924 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:24:12.924 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 5.2979ms
+2025-04-03 09:24:14.409 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:24:14.409 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:24:14.409 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Paciente"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.PacienteController (HealthMed.WebApi).
+2025-04-03 09:24:14.412 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+FROM [Pacientes] AS [p]
+WHERE [p].[Apagado] = CAST(0 AS bit) AND [p].[Id] = @__pacienteId_0
+2025-04-03 09:24:14.413 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.PacienteViewModel'.
+2025-04-03 09:24:14.413 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi) in 3.4914ms
+2025-04-03 09:24:14.413 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.PacienteController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:24:14.414 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Paciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 5.084ms
+2025-04-03 09:24:15.976 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:24:15.976 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:24:15.977 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:24:15.979 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:24:15.980 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:24:15.981 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 4.0151ms
+2025-04-03 09:24:15.981 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:24:15.982 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 5.7109ms
+2025-04-03 09:24:18.311 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - null null
+2025-04-03 09:24:18.312 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:24:18.312 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterTodos", controller = "Especialidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterTodos(System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.EspecialidadeController (HealthMed.WebApi).
+2025-04-03 09:24:18.314 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+FROM [Especialidades] AS [e]
+WHERE [e].[Apagado] = CAST(0 AS bit)
+2025-04-03 09:24:18.315 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Especialidade, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.EspecialidadeViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:24:18.315 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi) in 2.7226ms
+2025-04-03 09:24:18.315 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:24:18.315 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - 200 null application/json; charset=utf-8 4.3077ms
+2025-04-03 09:24:21.083 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - null null
+2025-04-03 09:24:21.084 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:24:21.084 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterMedicos", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterMedicos(System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:24:21.087 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [t].[Id], [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[MedicoId], [t0].[DiaSemana], [t0].[HoraFim], [t0].[HoraInicio], [m].[Email], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Nome]
+FROM [Medicos] AS [m]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [m].[Id] = [t0].[MedicoId]
+WHERE [m].[Apagado] = CAST(0 AS bit)
+ORDER BY [m].[Nome], [m].[Id], [t].[Id]
+2025-04-03 09:24:21.088 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Medico, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.MedicoViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:24:21.088 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi) in 3.8698ms
+2025-04-03 09:24:21.088 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:24:21.089 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - 200 null application/json; charset=utf-8 5.5994ms
+2025-04-03 09:24:27.692 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Medico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - null null
+2025-04-03 09:24:27.693 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:24:27.693 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Medico"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.MedicoController (HealthMed.WebApi).
+2025-04-03 09:24:27.697 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Crm], [t0].[EspecialidadeId], [t0].[Nome], [t0].[ValorConsulta], [t0].[Id0], [t1].[Id], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[MedicoId], [t1].[DiaSemana], [t1].[HoraFim], [t1].[HoraInicio], [t0].[Email], [t0].[Apagado0], [t0].[AtualizadoEm0], [t0].[CriadoEm0], [t0].[Nome0]
+FROM (
+    SELECT TOP(1) [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email], [t].[Id] AS [Id0], [t].[Apagado] AS [Apagado0], [t].[AtualizadoEm] AS [AtualizadoEm0], [t].[CriadoEm] AS [CriadoEm0], [t].[Nome] AS [Nome0]
+    FROM [Medicos] AS [m]
+    INNER JOIN (
+        SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+        FROM [Especialidades] AS [e]
+        WHERE [e].[Apagado] = CAST(0 AS bit)
+    ) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+    WHERE [m].[Apagado] = CAST(0 AS bit) AND [m].[Id] = @__medicoId_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [t0].[Id] = [t1].[MedicoId]
+ORDER BY [t0].[Id], [t0].[Id0]
+2025-04-03 09:24:27.698 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.MedicoViewModel'.
+2025-04-03 09:24:27.698 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi) in 4.3483ms
+2025-04-03 09:24:27.698 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:24:27.699 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Medico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - 200 null application/json; charset=utf-8 6.8585ms
+2025-04-03 09:24:27.866 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPendentesMedico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - null null
+2025-04-03 09:24:27.867 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi)'
+2025-04-03 09:24:27.867 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPendentesMedico", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPendentesMedico(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:24:27.869 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[MedicoId] = @__medicoId_0 AND [c].[Horario] >= GETDATE() AND [c].[Status] IN (0, 1)
+ORDER BY [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:24:27.870 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:24:27.870 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi) in 3.2363ms
+2025-04-03 09:24:27.871 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi)'
+2025-04-03 09:24:27.871 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPendentesMedico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - 200 null application/json; charset=utf-8 4.8513ms
+2025-04-03 09:25:00.004 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:8080/api/Consulta - application/json 187
+2025-04-03 09:25:00.005 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.Agendar (HealthMed.WebApi)'
+2025-04-03 09:25:00.005 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "Agendar", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Agendar(HealthMed.Application.Models.InputModels.AgendarConsultaInputModel, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:25:00.008 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+FROM [Pacientes] AS [p]
+WHERE [p].[Apagado] = CAST(0 AS bit) AND [p].[Id] = @__pacienteId_0
+2025-04-03 09:25:00.009 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Crm], [t0].[EspecialidadeId], [t0].[Nome], [t0].[ValorConsulta], [t0].[Id0], [t1].[Id], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[MedicoId], [t1].[DiaSemana], [t1].[HoraFim], [t1].[HoraInicio], [t0].[Email], [t0].[Apagado0], [t0].[AtualizadoEm0], [t0].[CriadoEm0], [t0].[Nome0]
+FROM (
+    SELECT TOP(1) [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email], [t].[Id] AS [Id0], [t].[Apagado] AS [Apagado0], [t].[AtualizadoEm] AS [AtualizadoEm0], [t].[CriadoEm] AS [CriadoEm0], [t].[Nome] AS [Nome0]
+    FROM [Medicos] AS [m]
+    INNER JOIN (
+        SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+        FROM [Especialidades] AS [e]
+        WHERE [e].[Apagado] = CAST(0 AS bit)
+    ) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+    WHERE [m].[Apagado] = CAST(0 AS bit) AND [m].[Id] = @__medicoId_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [t0].[Id] = [t1].[MedicoId]
+ORDER BY [t0].[Id], [t0].[Id0]
+2025-04-03 09:25:00.011 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[MedicoId] = @__medicoId_0 AND [c].[Horario] >= GETDATE() AND [c].[Status] IN (0, 1)
+ORDER BY [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:25:00.015 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (2ms) [Parameters=[@p0='18961e4a-9336-4c93-9146-90aebab3d8ff', @p1='False', @p2=NULL (DbType = DateTime2), @p3='2025-04-03T12:25:00.0068108Z', @p4='2025-04-23T14:00:00.0000000', @p5=NULL (Size = 500), @p6='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb', @p7='34ca26eb-e3d1-4a31-b8a2-07f529154795', @p8='0', @p9='300.00' (Precision = 18) (Scale = 2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [Consultas] ([Id], [Apagado], [AtualizadoEm], [CriadoEm], [Horario], [JustificativaCancelamento], [MedicoId], [PacienteId], [Status], [Valor])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9);
+2025-04-03 09:25:00.016 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing CreatedResult, writing value of type 'null'.
+2025-04-03 09:25:00.016 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.Agendar (HealthMed.WebApi) in 11.1027ms
+2025-04-03 09:25:00.017 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.Agendar (HealthMed.WebApi)'
+2025-04-03 09:25:00.017 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:8080/api/Consulta - 204 null null 12.7447ms
+2025-04-03 09:25:06.806 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - null null
+2025-04-03 09:25:06.806 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:25:06.807 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPaciente", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPaciente(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:25:06.809 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__pacienteId_0='34ca26eb-e3d1-4a31-b8a2-07f529154795'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[PacienteId] = @__pacienteId_0
+ORDER BY [c].[Horario], [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:25:06.811 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:25:06.811 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi) in 4.3975ms
+2025-04-03 09:25:06.811 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPaciente (HealthMed.WebApi)'
+2025-04-03 09:25:06.812 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPaciente/34ca26eb-e3d1-4a31-b8a2-07f529154795 - 200 null application/json; charset=utf-8 6.0832ms
+2025-04-03 09:25:18.828 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - null null
+2025-04-03 09:25:18.829 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:25:18.829 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterTodos", controller = "Especialidade"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterTodos(System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.EspecialidadeController (HealthMed.WebApi).
+2025-04-03 09:25:18.831 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+FROM [Especialidades] AS [e]
+WHERE [e].[Apagado] = CAST(0 AS bit)
+2025-04-03 09:25:18.832 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Especialidade, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.EspecialidadeViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:25:18.832 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi) in 3.1047ms
+2025-04-03 09:25:18.833 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.EspecialidadeController.ObterTodos (HealthMed.WebApi)'
+2025-04-03 09:25:18.833 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Especialidade - 200 null application/json; charset=utf-8 4.7362ms
+2025-04-03 09:25:20.925 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - null null
+2025-04-03 09:25:20.925 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:25:20.926 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterMedicos", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterMedicos(System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:25:20.928 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [t].[Id], [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[MedicoId], [t0].[DiaSemana], [t0].[HoraFim], [t0].[HoraInicio], [m].[Email], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Nome]
+FROM [Medicos] AS [m]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [m].[Id] = [t0].[MedicoId]
+WHERE [m].[Apagado] = CAST(0 AS bit)
+ORDER BY [m].[Nome], [m].[Id], [t].[Id]
+2025-04-03 09:25:20.929 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Medico, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.MedicoViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:25:20.929 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi) in 2.9664ms
+2025-04-03 09:25:20.929 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:25:20.930 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - 200 null application/json; charset=utf-8 4.7523ms
+2025-04-03 09:25:23.158 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Medico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - null null
+2025-04-03 09:25:23.158 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:25:23.159 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterPorId", controller = "Medico"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterPorId(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.MedicoController (HealthMed.WebApi).
+2025-04-03 09:25:23.163 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Crm], [t0].[EspecialidadeId], [t0].[Nome], [t0].[ValorConsulta], [t0].[Id0], [t1].[Id], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[MedicoId], [t1].[DiaSemana], [t1].[HoraFim], [t1].[HoraInicio], [t0].[Email], [t0].[Apagado0], [t0].[AtualizadoEm0], [t0].[CriadoEm0], [t0].[Nome0]
+FROM (
+    SELECT TOP(1) [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email], [t].[Id] AS [Id0], [t].[Apagado] AS [Apagado0], [t].[AtualizadoEm] AS [AtualizadoEm0], [t].[CriadoEm] AS [CriadoEm0], [t].[Nome] AS [Nome0]
+    FROM [Medicos] AS [m]
+    INNER JOIN (
+        SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+        FROM [Especialidades] AS [e]
+        WHERE [e].[Apagado] = CAST(0 AS bit)
+    ) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+    WHERE [m].[Apagado] = CAST(0 AS bit) AND [m].[Id] = @__medicoId_0
+) AS [t0]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [t0].[Id] = [t1].[MedicoId]
+ORDER BY [t0].[Id], [t0].[Id0]
+2025-04-03 09:25:23.164 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'HealthMed.Application.Models.ViewModels.MedicoViewModel'.
+2025-04-03 09:25:23.164 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi) in 5.4986ms
+2025-04-03 09:25:23.165 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.MedicoController.ObterPorId (HealthMed.WebApi)'
+2025-04-03 09:25:23.165 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Medico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - 200 null application/json; charset=utf-8 7.1765ms
+2025-04-03 09:25:23.389 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPendentesMedico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - null null
+2025-04-03 09:25:23.389 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi)'
+2025-04-03 09:25:23.390 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterConsultasPendentesMedico", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterConsultasPendentesMedico(System.Guid, System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:25:23.393 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[@__medicoId_0='0db1b9ba-2d36-4ee9-8839-c6af317c8cfb'], CommandType='"Text"', CommandTimeout='30']
+SELECT [c].[Id], [c].[Apagado], [c].[AtualizadoEm], [c].[CriadoEm], [c].[Horario], [c].[JustificativaCancelamento], [c].[MedicoId], [c].[PacienteId], [c].[Status], [c].[Valor], [t].[Id], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Crm], [t].[EspecialidadeId], [t].[Nome], [t].[ValorConsulta], [t0].[Id], [t1].[Id], [t2].[Id], [t2].[Apagado], [t2].[AtualizadoEm], [t2].[CriadoEm], [t2].[MedicoId], [t2].[DiaSemana], [t2].[HoraFim], [t2].[HoraInicio], [t].[Email], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[Nome], [t1].[Apagado], [t1].[AtualizadoEm], [t1].[CriadoEm], [t1].[Nome], [t1].[Email]
+FROM [Consultas] AS [c]
+INNER JOIN (
+    SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [m].[Email]
+    FROM [Medicos] AS [m]
+    WHERE [m].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [c].[MedicoId] = [t].[Id]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [t].[EspecialidadeId] = [t0].[Id]
+INNER JOIN (
+    SELECT [p].[Id], [p].[Apagado], [p].[AtualizadoEm], [p].[CriadoEm], [p].[Nome], [p].[Email]
+    FROM [Pacientes] AS [p]
+    WHERE [p].[Apagado] = CAST(0 AS bit)
+) AS [t1] ON [c].[PacienteId] = [t1].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t2] ON [t].[Id] = [t2].[MedicoId]
+WHERE [c].[Apagado] = CAST(0 AS bit) AND [c].[MedicoId] = @__medicoId_0 AND [c].[Horario] >= GETDATE() AND [c].[Status] IN (0, 1)
+ORDER BY [c].[Id], [t].[Id], [t0].[Id], [t1].[Id]
+2025-04-03 09:25:23.394 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Consulta, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.ConsultaViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:25:23.394 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi) in 4.1516ms
+2025-04-03 09:25:23.395 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterConsultasPendentesMedico (HealthMed.WebApi)'
+2025-04-03 09:25:23.395 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterConsultasPendentesMedico/0db1b9ba-2d36-4ee9-8839-c6af317c8cfb - 200 null application/json; charset=utf-8 5.9861ms
+2025-04-03 09:25:34.502 -03:00 [INF] MassTransit Usage Telemetry: {"id":"01000000-ac13-0242-e6e8-08dd72a9ee13","created":"2025-04-03T09:20:32.5800270-03:00","host":{"framework_version":"8.0.13","mass_transit_version":"8.4.0.0","operating_system_version":"Unix 5.15.153.1","time_zone_info":"(UTC-03:00) Brasilia Standard Time (Sao Paulo)","commit_hash":"c0977e09482f7f5e3585c9a59e67941a89fd2963"},"bus":[{"created":"2025-04-03T09:20:32.6060086-03:00","configured":"2025-04-03T09:20:32.6491412-03:00","started":"2025-04-03T09:20:34.4889978-03:00","name":"IBus","endpoints":[{"name":"_bus_","type":"RabbitMQ","prefetch_count":32}]}]}
+2025-04-03 09:26:19.102 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId=11dfe1d8-57c0-411b-b797-2dda84934778 - null null
+2025-04-03 09:26:19.102 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:26:19.103 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterMedicos", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterMedicos(System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:26:19.119 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (5ms) [Parameters=[@__especialidadeId_0='11dfe1d8-57c0-411b-b797-2dda84934778' (Nullable = true)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [t].[Id], [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[MedicoId], [t0].[DiaSemana], [t0].[HoraFim], [t0].[HoraInicio], [m].[Email], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Nome]
+FROM [Medicos] AS [m]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [m].[Id] = [t0].[MedicoId]
+WHERE [m].[Apagado] = CAST(0 AS bit) AND [m].[EspecialidadeId] = @__especialidadeId_0
+ORDER BY [m].[Nome], [m].[Id], [t].[Id]
+2025-04-03 09:26:19.120 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Medico, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.MedicoViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:26:19.120 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi) in 17.379ms
+2025-04-03 09:26:19.121 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:26:19.121 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId=11dfe1d8-57c0-411b-b797-2dda84934778 - 200 null application/json; charset=utf-8 18.9355ms
+2025-04-03 09:26:22.327 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - null null
+2025-04-03 09:26:22.327 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executing endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:26:22.328 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Route matched with {action = "ObterMedicos", controller = "Consulta"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] ObterMedicos(System.Nullable`1[System.Guid], System.Threading.CancellationToken) on controller HealthMed.WebApi.Controllers.ConsultaController (HealthMed.WebApi).
+2025-04-03 09:26:22.330 -03:00 [INF] Microsoft.EntityFrameworkCore.Database.Command Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[Id], [m].[Apagado], [m].[AtualizadoEm], [m].[CriadoEm], [m].[Crm], [m].[EspecialidadeId], [m].[Nome], [m].[ValorConsulta], [t].[Id], [t0].[Id], [t0].[Apagado], [t0].[AtualizadoEm], [t0].[CriadoEm], [t0].[MedicoId], [t0].[DiaSemana], [t0].[HoraFim], [t0].[HoraInicio], [m].[Email], [t].[Apagado], [t].[AtualizadoEm], [t].[CriadoEm], [t].[Nome]
+FROM [Medicos] AS [m]
+INNER JOIN (
+    SELECT [e].[Id], [e].[Apagado], [e].[AtualizadoEm], [e].[CriadoEm], [e].[Nome]
+    FROM [Especialidades] AS [e]
+    WHERE [e].[Apagado] = CAST(0 AS bit)
+) AS [t] ON [m].[EspecialidadeId] = [t].[Id]
+LEFT JOIN (
+    SELECT [d].[Id], [d].[Apagado], [d].[AtualizadoEm], [d].[CriadoEm], [d].[MedicoId], [d].[DiaSemana], [d].[HoraFim], [d].[HoraInicio]
+    FROM [DisponibilidadeMedico] AS [d]
+    WHERE [d].[Apagado] = CAST(0 AS bit)
+) AS [t0] ON [m].[Id] = [t0].[MedicoId]
+WHERE [m].[Apagado] = CAST(0 AS bit)
+ORDER BY [m].[Nome], [m].[Id], [t].[Id]
+2025-04-03 09:26:22.330 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+SelectListIterator`2[[HealthMed.Domain.Entities.Medico, HealthMed.Domain, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[HealthMed.Application.Models.ViewModels.MedicoViewModel, HealthMed.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-04-03 09:26:22.330 -03:00 [INF] Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker Executed action HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi) in 2.6092ms
+2025-04-03 09:26:22.331 -03:00 [INF] Microsoft.AspNetCore.Routing.EndpointMiddleware Executed endpoint 'HealthMed.WebApi.Controllers.ConsultaController.ObterMedicos (HealthMed.WebApi)'
+2025-04-03 09:26:22.331 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:8080/api/Consulta/ObterMedicos?especialidadeId= - 200 null application/json; charset=utf-8 4.1911ms
+2025-04-03 09:28:11.396 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-03 09:28:11.437 -03:00 [INF] MassTransit Bus stopped: "rabbitmq://healthmed_rabbitmq/"

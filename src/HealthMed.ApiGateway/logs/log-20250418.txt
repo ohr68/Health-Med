@@ -1,0 +1,18 @@
+2025-04-18 12:15:34.820 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-18 12:15:34.915 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-18 12:15:35.420 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-18 12:15:35.421 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-18 12:15:35.422 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-18 12:15:35.423 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-18 12:15:35.434 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-18 12:15:50.015 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 OPTIONS http://localhost:5002/auth/login - null null
+2025-04-18 12:15:50.030 -03:00 [INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+2025-04-18 12:15:50.036 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 OPTIONS http://localhost:5002/auth/login - 204 null null 22.9012ms
+2025-04-18 12:15:50.052 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/auth/login - application/json 58
+2025-04-18 12:15:50.054 -03:00 [INF] Microsoft.AspNetCore.Cors.Infrastructure.CorsService CORS policy execution successful.
+2025-04-18 12:15:50.105 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBUHFJI29J9:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-18 12:15:50.109 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBUHFJI29J9:00000002, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/auth/login'.'
+2025-04-18 12:15:50.111 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBUHFJI29J9:00000002, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-18 12:15:50.637 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/auth/login - 403 null application/json; charset=utf-8 584.6731ms
+2025-04-18 12:15:50.638 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/auth/login, Response status code: 403
+2025-04-18 12:16:00.119 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
