@@ -5,6 +5,7 @@ using HealthMed.Application.Models.InputModels;
 using HealthMed.Application.Tests.Fixture;
 using HealthMed.Domain.Entities;
 using HealthMed.Domain.Interfaces.Repositories;
+using HealthMed.Domain.ValueObjects;
 using HealthMed.ORM.Context;
 using Microsoft.Extensions.DependencyInjection;
 using ValidationException = FluentValidation.ValidationException;
@@ -30,7 +31,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -61,7 +62,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -93,7 +94,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
 
         var nomeMedico = _faker.Person.FullName;
         var emailMedico = _faker.Person.Email;
-        var crmMedico = "1234567";
+        var crmMedico = new Crm("123456/SP");
         var valorConsulta = 100;
         var especialidadeId = especialidade.Id;
         var cadastroMedicoInputModel = new CadastroMedicoInputModel(
@@ -133,7 +134,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
 
         var nomeMedico = _faker.Person.FullName;
         var emailMedico = "email_invalido";
-        var crmMedico = "1234567";
+        var crmMedico = "123456/SP";
         var valorConsulta = 100;
         var especialidadeId = especialidade.Id;
         var cadastroMedicoInputModel = new CadastroMedicoInputModel(
@@ -164,7 +165,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
 
         var nomeMedico = "";
         var emailMedico = _faker.Person.Email;
-        var crmMedico = "1234567";
+        var crmMedico = "123456/SP";
         var valorConsulta = 100;
         var especialidadeId = especialidade.Id;
         var cadastroMedicoInputModel = new CadastroMedicoInputModel(
@@ -287,7 +288,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -360,7 +361,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -392,7 +393,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
 
         var nomeMedico = _faker.Person.FullName;
         var emailMedico = _faker.Person.Email;
-        var crmMedico = "1234567";
+        var crmMedico = "123456/SP";
         var valorConsulta = 100;
         var especialidadeId = especialidade.Id;
         List<DisponibilidadeMedico> disponibilidadeMedico =

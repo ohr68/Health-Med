@@ -4,7 +4,7 @@ namespace HealthMed.Domain.Entities;
 
 public abstract class Entidade
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; set; } = Guid.NewGuid();
     public DateTime CriadoEm { get; private set; } = DateTime.UtcNow;
     public DateTime? AtualizadoEm { get; private set; }
     public bool Apagado { get; private set; } = false;

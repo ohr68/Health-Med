@@ -12,7 +12,6 @@ public class EntidadeMap<TEntity> : IEntityTypeConfiguration<TEntity> where TEnt
         
         builder.Property(u => u.Id)
             .HasColumnType("uniqueidentifier")
-            .ValueGeneratedOnAdd()
             .IsRequired();
         
         builder

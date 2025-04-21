@@ -34,7 +34,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -74,7 +74,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -117,7 +117,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -160,7 +160,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico1 = new Medico(
             _faker.Person.FullName,
             "medico1@gmail.com",
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -168,7 +168,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico2 = new Medico(
             _faker.Person.FullName,
             "medico2@gmail.com",
-            "7654321",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -201,7 +201,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -246,7 +246,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -306,7 +306,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -343,7 +343,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -391,7 +391,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -433,7 +433,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
@@ -480,7 +480,7 @@ public class ConsultaAppServiceTests(TestsFixture fixture)
         var medico = new Medico(
             _faker.Person.FullName,
             _faker.Person.Email,
-            "1234567",
+            "123456/SP",
             especialidade.Id,
             100,
             null);
