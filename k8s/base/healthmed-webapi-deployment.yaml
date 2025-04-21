@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthmed-webapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthmed-webapi
+  template:
+    metadata:
+      labels:
+        app: healthmed-webapi
+    spec:
+      containers:
+        - name: webapi
+          image: gabrielantognoli/healthmed.webapi:latest
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 8081
+              name: https
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10

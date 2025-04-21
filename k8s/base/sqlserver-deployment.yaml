@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthmed-sqlserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthmed-sqlserver
+  template:
+    metadata:
+      labels:
+        app: healthmed-sqlserver
+    spec:
+      containers:
+        - name: sqlserver
+          image: mcr.microsoft.com/mssql/server:2022-latest
+          ports:
+            - containerPort: 1433
+          env:
+            - name: SA_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: healthmed-secrets
+                  key: SA_PASSWORD
+            - name: ACCEPT_EULA
+              value: "Y"
+            - name: TZ
+              value: America/Sao_Paulo
+          livenessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "pidof sqlservr"]
+            initialDelaySeconds: 30
+            periodSeconds: 10
+            failureThreshold: 5
+          readinessProbe:
+            exec:
+              command: ["/bin/sh", "-c", "pidof sqlservr"]
+            initialDelaySeconds: 30
+            periodSeconds: 10
