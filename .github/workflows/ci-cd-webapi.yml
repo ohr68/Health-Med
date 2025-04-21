@@ -17,7 +17,7 @@ jobs:
       - name: Configurar .NET
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '9.0.100-preview.3.24172.9'
+          dotnet-version: '9.0.4'
 
       - name: Restaurar dependências
         run: dotnet restore
