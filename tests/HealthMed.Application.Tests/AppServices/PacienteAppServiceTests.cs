@@ -48,7 +48,7 @@ public class PacienteAppServiceTests(TestsFixture fixture)
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = _faker.Person.Email;
         var cpfPaciente = _faker.Person.Cpf();
-        var input = new CadastroPacienteInputModel(nomePaciente, emailPaciente, _faker.Internet.Password(), cpfPaciente);
+        var input = new CadastroPacienteInputModel(nomePaciente, emailPaciente, cpfPaciente, _faker.Internet.Password());
 
         using var scope = fixture.ServiceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
@@ -72,7 +72,7 @@ public class PacienteAppServiceTests(TestsFixture fixture)
         var nomePaciente = _faker.Person.FullName;
         var emailPaciente = "email_invalido ";
         var cpfPaciente = _faker.Person.Cpf();
-        var input = new CadastroPacienteInputModel(nomePaciente, emailPaciente, _faker.Internet.Password(), cpfPaciente);
+        var input = new CadastroPacienteInputModel(nomePaciente, emailPaciente, cpfPaciente, _faker.Internet.Password());
 
         using var scope = fixture.ServiceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
@@ -90,7 +90,7 @@ public class PacienteAppServiceTests(TestsFixture fixture)
         var nomePaciente = "";
         var emailPaciente = _faker.Person.Email;
         var cpfPaciente = _faker.Person.Cpf();
-        var input = new CadastroPacienteInputModel(nomePaciente, emailPaciente, _faker.Internet.Password(), cpfPaciente);
+        var input = new CadastroPacienteInputModel(nomePaciente, emailPaciente, cpfPaciente, _faker.Internet.Password());
 
         using var scope = fixture.ServiceProvider.CreateScope();
         var context = scope.ServiceProvider.GetRequiredService<HealthMedDbContext>();
