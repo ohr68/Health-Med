@@ -102,7 +102,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            _faker.Internet.Password(), null);
+            "Senha@123", null);
         var medicoRepository = scope.ServiceProvider.GetRequiredService<IMedicoRepository>();
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
@@ -142,7 +142,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            _faker.Internet.Password(), null);
+            "Senha@123", null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
@@ -173,7 +173,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            _faker.Internet.Password(), null);
+            "Senha@123", null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
@@ -204,7 +204,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            _faker.Internet.Password(), null);
+            "Senha@123", null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
@@ -235,7 +235,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            _faker.Internet.Password(), null);
+            "Senha@123", null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
@@ -266,7 +266,7 @@ public class MedicoAppServiceTests(TestsFixture fixture)
             crmMedico,
             valorConsulta,
             especialidadeId,
-            _faker.Internet.Password(), null);
+            "Senha@123", null);
         var appService = scope.ServiceProvider.GetRequiredService<IMedicoAppService>();
 
         //Act && Assert
