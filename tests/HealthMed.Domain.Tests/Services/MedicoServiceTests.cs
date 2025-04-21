@@ -22,7 +22,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -58,7 +58,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -83,7 +83,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -107,7 +107,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -130,7 +130,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -153,7 +153,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -191,7 +191,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -225,7 +225,7 @@ public class MedicoServiceTests(MedicoFixture medicoFixture) : IClassFixture<Med
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
