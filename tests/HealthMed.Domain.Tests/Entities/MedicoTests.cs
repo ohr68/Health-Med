@@ -2,6 +2,7 @@
 using FluentAssertions;
 using HealthMed.Domain.Exceptions;
 using HealthMed.Domain.Tests.Fixture;
+using HealthMed.Domain.ValueObjects;
 
 namespace HealthMed.Domain.Tests.Entities;
 
@@ -14,7 +15,7 @@ public class MedicoTests(MedicoFixture medicoFixture) : IClassFixture<MedicoFixt
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "123456/SP";
+        var crm = new Crm("123456/SP");
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
