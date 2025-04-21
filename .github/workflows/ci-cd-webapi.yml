@@ -23,7 +23,7 @@ jobs:
         run: dotnet restore ./src/HealthMed.WebApi/HealthMed.WebApi.csproj
 
       - name: Executar Testes
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test ./HealthMed.sln --no-restore --verbosity normal
 
       - name: Compilar projeto
         run: dotnet build ./src/HealthMed.WebApi/HealthMed.WebApi.csproj --configuration Release --no-restore
