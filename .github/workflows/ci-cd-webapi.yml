@@ -12,10 +12,10 @@ jobs:
 
     steps:
       - name: Checkout do código
-        uses: actions/checkout
+        uses: actions/checkout@v2
 
       - name: Configurar .NET
-        uses: actions/setup-dotnet
+        uses: actions/setup-dotnet@v2
         with:
           dotnet-version: '9.0.100-preview.3.24172.9'
 
