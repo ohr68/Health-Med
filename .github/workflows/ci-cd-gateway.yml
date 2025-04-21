@@ -1,4 +1,4 @@
-name: Auth API CI/CD
+name: Gateway CI/CD
 
 on:
   push:
@@ -35,6 +35,6 @@ jobs:
       - name: Deploy no Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: webapi-auth
+          app-name: gateway-med
           publish-profile: ${{ secrets.AZURE_GATEWAY_PUBLISH_PROFILE }}
           package: ./publish
