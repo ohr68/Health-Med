@@ -29,7 +29,7 @@ public static class ServiceCollectionExtensions
                 if (Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Testing")
                 {
                     // In-memory database for testing
-                    options.UseSqlite($"Data Source={Guid.NewGuid()}.db");
+                    options.UseInMemoryDatabase(Guid.NewGuid().ToString());
 
                     return;
                 }
