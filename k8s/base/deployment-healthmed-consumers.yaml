@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthmed-consumers
+  labels:
+    app: healthmed-consumers
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthmed-consumers
+  template:
+    metadata:
+      labels:
+        app: healthmed-consumers
+    spec:
+      containers:
+        - name: healthmed-consumers
+          image: gahantognoli/healthmed-consumers:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: DOTNETCORE_ENVIRONMENT
+              value: Development
+            - name: ConnectionStrings__HealthMed
+              value: Server=healthmed-sqlserver;Database=HealthMed;User=sa;Password=Senha@123;TrustServerCertificate=True
+            - name: MasstransitSettings__Host
+              value: healthmed-rabbitmq
+            - name: MasstransitSettings__Username
+              value: guest
+            - name: MasstransitSettings__Password
+              value: guest
+          command: ["dotnet"]
+          args: ["HealthMed.Consumers.dll"]
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+      initContainers:
+        - name: init-migrate
+          image: healthmed-consumers:latest
+          command: [ "sh", "-c", "sleep 10 && dotnet ef database update" ]
+          env:
+            - name: DOTNETCORE_ENVIRONMENT
+              value: Development
+            - name: ConnectionStrings__HealthMed
+              value: Server=healthmed-sqlserver;Database=HealthMed;User=sa;Password=Senha@123;TrustServerCertificate=True

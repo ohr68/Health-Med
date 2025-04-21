@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: healthmed-api-gateway
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: healthmed-api-gateway
+  template:
+    metadata:
+      labels:
+        app: healthmed-api-gateway
+    spec:
+      containers:
+        - name: gateway
+          image: gabrielantognoli/healthmed.gateway:latest
+          ports:
+            - containerPort: 8080
+              name: http
+            - containerPort: 444
+              name: https
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: http://+:8080
+          livenessProbe:
+            httpGet:
+              path: /health/live
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /health/ready
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10

@@ -1,0 +1,814 @@
+2025-04-13 10:47:32.369 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 10:47:32.431 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 10:57:16.225 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 10:57:16.282 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 11:08:33.389 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 11:08:33.466 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 11:08:33.704 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 11:08:33.706 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 11:08:33.706 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 11:08:33.707 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 11:08:33.707 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 11:17:20.316 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 11:17:55.216 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 11:17:55.299 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 11:17:55.539 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 11:17:55.540 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 11:17:55.541 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 11:17:55.541 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 11:17:55.542 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 11:22:02.157 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 11:27:08.273 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 11:27:08.345 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 11:27:08.655 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 11:27:08.656 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 11:27:08.657 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 11:27:08.657 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 11:27:08.675 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 11:27:13.151 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 11:28:30.601 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 11:28:30.664 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 11:28:30.935 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 11:28:30.938 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 11:28:30.940 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 11:28:30.940 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 11:28:30.940 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 11:31:06.866 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5002/ - null null
+2025-04-13 11:31:06.893 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5002/ - 404 0 null 28.2706ms
+2025-04-13 11:31:13.240 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5002/swagger - null null
+2025-04-13 11:31:13.242 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5002/swagger - 404 0 null 2.8705ms
+2025-04-13 11:31:18.290 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5002/ - null null
+2025-04-13 11:31:18.291 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5002/ - 404 0 null 1.4263ms
+2025-04-13 11:34:50.245 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5002/ - null null
+2025-04-13 11:34:50.247 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5002/ - 404 0 null 1.7707ms
+2025-04-13 11:35:49.092 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://10.0.2.2:5002/api/Especialidade - null null
+2025-04-13 11:35:49.093 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://10.0.2.2:5002/api/Especialidade - 404 0 null 0.9911ms
+2025-04-13 12:24:21.169 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:24:21.183 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 15.3288ms
+2025-04-13 12:24:25.457 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:24:25.458 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.1778ms
+2025-04-13 12:24:29.664 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:24:29.666 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 2.2203ms
+2025-04-13 12:24:33.586 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:24:33.587 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.6788ms
+2025-04-13 12:27:38.508 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 12:29:07.053 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 12:29:07.152 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 12:29:08.019 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 12:29:08.020 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 12:29:08.023 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 12:29:08.024 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 12:29:08.024 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 12:29:15.375 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:29:15.414 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 39.8735ms
+2025-04-13 12:29:21.387 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:29:21.389 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.425ms
+2025-04-13 12:29:25.558 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:29:25.559 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.3228ms
+2025-04-13 12:29:29.742 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:29:29.743 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 0.9475ms
+2025-04-13 12:32:27.118 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 12:33:08.204 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 12:33:08.275 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 12:33:08.553 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 12:33:08.554 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 12:33:08.555 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 12:33:08.556 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 12:33:08.556 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 12:33:25.674 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:25.701 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 27.9491ms
+2025-04-13 12:33:27.825 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:27.826 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.7504ms
+2025-04-13 12:33:28.588 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:28.590 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.5314ms
+2025-04-13 12:33:29.204 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:29.205 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 0.9322ms
+2025-04-13 12:33:29.981 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:29.981 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 0.8511ms
+2025-04-13 12:33:30.873 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:30.874 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.0607ms
+2025-04-13 12:33:31.557 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:33:31.558 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 0.9099ms
+2025-04-13 12:34:13.204 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:34:13.206 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 1.088ms
+2025-04-13 12:36:49.751 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 12:42:08.937 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 12:42:09.013 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 12:42:09.244 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 12:42:09.245 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 12:42:09.245 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 12:42:09.245 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 12:42:09.246 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 12:44:54.201 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 12:46:12.256 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 12:46:12.317 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 12:46:12.583 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 12:46:12.584 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 12:46:12.584 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 12:46:12.621 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 12:46:12.621 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 12:54:07.915 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 12:54:43.422 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 12:54:43.513 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 12:54:43.874 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 12:54:43.875 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 12:54:43.876 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 12:54:43.876 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 12:54:43.876 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 12:57:37.107 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 12:58:09.587 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 12:58:09.636 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 12:58:09.896 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 12:58:09.897 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 12:58:09.897 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 12:58:09.898 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 12:58:09.898 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 12:58:49.269 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:58:49.295 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 27.68ms
+2025-04-13 12:58:53.241 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - application/json 108
+2025-04-13 12:58:53.243 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/api/med/Paciente - 404 0 null 2.0928ms
+2025-04-13 12:59:17.656 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 108
+2025-04-13 12:59:17.658 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 404 0 null 1.8468ms
+2025-04-13 12:59:22.111 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 108
+2025-04-13 12:59:22.112 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 404 0 null 1.0844ms
+2025-04-13 13:00:59.998 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/2 GET https://localhost:5003/ - null null
+2025-04-13 13:01:00.000 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/2 GET https://localhost:5003/ - 404 0 null 1.7667ms
+2025-04-13 13:01:44.449 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:02:06.514 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:02:06.592 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:02:06.814 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:02:06.815 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:02:06.815 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:02:06.816 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:02:06.816 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:05:39.094 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:06:01.096 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:06:01.168 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:06:01.409 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:06:01.410 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:06:01.410 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:06:01.411 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:06:01.411 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:08:54.334 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:09:14.753 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:09:14.832 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:09:15.297 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:09:15.297 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:09:15.298 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:09:15.299 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:09:15.300 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:11:46.682 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:24:26.380 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:24:26.452 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:24:26.902 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:24:26.902 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:24:26.903 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:24:26.903 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:24:26.903 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:28:33.271 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST https://localhost:5003/med/Paciente - application/json 16
+2025-04-13 13:28:33.296 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST https://localhost:5003/med/Paciente - 404 0 null 26.5715ms
+2025-04-13 13:28:36.653 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST https://localhost:5003/med/Paciente - application/json 16
+2025-04-13 13:28:36.655 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST https://localhost:5003/med/Paciente - 404 0 null 1.5848ms
+2025-04-13 13:31:25.769 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:31:51.068 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:31:51.154 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:31:51.584 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:31:51.585 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:31:51.585 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:31:51.586 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:31:51.587 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:35:50.077 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:35:50.145 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:35:50.634 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:35:50.635 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:35:50.636 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:35:50.636 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:35:50.657 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:38:52.538 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - null 0
+2025-04-13 13:38:52.552 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 14.3532ms
+2025-04-13 13:39:37.603 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - null 0
+2025-04-13 13:39:37.605 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 1.9307ms
+2025-04-13 13:40:14.462 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 GET http://localhost:5002/ - null null
+2025-04-13 13:40:14.464 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 GET http://localhost:5002/ - 307 0 null 1.5509ms
+2025-04-13 13:40:55.907 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:41:17.418 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:41:17.496 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:41:17.995 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:41:17.996 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:41:17.996 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:41:17.998 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:41:17.999 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:41:56.483 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - null 0
+2025-04-13 13:41:56.521 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:41:56.523 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:41:56.524 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:41:56.577 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000001, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:41:56.585 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 102.4386ms
+2025-04-13 13:42:00.793 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - null 0
+2025-04-13 13:42:00.795 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:00.795 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000002, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:00.795 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000002, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:00.803 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000002, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:00.804 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 10.8164ms
+2025-04-13 13:42:23.461 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:23.464 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000003, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:23.464 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000003, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:23.464 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000003, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:23.471 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000003, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:23.472 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 10.3925ms
+2025-04-13 13:42:24.211 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:24.212 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000004, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:24.212 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000004, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:24.213 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000004, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:24.217 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000004, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:24.218 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 7.3163ms
+2025-04-13 13:42:24.809 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:24.810 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000005, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:24.811 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000005, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:24.811 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000005, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:24.816 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000005, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:24.817 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 7.455ms
+2025-04-13 13:42:25.224 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:25.226 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000006, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:25.226 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000006, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:25.226 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000006, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:25.232 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000006, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:25.232 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 7.8324ms
+2025-04-13 13:42:25.418 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:25.419 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000007, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:25.419 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000007, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:25.419 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000007, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:25.424 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000007, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:25.425 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 6.4935ms
+2025-04-13 13:42:25.629 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:25.630 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000008, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:25.631 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000008, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:25.631 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000008, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:25.636 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000008, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:25.636 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 6.6467ms
+2025-04-13 13:42:25.836 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:25.837 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000009, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:25.837 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000009, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:25.838 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000009, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:25.843 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000009, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:25.844 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 8.0696ms
+2025-04-13 13:42:26.452 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:26.453 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:0000000A, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:26.453 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:0000000A, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:26.454 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:0000000A, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:26.458 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:0000000A, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:26.458 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 5.9963ms
+2025-04-13 13:42:26.966 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:26.967 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:0000000B, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:26.967 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:0000000B, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:26.968 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:0000000B, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:26.972 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:0000000B, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:26.973 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 6.4393ms
+2025-04-13 13:42:27.438 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:27.439 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:0000000C, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:27.439 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:0000000C, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:27.439 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:0000000C, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:27.443 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:0000000C, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:27.444 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 5.8915ms
+2025-04-13 13:42:27.805 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:27.805 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:0000000D, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:27.805 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:0000000D, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:27.806 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:0000000D, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:27.810 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:0000000D, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:27.811 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 6.1734ms
+2025-04-13 13:42:28.048 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:28.049 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:0000000E, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:28.050 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:0000000E, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:28.050 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:0000000E, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:28.054 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:0000000E, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:28.055 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 6.3258ms
+2025-04-13 13:42:28.249 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:28.250 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:0000000F, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:28.250 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:0000000F, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:28.251 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:0000000F, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:28.258 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:0000000F, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:28.258 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 8.9505ms
+2025-04-13 13:42:28.437 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:42:28.438 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL8D8HAVM:00000010, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:42:28.438 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL8D8HAVM:00000010, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:42:28.439 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL8D8HAVM:00000010, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:42:28.443 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL8D8HAVM:00000010, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:42:28.444 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 6.933ms
+2025-04-13 13:42:48.249 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:43:17.170 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:43:17.264 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:43:17.856 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:43:17.857 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:43:17.859 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:43:17.860 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:43:17.861 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:43:22.120 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:22.176 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:22.178 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:22.181 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:22.304 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000001, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:22.322 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 203.6106ms
+2025-04-13 13:43:22.344 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:36.121 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:36.123 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:36.123 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000002, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:36.124 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000002, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:36.128 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000002, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:36.129 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 7.8751ms
+2025-04-13 13:43:36.129 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:36.843 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:36.845 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000003, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:36.845 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000003, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:36.845 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000003, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:36.848 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000003, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:36.860 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 16.6102ms
+2025-04-13 13:43:36.860 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:37.631 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:37.631 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000004, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:37.632 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000004, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:37.632 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000004, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:37.634 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000004, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:37.635 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.9105ms
+2025-04-13 13:43:37.635 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:38.327 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:38.328 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000005, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:38.329 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000005, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:38.329 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000005, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:38.331 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000005, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:38.332 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 5.0755ms
+2025-04-13 13:43:38.333 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:38.969 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:38.970 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000006, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:38.970 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000006, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:38.970 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000006, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:38.972 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000006, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:38.973 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 4.4162ms
+2025-04-13 13:43:38.973 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:39.651 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:39.652 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000007, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:39.652 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000007, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:39.652 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000007, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:39.654 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000007, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:39.655 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.8779ms
+2025-04-13 13:43:39.655 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:40.284 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:40.285 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000008, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:40.285 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000008, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:40.286 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000008, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:40.287 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000008, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:40.288 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.6366ms
+2025-04-13 13:43:40.288 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:40.906 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:40.907 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000009, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:40.907 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000009, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:40.907 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000009, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:40.909 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000009, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:40.910 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.8284ms
+2025-04-13 13:43:40.910 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:41.541 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:41.541 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000000A, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:41.542 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000000A, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:41.542 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000000A, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:41.544 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000000A, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:41.544 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.5914ms
+2025-04-13 13:43:41.544 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:42.195 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:42.196 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000000B, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:42.196 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000000B, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:42.196 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000000B, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:42.198 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000000B, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:42.198 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.4028ms
+2025-04-13 13:43:42.198 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:42.873 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:42.873 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000000C, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:42.874 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000000C, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:42.874 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000000C, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:42.876 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000000C, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:42.876 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.4539ms
+2025-04-13 13:43:42.876 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:43.442 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:43.443 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000000D, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:43.443 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000000D, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:43.444 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000000D, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:43.445 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000000D, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:43.446 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.5911ms
+2025-04-13 13:43:43.446 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:43.940 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:43.941 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000000E, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:43.941 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000000E, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:43.941 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000000E, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:43.943 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000000E, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:43.944 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.4999ms
+2025-04-13 13:43:43.944 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:44.320 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:44.320 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000000F, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:44.321 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000000F, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:44.321 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000000F, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:44.323 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000000F, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:44.323 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.561ms
+2025-04-13 13:43:44.324 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:48.146 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:48.148 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000010, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:48.148 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000010, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:48.148 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000010, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:48.150 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000010, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:48.150 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 4.0626ms
+2025-04-13 13:43:48.151 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:49.247 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:49.248 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000011, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:49.249 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000011, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:49.250 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000011, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:49.252 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000011, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:49.253 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 5.6808ms
+2025-04-13 13:43:49.253 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:50.003 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:50.003 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000012, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:50.004 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000012, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:50.004 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000012, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:50.006 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000012, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:50.007 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 4.1328ms
+2025-04-13 13:43:50.007 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:50.920 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:50.921 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000013, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:50.921 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000013, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:50.922 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000013, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:50.923 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000013, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:50.924 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.4945ms
+2025-04-13 13:43:50.924 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:51.649 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:51.649 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000014, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:51.650 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000014, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:51.650 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000014, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:51.652 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000014, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:51.652 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.4229ms
+2025-04-13 13:43:51.652 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:52.442 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:52.443 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000015, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:52.443 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000015, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:52.444 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000015, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:52.445 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000015, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:52.446 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.4611ms
+2025-04-13 13:43:52.446 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:54.079 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:54.080 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000016, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:54.080 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000016, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:54.080 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000016, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:54.082 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000016, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:54.083 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.2462ms
+2025-04-13 13:43:54.083 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:54.939 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:54.939 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000017, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:54.939 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000017, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:54.940 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000017, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:54.941 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000017, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:54.942 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.1558ms
+2025-04-13 13:43:54.942 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:55.654 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:55.655 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000018, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:55.655 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000018, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:55.656 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000018, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:55.657 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000018, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:55.657 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.0932ms
+2025-04-13 13:43:55.658 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:56.378 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:56.378 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:00000019, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:56.379 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:00000019, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:56.379 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:00000019, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:56.381 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:00000019, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:56.381 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 3.3951ms
+2025-04-13 13:43:56.381 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:56.967 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:56.968 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000001A, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:56.969 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000001A, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:56.969 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000001A, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:56.971 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000001A, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:56.972 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 4.4104ms
+2025-04-13 13:43:56.972 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:43:57.521 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:43:57.521 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQL96P4C19:0000001B, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:43:57.522 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQL96P4C19:0000001B, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:43:57.522 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQL96P4C19:0000001B, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:43:57.525 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQL96P4C19:0000001B, previousRequestId: No PreviousRequestId, message: '307 (Temporary Redirect) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 13:43:57.525 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 307 0 null 4.3257ms
+2025-04-13 13:43:57.525 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 307
+2025-04-13 13:44:23.900 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:44:45.667 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:44:45.755 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:44:46.250 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:44:46.252 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:44:46.252 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:44:46.254 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:44:46.254 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:44:54.411 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:44:54.453 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLA299B38:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:44:54.455 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLA299B38:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:44:54.457 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLA299B38:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:44:54.496 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:44:54.502 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 5.2765ms
+2025-04-13 13:44:54.515 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 111.3652ms
+2025-04-13 13:44:54.517 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:44:57.856 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:44:57.859 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLA299B38:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:44:57.860 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLA299B38:00000002, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:44:57.861 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLA299B38:00000002, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:44:57.864 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:44:57.865 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.9919ms
+2025-04-13 13:44:57.866 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 9.9379ms
+2025-04-13 13:44:57.867 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:44:58.576 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:44:58.577 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLA299B38:00000003, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:44:58.577 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLA299B38:00000003, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:44:58.577 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLA299B38:00000003, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:44:58.579 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:44:58.580 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.8547ms
+2025-04-13 13:44:58.580 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 4.1565ms
+2025-04-13 13:44:58.580 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:45:04.204 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:45:04.205 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLA299B38:00000004, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:45:04.205 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLA299B38:00000004, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:45:04.205 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLA299B38:00000004, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:45:04.206 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:45:04.207 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.5698ms
+2025-04-13 13:45:04.207 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 3.7779ms
+2025-04-13 13:45:04.208 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:45:04.989 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:45:04.990 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLA299B38:00000005, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:45:04.991 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLA299B38:00000005, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:45:04.991 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLA299B38:00000005, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:45:04.992 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:45:04.992 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.489ms
+2025-04-13 13:45:04.992 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 3.2524ms
+2025-04-13 13:45:04.993 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:45:43.289 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:46:02.797 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:46:02.879 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:46:03.374 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:46:03.375 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:46:03.375 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:46:03.376 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:46:03.376 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:46:08.009 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:08.071 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:08.074 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:08.087 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:08.136 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:08.145 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 7.9561ms
+2025-04-13 13:46:08.164 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 169.7443ms
+2025-04-13 13:46:08.166 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:46:09.088 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:09.091 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:09.091 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000002, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:09.091 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000002, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:09.094 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:09.094 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.6725ms
+2025-04-13 13:46:09.095 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 7.2221ms
+2025-04-13 13:46:09.096 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:46:09.856 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:09.857 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000003, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:09.859 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000003, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:09.859 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000003, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:09.861 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:09.862 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 1.1004ms
+2025-04-13 13:46:09.862 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 6.5146ms
+2025-04-13 13:46:09.863 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:46:10.326 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:10.327 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000004, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:10.328 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000004, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:10.328 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000004, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:10.329 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:10.330 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.6982ms
+2025-04-13 13:46:10.330 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 4.0675ms
+2025-04-13 13:46:10.331 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:46:10.761 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:10.762 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000005, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:10.762 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000005, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:10.763 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000005, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:10.764 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:10.764 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.7726ms
+2025-04-13 13:46:10.765 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 4.3064ms
+2025-04-13 13:46:10.765 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:46:12.938 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:12.939 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000006, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:12.940 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000006, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:12.940 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000006, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:12.941 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:12.941 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.5937ms
+2025-04-13 13:46:12.942 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 3.2393ms
+2025-04-13 13:46:12.942 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:46:13.562 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:46:13.563 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000007, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:46:13.563 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000007, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:46:13.563 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000007, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:46:13.564 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:46:13.565 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 3.4351ms
+2025-04-13 13:46:13.565 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 1.0624ms
+2025-04-13 13:46:13.566 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:47:41.352 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:47:41.352 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLAO6U60S:00000008, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:47:41.353 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLAO6U60S:00000008, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:47:41.353 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLAO6U60S:00000008, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:47:41.356 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:8080/api/Paciente - application/json 22
+2025-04-13 13:47:41.356 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:8080/api/Paciente - 404 0 null 0.6275ms
+2025-04-13 13:47:41.357 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 404 0 null 5.0684ms
+2025-04-13 13:47:41.357 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 404
+2025-04-13 13:49:02.417 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:49:13.103 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:49:13.200 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:49:13.676 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:49:13.677 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:49:13.678 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:49:13.678 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:49:13.678 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:49:21.663 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:49:21.714 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLCHU1IVC:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:49:21.716 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLCHU1IVC:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:49:21.718 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLCHU1IVC:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:49:21.780 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQLCHU1IVC:00000001, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:49:21.793 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 131.2645ms
+2025-04-13 13:49:23.114 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:49:23.117 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLCHU1IVC:00000002, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:49:23.119 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLCHU1IVC:00000002, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:49:23.119 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLCHU1IVC:00000002, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:49:23.129 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQLCHU1IVC:00000002, previousRequestId: No PreviousRequestId, message: '102 (unknown) status code of request URI: .'
+2025-04-13 13:49:23.131 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 502 0 null 17.3938ms
+2025-04-13 13:49:38.823 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:49:58.569 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:49:58.651 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:49:59.074 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:49:59.075 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:49:59.075 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:49:59.076 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:49:59.076 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:50:01.546 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://localhost:5002/med/Paciente - application/json 22
+2025-04-13 13:50:01.609 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLCTQ932D:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:50:01.612 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLCTQ932D:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:50:01.614 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLCTQ932D:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:50:02.097 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://localhost:5002/med/Paciente - 400 null application/problem+json; charset=utf-8 552.2199ms
+2025-04-13 13:50:02.113 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5002/med/Paciente, Response status code: 400
+2025-04-13 13:51:03.811 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 13:51:28.328 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 13:51:28.415 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 13:51:28.928 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 13:51:28.928 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 13:51:28.929 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 13:51:28.929 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 13:51:28.929 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 13:57:19.829 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 110
+2025-04-13 13:57:19.867 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLF5LT756:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 13:57:19.869 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLF5LT756:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 13:57:19.871 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLF5LT756:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 13:57:21.366 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 400 null application/problem+json; charset=utf-8 1537.3557ms
+2025-04-13 13:57:21.374 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 400
+2025-04-13 13:58:05.077 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 14:01:31.553 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 14:01:31.608 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 14:01:32.204 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 14:01:32.205 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 14:01:32.205 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 14:01:32.205 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 14:01:32.206 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 14:01:47.522 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 14:09:16.923 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 14:09:16.978 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 14:09:17.336 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 14:09:17.337 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 14:09:17.337 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 14:09:17.337 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 14:09:17.338 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 14:09:29.164 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 111
+2025-04-13 14:09:29.198 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLNPPN8RJ:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:09:29.200 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLNPPN8RJ:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:09:29.202 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLNPPN8RJ:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:09:30.641 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 500 null application/problem+json; charset=utf-8 1478.6679ms
+2025-04-13 14:09:30.650 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 500
+2025-04-13 14:11:28.425 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 103
+2025-04-13 14:11:28.427 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLNPPN8RK:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:11:28.427 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLNPPN8RK:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:11:28.428 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLNPPN8RK:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:11:28.556 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 409 null application/problem+json; charset=utf-8 130.9115ms
+2025-04-13 14:11:28.556 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 409
+2025-04-13 14:11:47.693 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 103
+2025-04-13 14:11:47.694 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLNPPN8RL:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:11:47.695 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLNPPN8RL:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:11:47.695 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLNPPN8RL:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:11:47.721 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 500 null application/problem+json; charset=utf-8 28.0715ms
+2025-04-13 14:11:47.722 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 500
+2025-04-13 14:12:47.825 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 105
+2025-04-13 14:12:47.826 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLNPPN8RM:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:12:47.826 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLNPPN8RM:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:12:47.826 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLNPPN8RM:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:12:47.844 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 500 null application/problem+json; charset=utf-8 19.2674ms
+2025-04-13 14:12:47.844 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 500
+2025-04-13 14:13:08.952 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 103
+2025-04-13 14:13:08.953 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLNPPN8RN:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:13:08.953 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLNPPN8RN:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:13:08.954 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLNPPN8RN:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:13:09.094 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQLNPPN8RN:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 14:13:09.095 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 142.8624ms
+2025-04-13 14:13:09.095 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 14:15:57.578 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 14:16:18.060 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 14:16:18.182 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 14:16:18.999 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 14:16:19.001 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 14:16:19.002 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 14:16:19.003 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 14:16:19.004 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 14:16:44.003 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 96
+2025-04-13 14:16:44.041 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQLRRCLOTN:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:16:44.043 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQLRRCLOTN:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:16:44.046 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQLRRCLOTN:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:16:45.700 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQLRRCLOTN:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 14:16:45.713 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 1710.626ms
+2025-04-13 14:16:45.723 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 14:20:41.506 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 14:21:00.279 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 14:21:00.355 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 14:21:00.898 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 14:21:00.898 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 14:21:00.899 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 14:21:00.899 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 14:21:00.900 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 14:21:38.857 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 14:23:33.844 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 14:23:33.954 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 14:23:34.414 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 14:23:34.415 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 14:23:34.415 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 14:23:34.416 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 14:23:34.416 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 14:25:24.432 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 14:25:42.882 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 14:25:42.956 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 14:25:43.398 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 14:25:43.398 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 14:25:43.399 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 14:25:43.399 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 14:25:43.400 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 14:26:33.727 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 97
+2025-04-13 14:26:33.763 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQM1B4LNL7:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 14:26:33.765 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQM1B4LNL7:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 14:26:33.767 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQM1B4LNL7:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 14:26:35.316 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQM1B4LNL7:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 14:26:35.328 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 1601.8404ms
+2025-04-13 14:26:35.336 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 15:19:29.015 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 15:19:56.134 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 15:19:56.213 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 15:19:56.753 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 15:19:56.756 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 15:19:56.756 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 15:19:56.757 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 15:19:56.757 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 15:20:54.340 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 97
+2025-04-13 15:20:54.378 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQMVMS8ESN:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 15:20:54.380 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQMVMS8ESN:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 15:20:54.381 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQMVMS8ESN:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 15:20:55.978 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQMVMS8ESN:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 15:20:55.988 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 1649.5914ms
+2025-04-13 15:20:55.997 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 15:23:11.517 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 15:23:31.122 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 15:23:31.258 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 15:23:31.724 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 15:23:31.724 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 15:23:31.725 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 15:23:31.725 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 15:23:31.726 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 15:24:07.140 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 94
+2025-04-13 15:24:07.175 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQN1GB0VK1:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 15:24:07.177 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQN1GB0VK1:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 15:24:07.179 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQN1GB0VK1:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 15:24:08.722 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQN1GB0VK1:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 15:24:08.733 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 1594.4494ms
+2025-04-13 15:24:08.742 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 15:27:55.270 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 96
+2025-04-13 15:27:55.272 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQN1GB0VK2:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 15:27:55.272 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQN1GB0VK2:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 15:27:55.273 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQN1GB0VK2:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 15:27:55.350 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQN1GB0VK2:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 15:27:55.351 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 81.6335ms
+2025-04-13 15:27:55.352 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 15:30:28.242 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-13 15:31:00.094 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-13 15:31:00.153 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-13 15:31:00.637 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-13 15:31:00.638 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-13 15:31:00.638 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-13 15:31:00.639 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-13 15:31:00.639 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-13 15:32:22.956 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 93
+2025-04-13 15:32:22.992 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQN643EGQH:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 15:32:22.995 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQN643EGQH:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 15:32:22.997 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQN643EGQH:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 15:32:24.534 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQN643EGQH:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 15:32:24.544 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 1589.4437ms
+2025-04-13 15:32:24.553 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 19:40:29.685 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 108
+2025-04-13 19:40:29.688 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBQN643EGQI:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-13 19:40:29.688 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBQN643EGQI:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-13 19:40:29.688 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBQN643EGQI:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-13 19:40:29.845 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBQN643EGQI:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-13 19:40:29.846 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 161.8167ms
+2025-04-13 19:40:29.847 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-13 19:42:33.175 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...

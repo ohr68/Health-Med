@@ -1,0 +1,39 @@
+name: Auth API CI/CD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v3
+
+      - name: Configurar .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.0'
+
+      - name: Restaurar dependências
+        run: dotnet restore
+
+      - name: Executar Testes
+        run: dotnet test --no-restore --verbosity normal
+
+      - name: Compilar projeto
+        run: dotnet build ./src/HealthMed.ApiGateway/HealthMed.ApiGateway.csproj --configuration Release --no-restore
+
+      - name: Publicar artefatos
+        run: dotnet publish ./src/HealthMed.ApiGateway/HealthMed.ApiGateway.csproj --configuration Release --output ./publish --no-build
+
+      - name: Deploy no Azure Web App
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: webapi-auth
+          publish-profile: ${{ secrets.AZURE_GATEWAY_PUBLISH_PROFILE }}
+          package: ./publish

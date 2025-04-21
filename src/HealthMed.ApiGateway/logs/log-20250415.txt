@@ -1,0 +1,55 @@
+2025-04-15 20:46:53.620 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-15 20:46:53.711 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-15 20:46:55.173 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-15 20:46:55.175 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-15 20:46:55.177 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-15 20:46:55.178 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-15 20:46:55.207 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-15 20:48:49.773 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request starting HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - application/json 108
+2025-04-15 20:48:49.826 -03:00 [INF] Ocelot.RateLimiting.Middleware.RateLimitingMiddleware requestId: 0HNBSF090CDAO:00000001, previousRequestId: No PreviousRequestId, message: 'EndpointRateLimiting is not enabled for /api/{everything}'
+2025-04-15 20:48:49.829 -03:00 [INF] Ocelot.Authentication.Middleware.AuthenticationMiddleware requestId: 0HNBSF090CDAO:00000001, previousRequestId: No PreviousRequestId, message: 'No authentication needed for path '/med/Paciente'.'
+2025-04-15 20:48:49.831 -03:00 [INF] Ocelot.Authorization.Middleware.AuthorizationMiddleware requestId: 0HNBSF090CDAO:00000001, previousRequestId: No PreviousRequestId, message: '/api/{everything} route does not require user to be authorized'
+2025-04-15 20:48:52.114 -03:00 [INF] Ocelot.Requester.Middleware.HttpRequesterMiddleware requestId: 0HNBSF090CDAO:00000001, previousRequestId: No PreviousRequestId, message: '201 (Created) status code of request URI: http://healthmed.webapi:8080/api/Paciente.'
+2025-04-15 20:48:52.125 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request finished HTTP/1.1 POST http://10.0.2.2:5002/med/Paciente - 201 0 null 2353.081ms
+2025-04-15 20:48:52.134 -03:00 [INF] Microsoft.AspNetCore.Hosting.Diagnostics Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://10.0.2.2:5002/med/Paciente, Response status code: 201
+2025-04-15 21:02:33.515 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-15 21:06:50.023 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-15 21:06:50.106 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-15 21:06:50.569 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-15 21:06:50.569 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-15 21:06:50.570 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-15 21:06:50.570 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-15 21:06:50.570 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-15 21:11:53.929 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-15 21:12:25.579 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-15 21:12:25.637 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-15 21:12:26.017 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-15 21:12:26.018 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-15 21:12:26.018 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-15 21:12:26.019 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-15 21:12:26.019 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-15 21:13:53.520 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-15 21:14:10.828 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-15 21:14:10.938 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-15 21:14:11.376 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-15 21:14:11.376 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-15 21:14:11.377 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-15 21:14:11.377 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-15 21:14:11.377 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-15 21:15:12.786 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-15 21:15:36.086 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-15 21:15:36.170 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-15 21:15:36.643 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-15 21:15:36.644 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-15 21:15:36.644 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-15 21:15:36.644 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-15 21:15:36.645 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-15 21:16:46.525 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...
+2025-04-15 21:17:03.698 -03:00 [INF] Serilog.Core.Logger Logging enabled for 'HealthMed.ApiGateway' on 'Development' - Mode: Release
+2025-04-15 21:17:03.770 -03:00 [INF] Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckService Health Check enabled at: '/health'
+2025-04-15 21:17:04.238 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: https://[::]:444
+2025-04-15 21:17:04.239 -03:00 [INF] Microsoft.Hosting.Lifetime Now listening on: http://[::]:8080
+2025-04-15 21:17:04.239 -03:00 [INF] Microsoft.Hosting.Lifetime Application started. Press Ctrl+C to shut down.
+2025-04-15 21:17:04.239 -03:00 [INF] Microsoft.Hosting.Lifetime Hosting environment: Development
+2025-04-15 21:17:04.240 -03:00 [INF] Microsoft.Hosting.Lifetime Content root path: /app
+2025-04-15 21:19:43.908 -03:00 [INF] Microsoft.Hosting.Lifetime Application is shutting down...

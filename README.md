@@ -80,3 +80,19 @@ As documentações com mais detalhes podem ser acessadas em
 
 ## Endereços das interfaces dos serviços
 [Endereços](/.doc/enderecos-projetos.md)
+
+# Healthmed Kubernetes (Minikube)
+
+Este repositório contém os manifests Kubernetes para rodar o stack Healthmed localmente via Minikube **sem Ingress**, utilizando `NodePort`, `Secrets`, `PVC` e `Kustomize`.
+
+## Pré-requisitos
+
+- [kubectl](https://kubernetes.io/docs/tasks/tools/)
+- [minikube](https://minikube.sigs.k8s.io/)
+- [kustomize](https://kubectl.docs.kubernetes.io/installation/kustomize/)
+
+## Executar deploy.sh
+
+```sh
+./k8s/deploy.sh
+```

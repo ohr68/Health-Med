@@ -1,0 +1,10 @@
+# k8s/overlays/minikube/kustomization.yaml
+resources:
+  - ../../base
+
+# Você pode adicionar patches aqui se quiser customizações específicas pro ambiente minikube,
+# como outra imagem, ou mudança de número de réplicas.
+
+# Exemplo (descomente e crie o arquivo se quiser usar):
+# patchesStrategicMerge:
+#   - patch-replicas.yaml
