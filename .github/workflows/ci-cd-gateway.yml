@@ -23,7 +23,7 @@ jobs:
         run: dotnet restore ./src/HealthMed.ApiGateway/HealthMed.ApiGateway.csproj
 
       - name: Executar Testes
-        run: dotnet test --no-restore --verbosity normal
+        run: dotnet test ./HealthMed.sln --no-restore --verbosity normal
 
       - name: Compilar projeto
         run: dotnet build ./src/HealthMed.ApiGateway/HealthMed.ApiGateway.csproj --configuration Release --no-restore
