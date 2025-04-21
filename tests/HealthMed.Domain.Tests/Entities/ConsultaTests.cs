@@ -23,7 +23,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -61,7 +61,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -90,7 +90,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -114,7 +114,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -142,7 +142,7 @@ public class ConsultaTests(PacienteFixture pacienteFixture, MedicoFixture medico
         var paciente = pacienteFixture.CriarPaciente(nomePaciente, emailPaciente, cpfPaciente);
         
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678/SP";
+        var crm = "123456/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
