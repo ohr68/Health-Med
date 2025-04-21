@@ -14,7 +14,7 @@ public class MedicoTests(MedicoFixture medicoFixture) : IClassFixture<MedicoFixt
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678";
+        var crm = "12345678/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -49,7 +49,7 @@ public class MedicoTests(MedicoFixture medicoFixture) : IClassFixture<MedicoFixt
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678";
+        var crm = "12345678/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
@@ -71,7 +71,7 @@ public class MedicoTests(MedicoFixture medicoFixture) : IClassFixture<MedicoFixt
     {
         //Arrange
         var nomeMedico = _faker.Name.FullName();
-        var crm = "12345678";
+        var crm = "12345678/SP";
         var especialidadeId = Guid.NewGuid();
         var emailMedico = _faker.Internet.Email();
         var valorConsulta = 100;
