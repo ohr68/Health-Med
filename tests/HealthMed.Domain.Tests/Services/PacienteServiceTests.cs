@@ -66,7 +66,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
         //Act
-        await pacienteService.Cadastrar(paciente, _faker.Internet.Password());
+        await pacienteService.Cadastrar(paciente, "Senha@123");
 
         //Assert
         pacienteRepositoryMock.Verify(repo => repo.Adicionar(paciente, CancellationToken.None), Times.Once);
@@ -91,7 +91,7 @@ public class PacienteServiceTests(PacienteFixture pacienteFixture) : IClassFixtu
         var pacienteService = new PacienteService(pacienteRepositoryMock.Object);
 
         //Act && Assert
-        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => pacienteService.Cadastrar(paciente, _faker.Internet.Password()));
+        await Assert.ThrowsAsync<EmailJaEstaEmUsoException>(() => pacienteService.Cadastrar(paciente, "Senha@123"));
     }
 
     [Fact(DisplayName = "Atualizar paciente com sucesso")]
