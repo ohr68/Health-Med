@@ -20,7 +20,7 @@ jobs:
           dotnet-version: '9.0.203'
 
       - name: Restaurar dependências
-        run: dotnet restore
+        run: dotnet restore ./src/HealthMed.WebApi/HealthMed.WebApi.csproj
 
       - name: Executar Testes
         run: dotnet test --no-restore --verbosity normal
