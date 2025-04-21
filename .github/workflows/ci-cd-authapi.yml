@@ -17,8 +17,7 @@ jobs:
       - name: Configurar .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '9.0.0-preview.1'
-          include-prerelease: true
+          dotnet-version: '8.0.0'
 
       - name: Restaurar dependências
         run: dotnet restore
